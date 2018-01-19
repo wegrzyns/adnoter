@@ -7,9 +7,11 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.VideoWriter;
+import org.opencv.videoio.Videoio;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -23,6 +25,7 @@ public class OpenCV {
     private static double MIN_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 0.95;
     private static double MAX_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 1.05;
     private VideoCapture video;
+    private double frameArea;
 
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -30,19 +33,23 @@ public class OpenCV {
 
     public void open(String fileName) {
         video = new VideoCapture(fileName);
-        VideoWriter resultVideo = new VideoWriter("file.avi", VideoWriter.fourcc('M', 'P', 'E', 'G'), 29.88, new Size(1920, 540));
+        frameArea = video.get(Videoio.CV_CAP_PROP_FRAME_WIDTH) * video.get(Videoio.CV_CAP_PROP_FRAME_HEIGHT);
+        VideoWriter resultVideo = new VideoWriter("file.avi", VideoWriter.fourcc('M', 'P', 'E', 'G'), 29.88, new Size(1280, 720));
         if(!video.isOpened()) {
             System.out.println("NOT OPEN");
         }
         else {
-            Mat originalframe;
+            Mat originalframe = getNextFrame();
             Mat frame;
-            while((originalframe = getNextFrame()) != null) {
+            int i = 0;
+            //while((originalframe = getNextFrame()) != null) {
                 frame = originalframe.clone();
                 prepareFrame(frame);
                 processFrame(frame, originalframe);
                 resultVideo.write(originalframe);
-            }
+                System.out.println(i++);
+            //}
+            //resultVideo.release();
         }
 
     }
@@ -55,9 +62,9 @@ public class OpenCV {
         slideRegion.add(findSlideRegion(convertMatListToPoint2f(contours)));
         Imgproc.cvtColor(frame, frame, Imgproc.COLOR_GRAY2RGB);
         if(slideRegion.get(0) != null) {
-            Imgproc.drawContours(originalFrame, slideRegion, -1, new Scalar(0, 0, 255), 3);
+            Imgproc.drawContours(frame, contours, -1, new Scalar(0, 0, 255), 3);
         }
-//        showResult(originalFrame);
+        showResult(frame);
     }
 
     private List<MatOfPoint2f> convertMatListToPoint2f(List<MatOfPoint> matOfPoints) {
@@ -72,7 +79,7 @@ public class OpenCV {
         Imgproc.cvtColor(frame, frame, Imgproc.COLOR_RGB2GRAY);
         Imgproc.GaussianBlur(frame, frame, new Size(7, 7), 0);
         Imgproc.threshold(frame, frame, 200, 240, Imgproc.THRESH_OTSU);
-//            Imgproc.adaptiveThreshold(frame, frame, 240, Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C, Imgproc.THRESH_BINARY, 11, 2);
+//        Imgproc.adaptiveThreshold(frame, frame, 240, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 11, 2);
         Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(5, 5));
         Imgproc.morphologyEx(frame, frame, Imgproc.MORPH_OPEN, kernel);
     }
@@ -107,6 +114,18 @@ public class OpenCV {
 
     private boolean isPotentialSlideRegion(MatOfPoint matOfPoint) {
         if(!isQuadrangle(matOfPoint)) {
+            return false;
+        }
+        Mat contour = new Mat();
+        matOfPoint.convertTo(contour, CvType.CV_32S);
+        if(Imgproc.contourArea(contour) < (frameArea/6)) {
+            return false;
+        }
+        //TODO: move into function(check for rough rectangle)
+        Point[] points = matOfPoint.toArray();
+        double diagonal1Len = Point2D.distance(points[0].x, points[0].y, points[2].x, points[2].y);
+        double diagonal2Len = Point2D.distance(points[1].x, points[1].y, points[3].x, points[3].y);
+        if(!NumberUtil.between(diagonal1Len, diagonal2Len*0.95, diagonal2Len*1.05)) {
             return false;
         }
         Rect rectangle = Imgproc.boundingRect(matOfPoint);
