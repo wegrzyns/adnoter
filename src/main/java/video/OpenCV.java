@@ -3,11 +3,17 @@ package video;
 import Util.GenericUtil;
 import Util.NumberUtil;
 import org.opencv.core.*;
+import org.opencv.features2d.Feature2D;
+import org.opencv.features2d.FeatureDetector;
+import org.opencv.features2d.Features2d;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import org.opencv.utils.Converters;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.VideoWriter;
 import org.opencv.videoio.Videoio;
+import org.opencv.xfeatures2d.SIFT;
+import org.opencv.xfeatures2d.Xfeatures2d;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -24,8 +30,10 @@ public class OpenCV {
     private static double STANDARD_ASPECT_RATIO = 4.0/3.0;
     private static double MIN_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 0.95;
     private static double MAX_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 1.05;
+
     private VideoCapture video;
     private double frameArea;
+    private SIFT sift;
 
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -34,11 +42,12 @@ public class OpenCV {
     public void open(String fileName) {
         video = new VideoCapture(fileName);
         frameArea = video.get(Videoio.CV_CAP_PROP_FRAME_WIDTH) * video.get(Videoio.CV_CAP_PROP_FRAME_HEIGHT);
-        VideoWriter resultVideo = new VideoWriter("file.avi", VideoWriter.fourcc('M', 'P', 'E', 'G'), 29.88, new Size(1280, 720));
+//        VideoWriter resultVideo = new VideoWriter("file.avi", VideoWriter.fourcc('M', 'P', 'E', 'G'), 29.88, new Size(1280, 720));
         if(!video.isOpened()) {
             System.out.println("NOT OPEN");
         }
         else {
+            initSIFT();
             Mat originalframe = getNextFrame();
             Mat frame;
             int i = 0;
@@ -46,7 +55,7 @@ public class OpenCV {
                 frame = originalframe.clone();
                 prepareFrame(frame);
                 processFrame(frame, originalframe);
-                resultVideo.write(originalframe);
+//                resultVideo.write(originalframe);
                 System.out.println(i++);
             //}
             //resultVideo.release();
@@ -54,17 +63,33 @@ public class OpenCV {
 
     }
 
+    private void initSIFT() {
+        sift = SIFT.create();
+    }
+
     private void processFrame(Mat frame, Mat originalFrame) {
         List<MatOfPoint> contours = new ArrayList<>();
         List<MatOfPoint> slideRegion = new ArrayList<>();
         Mat hierarchy = new Mat();
+        MatOfKeyPoint siftFeatures;
         Imgproc.findContours(frame, contours, hierarchy, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);
         slideRegion.add(findSlideRegion(convertMatListToPoint2f(contours)));
-        Imgproc.cvtColor(frame, frame, Imgproc.COLOR_GRAY2RGB);
         if(slideRegion.get(0) != null) {
-            Imgproc.drawContours(frame, contours, -1, new Scalar(0, 0, 255), 3);
+            //TODO move mask preparation to method
+            Mat slideRegionMask = Mat.zeros(originalFrame.rows(), originalFrame.cols(), CvType.CV_8UC(1));
+            Imgproc.fillConvexPoly(slideRegionMask, slideRegion.get(0), new Scalar(1));
+            siftFeatures = detectFeatures(frame, slideRegionMask);
+            Imgproc.cvtColor(frame, frame, Imgproc.COLOR_GRAY2RGB);
+            Imgproc.drawContours(originalFrame, slideRegion, -1, new Scalar(0, 0, 255), 3);
+            Features2d.drawKeypoints(originalFrame, siftFeatures, originalFrame);
         }
-        showResult(frame);
+        showResult(originalFrame);
+    }
+
+    private MatOfKeyPoint detectFeatures(Mat frame, Mat frameRegionMask) {
+        MatOfKeyPoint toRet = new MatOfKeyPoint();
+        sift.detect(frame, toRet, frameRegionMask);
+        return toRet;
     }
 
     private List<MatOfPoint2f> convertMatListToPoint2f(List<MatOfPoint> matOfPoints) {
@@ -130,10 +155,7 @@ public class OpenCV {
         }
         Rect rectangle = Imgproc.boundingRect(matOfPoint);
         double aspectRatio = rectangle.width / (double)rectangle.height;
-        if(NumberUtil.between(aspectRatio, MIN_ASPECT_RATIO, MAX_ASPECT_RATIO)) {
-            return true;
-        }
-        return false;
+        return NumberUtil.between(aspectRatio, MIN_ASPECT_RATIO, MAX_ASPECT_RATIO);
     }
 
     private boolean isQuadrangle(MatOfPoint matOfPoint) {
@@ -146,7 +168,7 @@ public class OpenCV {
 
         Imgcodecs.imencode(".jpg", img, matOfByte);
         byte[] byteArray = matOfByte.toArray();
-        BufferedImage bufImage = null;
+        BufferedImage bufImage;
         try {
             InputStream in = new ByteArrayInputStream(byteArray);
             bufImage = ImageIO.read(in);

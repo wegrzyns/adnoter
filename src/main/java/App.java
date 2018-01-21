@@ -20,7 +20,7 @@ public class App {
 //        }
 
         OpenCV openCV = new OpenCV();
-        openCV.open("cut3.mp4");
+        openCV.open("cut1.mp4");
 //        openCV.open("cut1.mp4");
 
     }
