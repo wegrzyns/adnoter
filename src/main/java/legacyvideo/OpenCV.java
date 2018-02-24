@@ -1,10 +1,9 @@
-package video;
+package legacyvideo;
 
 import Util.GenericUtil;
 import Util.NumberUtil;
 import org.opencv.core.*;
 import org.opencv.features2d.BFMatcher;
-import org.opencv.features2d.DescriptorMatcher;
 import org.opencv.features2d.Features2d;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
@@ -28,10 +27,12 @@ public class OpenCV {
     private static double STANDARD_ASPECT_RATIO = 4.0/3.0;
     private static double MIN_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 0.70;
     private static double MAX_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 1.30;
+    private static int CHUNK_SIZE_SECONDS = 30;
 
     private VideoCapture video;
     private double frameArea;
     private SIFT sift;
+    private double frameRate;
 
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -45,6 +46,7 @@ public class OpenCV {
             System.out.println("NOT OPEN");
         }
         else {
+            frameRate = video.get(Videoio.CV_CAP_PROP_FPS);
             initSIFT();
             Mat originalframe = getNextFrame();
 
@@ -63,8 +65,34 @@ public class OpenCV {
             //}
             //resultVideo.release();
         }
-
+//        getChunkedVideo();
     }
+
+    private List<AdnoterChunk> getChunkedVideo() {
+        List<AdnoterChunk> toRet = new ArrayList<>();
+        AdnoterChunk chunk;
+        int frameCount = (int) video.get(Videoio.CV_CAP_PROP_FRAME_COUNT);
+
+        double step = frameRate * CHUNK_SIZE_SECONDS;
+
+        for(int i = 0; i <= frameCount; i+=step) {
+            chunk = new AdnoterChunk();
+            chunk.setFrameFirst(new AdnFrame(getFrame(i), i));
+            chunk.setFrameMiddle(new AdnFrame(getFrame((int) (i+step/2)), (int) (i+step/2)));
+            chunk.setFrameLast(new AdnFrame(getFrame((int) (i+step)), (int) (i+step)));
+            toRet.add(chunk);
+        }
+
+        return toRet;
+    }
+
+    private Mat getFrame(int frameNumber) {
+        Mat frame = new Mat();
+        video.set(Videoio.CV_CAP_PROP_POS_FRAMES, frameNumber);
+        video.read(frame);
+        return frame;
+    }
+
 
     private void initSIFT() {
         sift = SIFT.create();
@@ -97,7 +125,10 @@ public class OpenCV {
 //                })
 //                .collect(Collectors.toList());
         Mat resultImage = new Mat();
-//        descriptorMatches.fromList(descriptorMatches.toList().subList(0, 60));
+        if(descriptorMatches.toList().size() < 100) {
+            System.out.println("Slide changed!");
+        }
+//        descriptorMatches.fromList(descriptorMatches.toList().subList(0, 15));
         if(!descriptorMatches.toList().isEmpty()) {
             Features2d.drawMatches(frames.get(0).getOriginalFrame(), siftFeatures.get(0).getKeyPoints(), frames.get(1).getOriginalFrame(), siftFeatures.get(1).getKeyPoints(), descriptorMatches, resultImage);
             showResult(resultImage);
@@ -122,9 +153,10 @@ public class OpenCV {
             Imgproc.cvtColor(originalFrame, frameForSift, Imgproc.COLOR_RGB2GRAY);
             siftFeatures = detectFeatures(frameForSift, slideRegionMask);
             sift.compute(frameForSift, siftFeatures, keyPointsDescriptors);
-
+            drawContoursAndKeypoints(originalFrame, false, slideRegion, siftFeatures);
         }
-        drawContoursAndKeypoints(originalFrame, false, slideRegion, siftFeatures);
+
+
         showResult(originalFrame);
 
 

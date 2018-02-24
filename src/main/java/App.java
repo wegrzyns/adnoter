@@ -1,8 +1,5 @@
 
-import parser.Audio;
-import video.OpenCV;
-
-import java.io.IOException;
+import legacyvideo.OpenCV;
 
 /**
  * Created by Krzysiu on 15.10.2017.
@@ -20,7 +17,7 @@ public class App {
 //        }
 
         OpenCV openCV = new OpenCV();
-        openCV.open("cut6.mp4");
+        openCV.open("cut4.mp4");
 //        openCV.open("cut1.mp4");
 
     }

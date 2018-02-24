@@ -1,4 +1,4 @@
-package video;
+package legacyvideo;
 
 import org.opencv.core.Mat;
 

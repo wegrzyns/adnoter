@@ -11,12 +11,15 @@ repositories {
     mavenLocal()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 
+    flatDir {
+        dirs 'lib'
+    }
 }
-
 
 dependencies {
     compile group: 'net.bramp.ffmpeg', name: 'ffmpeg', version: '0.6.1'
     compile group: 'edu.cmu.sphinx', name: 'sphinx4-core', version:'5prealpha-SNAPSHOT'
     compile group: 'edu.cmu.sphinx', name: 'sphinx4-data', version:'5prealpha-SNAPSHOT'
-    compile group: 'one.util', name: 'streamex', version: '0.6.6'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile name: 'opencv-340'
 }
