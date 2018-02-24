@@ -5,7 +5,7 @@ import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import video.model.ADNVideo;
+import video.model.CEAVideo;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,18 +13,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ADNVideoReader {
+public class CEAVideoReader {
 
-    private static Logger logger = LoggerFactory.getLogger(ADNVideoReader.class);
+    private static Logger logger = LoggerFactory.getLogger(CEAVideoReader.class);
 
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
-    public static ADNVideo readFile(String path) {
+    public static CEAVideo readFile(String path) {
         VideoCapture video = new VideoCapture(path);
 
         if(!video.isOpened()) {
@@ -35,14 +34,14 @@ public class ADNVideoReader {
         return createADNVideo(video);
     }
 
-    public static List<ADNVideo> readDirectory(String path) throws IOException {
+    public static List<CEAVideo> readDirectory(String path) throws IOException {
 
         if(!Files.isDirectory(Paths.get(path))) {
             logger.error(String.format("Path %s does not point to a directory", path));
             throw new IllegalArgumentException("Supplied path does not point to a valid directory");
         }
 
-        List<ADNVideo> videos = new ArrayList<>();
+        List<CEAVideo> videos = new ArrayList<>();
         try(Stream<Path> paths = Files.walk(Paths.get(path)) ) {
             paths
                     .filter(Files::isRegularFile)
@@ -52,8 +51,8 @@ public class ADNVideoReader {
         return videos;
     }
 
-    private static ADNVideo createADNVideo(VideoCapture video) {
-        return new ADNVideo(video, frameArea(video), frameRate(video));
+    private static CEAVideo createADNVideo(VideoCapture video) {
+        return new CEAVideo(video, frameArea(video), frameRate(video), frameCount(video));
     }
 
     private static double frameArea(VideoCapture video) {
@@ -62,5 +61,9 @@ public class ADNVideoReader {
 
     private static double frameRate(VideoCapture video) {
         return video.get(Videoio.CV_CAP_PROP_FPS);
+    }
+
+    private static long frameCount(VideoCapture video) {
+        return (long) video.get(Videoio.CV_CAP_PROP_FRAME_COUNT);
     }
 }

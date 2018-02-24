@@ -1,5 +1,5 @@
 package video.model;
 
-public enum ADNDetectionType {
+public enum CEADetectionType {
     SlideChange
 }

@@ -2,17 +2,17 @@ package video.model;
 
 import org.opencv.core.Mat;
 
-public class ADNSlideRegion {
+public class CEASlideRegion {
 
     private Mat slideRegionMask;
     private int frameOffset;
     private int frameLength;
 
-    public ADNSlideRegion(Mat slideRegionMask) {
+    public CEASlideRegion(Mat slideRegionMask) {
         this.slideRegionMask = slideRegionMask;
     }
 
-    public ADNSlideRegion(Mat slideRegionMask, int frameOffset, int frameLength) {
+    public CEASlideRegion(Mat slideRegionMask, int frameOffset, int frameLength) {
         this.slideRegionMask = slideRegionMask;
         this.frameOffset = frameOffset;
         this.frameLength = frameLength;
