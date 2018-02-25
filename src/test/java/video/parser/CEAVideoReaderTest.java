@@ -9,10 +9,8 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class CEAVideoReaderTest {
+public class CEAVideoReaderTest extends BaseParserTest{
 
-    private static final String EXAMPLE_VIDEO_FILE_NAME = "/parserTest/testVideo.mp4";
-    private static final String EXAMPLE_VIDEO_DIRECTORY_NAME = "/parserTest/testDirectory";
     private static final int EXAMPLE_VIDEO_DIRECTORY_FILE_NUMBER = 3;
 
     @Test
@@ -29,19 +27,4 @@ public class CEAVideoReaderTest {
         assertNotNull(CEAVideos);
         assertEquals(EXAMPLE_VIDEO_DIRECTORY_FILE_NUMBER, CEAVideos.size());
     }
-
-    private String exampleVideoFileName() throws FileNotFoundException {
-        return resourcePath(EXAMPLE_VIDEO_FILE_NAME);
-    }
-
-    private String exampleVideoDirectorName() throws FileNotFoundException {
-        return resourcePath(EXAMPLE_VIDEO_DIRECTORY_NAME);
-    }
-
-    private String resourcePath(String relativePathToResource) throws FileNotFoundException {
-        return ResourceUtils.getFile(this.getClass().getResource(relativePathToResource)).getAbsolutePath();
-    }
-
-
-
 }

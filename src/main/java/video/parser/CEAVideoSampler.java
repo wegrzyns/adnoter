@@ -25,19 +25,14 @@ public class CEAVideoSampler {
         long sampledFramesOffset = 0;
         long seconds = duration.getSeconds();
         List<CEAChunk> chunks = new ArrayList<>();
-        CEAFrame firstFrame, middleFrame, lastFrame = null;
 
         while(nextFullChunkAvailable(seconds, sampledFramesOffset)) {
-            firstFrame = firstChunkFrame(chunks.size(), lastFrame);
-            middleFrame = middleChunkFrame(seconds, sampledFramesOffset);
-            lastFrame = lastChunkFrame(seconds, sampledFramesOffset);
-
-            chunks.add(new CEAChunk(firstFrame, middleFrame, lastFrame));
-            sampledFramesOffset = lastFrame.getPosition();
+            sampledFramesOffset = createChunk(chunks, seconds, sampledFramesOffset);
         }
-        //TODO: frame when less than specified lenght available, dynamic length last chunk
-//        video.getVideo().
-//        0 or lastChunkFrame ,frameRate*seconds
+
+        long remainingSeconds = remainingVideoSeconds(sampledFramesOffset);
+        createChunk(chunks, remainingSeconds, sampledFramesOffset);
+
         return chunks;
     }
 
@@ -45,13 +40,25 @@ public class CEAVideoSampler {
         return Math.ceil(framesPerSeconds(seconds)) + sampledOffset < video.getFrameCount();
     }
 
+    private long createChunk(List<CEAChunk> chunks, long seconds, long sampledFramesOffset) {
+        CEAFrame firstFrame, middleFrame, lastFrame;
+
+        firstFrame = firstChunkFrame(chunks.size(), lastFrameOfLastChunk(chunks));
+        middleFrame = middleChunkFrame(seconds, sampledFramesOffset);
+        lastFrame = lastChunkFrame(seconds, sampledFramesOffset);
+
+        chunks.add(new CEAChunk(firstFrame, middleFrame, lastFrame));
+
+        return lastFrame.getPosition();
+    }
+
     private CEAFrame firstChunkFrame(long prevChunkNumber, CEAFrame lastFramePrevChunk) {
-        if(Objects.equals(prevChunkNumber, 0)) {
+        if(Objects.equals(prevChunkNumber, 0L)) {
            return video.getFrame(0);
         }
 
         if(lastFramePrevChunk ==  null) {
-            logger.error("Last frame can not be null when there are any sampled chunks already, chunk number: %d", prevChunkNumber);
+            logger.error(String.format("Last frame can not be null when there are any sampled chunks already, chunk number: %d", prevChunkNumber));
             throw new IllegalArgumentException("Last frame can not be null when there are any sampled chunks already");
 
         }
@@ -75,8 +82,15 @@ public class CEAVideoSampler {
     }
 
     private long remainingVideoSeconds(long sampledFramesOffset) {
-        //TODO: use this in main samplin method
         long remainingFramesCount = video.getFrameCount() - sampledFramesOffset;
         return (long) Math.floor(remainingFramesCount / video.getFrameRate());
     }
+
+    private CEAFrame lastFrameOfLastChunk(List<CEAChunk> chunks) {
+        if(chunks.isEmpty()) {
+            return null;
+        }
+        return chunks.get(chunks.size() - 1).getLastFrame();
+    }
+
 }
