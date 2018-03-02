@@ -36,6 +36,26 @@ public class CEAVideoSampler {
         return chunks;
     }
 
+    public CEAChunk leftChunk(CEAChunk parentChunk) {
+        CEAFrame firstFrame = parentChunk.getFirstFrame();
+        CEAFrame middleFrame;
+        CEAFrame lastFrame = parentChunk.getMiddleFrame();
+
+        middleFrame = middleChunkFrame(firstFrame, lastFrame);
+
+        return new CEAChunk(firstFrame, middleFrame, lastFrame);
+    }
+
+    public CEAChunk rightChunk(CEAChunk parentChunk) {
+        CEAFrame firstFrame = parentChunk.getMiddleFrame();
+        CEAFrame middleFrame;
+        CEAFrame lastFrame = parentChunk.getLastFrame();
+
+        middleFrame = middleChunkFrame(firstFrame, lastFrame);
+
+        return new CEAChunk(firstFrame, middleFrame, lastFrame);
+    }
+
     private boolean nextFullChunkAvailable(long seconds, long sampledOffset) {
         return Math.ceil(framesPerSeconds(seconds)) + sampledOffset < video.getFrameCount();
     }
@@ -91,6 +111,16 @@ public class CEAVideoSampler {
             return null;
         }
         return chunks.get(chunks.size() - 1).getLastFrame();
+    }
+
+    private CEAFrame middleChunkFrame(CEAFrame firstChunkFrame, CEAFrame lastChunkFrame) {
+        long childSegmentSecondLength = secondsBetweenFrames(firstChunkFrame, lastChunkFrame);
+
+        return middleChunkFrame(childSegmentSecondLength, firstChunkFrame.getPosition());
+    }
+
+    private long secondsBetweenFrames(CEAFrame earlierFrame, CEAFrame laterFrame) {
+        return laterFrame.getTimestamp().getSeconds() - earlierFrame.getTimestamp().getSeconds();
     }
 
 }

@@ -20,6 +20,10 @@ public class CEAVideo {
         this.frameCount = frameCount;
     }
 
+    public CEAVideo() {
+
+    }
+
     public CEAFrame getFrame(long frameNumber) {
         return new CEAFrame(frame(frameNumber), frameNumber, timeStamp(frameNumber));
     }

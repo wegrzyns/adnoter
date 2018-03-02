@@ -6,16 +6,16 @@ public class CEASlideRegion {
 
     private Mat slideRegionMask;
     private int frameOffset;
-    private int frameLength;
+    private int slideRegionValidityLength;
 
     public CEASlideRegion(Mat slideRegionMask) {
         this.slideRegionMask = slideRegionMask;
     }
 
-    public CEASlideRegion(Mat slideRegionMask, int frameOffset, int frameLength) {
+    public CEASlideRegion(Mat slideRegionMask, int frameOffset, int slideRegionValidityLength) {
         this.slideRegionMask = slideRegionMask;
         this.frameOffset = frameOffset;
-        this.frameLength = frameLength;
+        this.slideRegionValidityLength = slideRegionValidityLength;
     }
 
     public Mat getSlideRegionMask() {
@@ -34,11 +34,11 @@ public class CEASlideRegion {
         this.frameOffset = frameOffset;
     }
 
-    public int getFrameLength() {
-        return frameLength;
+    public int getSlideRegionValidityLength() {
+        return slideRegionValidityLength;
     }
 
-    public void setFrameLength(int frameLength) {
-        this.frameLength = frameLength;
+    public void setSlideRegionValidityLength(int slideRegionValidityLength) {
+        this.slideRegionValidityLength = slideRegionValidityLength;
     }
 }
