@@ -10,6 +10,6 @@ public class CEAVideoStub extends CEAVideo {
 
     @Override
     public CEAFrame getFrame(long position) {
-        return new CEAFrame(new Mat(), position, Duration.ofSeconds((long) (position/getFrameRate())));
+        return new CEAFrame(new Mat(), position, Duration.ofSeconds((long) (position/getFrameRate())), new CEAVideo());
     }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class DefaultDetector implements SlideRegionDetector {
 
-    private static final int INTENSITY_BINARIZATION_ABOVE_THRESHOLD = 240;
+    private static final int BINARIZATION_INTENSITY_ABOVE_THRESHOLD = 240;
     private static final int MINIMAL_FRAME_AREA_FRACTION = 14;
     private static final double STANDARD_ASPECT_RATIO = 4.0/3.0;
     private static final double MIN_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 0.70;
@@ -24,20 +24,24 @@ public class DefaultDetector implements SlideRegionDetector {
     @Override
     public CEASlideRegion detect(CEAFrame frame) {
         Mat copiedFrame = frame.getFrame().clone();
+        double frameArea;
         List<MatOfPoint> contours;
-        MatOfPoint slideRegion;
+        MatOfPoint slideRegionContour;
+        Mat slideRegionMask;
 
         prepareFrame(copiedFrame);
         contours = findContours(copiedFrame);
-        //TODO: frameArea arg nedded
-        slideRegion = selectSlideRegionContour(contours, 999); //mock arg
-        return null;
+        frameArea = frame.getVideo().getFrameArea();
+        slideRegionContour = selectSlideRegionContour(contours, frameArea);
+        slideRegionMask = prepareMask(slideRegionContour, frame);
+
+        return new CEASlideRegion(slideRegionMask);
     }
 
     private void prepareFrame(Mat frame) {
         Imgproc.cvtColor(frame, frame, Imgproc.COLOR_RGB2GRAY);
         Imgproc.GaussianBlur(frame, frame,  new Size(7, 7), 0);
-        Imgproc.threshold(frame, frame, 200, INTENSITY_BINARIZATION_ABOVE_THRESHOLD, Imgproc.THRESH_OTSU);
+        Imgproc.threshold(frame, frame, 200, BINARIZATION_INTENSITY_ABOVE_THRESHOLD, Imgproc.THRESH_OTSU);
         Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(9, 9));
         Imgproc.morphologyEx(frame, frame, Imgproc.MORPH_OPEN, kernel);
     }
@@ -89,6 +93,12 @@ public class DefaultDetector implements SlideRegionDetector {
         Rect rectangle = Imgproc.boundingRect(matOfPoint);
         double aspectRatio = rectangle.width / (double)rectangle.height;
         return NumberUtil.between(aspectRatio, MIN_ASPECT_RATIO, MAX_ASPECT_RATIO);
+    }
+
+    private Mat prepareMask(MatOfPoint slideRegion, CEAFrame originalFrame) {
+        Mat slideRegionMask = Mat.zeros(originalFrame.getFrame().rows(), originalFrame.getFrame().cols(), CvType.CV_8UC(1));
+        Imgproc.fillConvexPoly(slideRegionMask, slideRegion, new Scalar(1));
+        return slideRegionMask;
     }
 
 

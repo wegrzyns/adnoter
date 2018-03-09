@@ -7,6 +7,7 @@ public class DefaultManager implements SlideRegionManager {
 
     @Override
     public CEASlideRegion getSlideRegion(CEAFrame frame) {
-        return null;
+        SlideRegionDetector slideRegionDetector = new DefaultDetector();
+        return slideRegionDetector.detect(frame);
     }
 }

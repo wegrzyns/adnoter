@@ -25,7 +25,7 @@ public class CEAVideo {
     }
 
     public CEAFrame getFrame(long frameNumber) {
-        return new CEAFrame(frame(frameNumber), frameNumber, timeStamp(frameNumber));
+        return new CEAFrame(frame(frameNumber), frameNumber, timeStamp(frameNumber), this);
     }
 
     private Mat frame(long frameNumber) {

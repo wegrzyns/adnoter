@@ -70,18 +70,19 @@ public class CEAVideoSamplerTest extends BaseParserTest{
     }
 
     private CEAChunk exampleChunk() {
+        CEAVideo video = new CEAVideo();
         CEAFrame firstFrame = new CEAFrame(
                 new Mat(),
                 FIRST_FRAME_EXAMPLE_CHUNK_POSITION,
-                Duration.ofSeconds((long) (FIRST_FRAME_EXAMPLE_CHUNK_POSITION/FPS)));
+                Duration.ofSeconds((long) (FIRST_FRAME_EXAMPLE_CHUNK_POSITION/FPS)), video);
         CEAFrame middleFrame = new CEAFrame(
                 new Mat(),
                 MIDDLE_FRAME_EXAMPLE_CHUNK_POSITION,
-                Duration.ofSeconds((long) (MIDDLE_FRAME_EXAMPLE_CHUNK_POSITION/FPS)));
+                Duration.ofSeconds((long) (MIDDLE_FRAME_EXAMPLE_CHUNK_POSITION/FPS)), video);
         CEAFrame lastFrame = new CEAFrame(
                 new Mat(),
                 LAST_FRAME_EXAMPLE_CHUNK_POSITION,
-                Duration.ofSeconds((long) (LAST_FRAME_EXAMPLE_CHUNK_POSITION/FPS)));
+                Duration.ofSeconds((long) (LAST_FRAME_EXAMPLE_CHUNK_POSITION/FPS)), video);
         return new CEAChunk(firstFrame, middleFrame, lastFrame);
     }
 

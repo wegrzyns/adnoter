@@ -37,23 +37,31 @@ public class CEAVideoSampler {
     }
 
     public CEAChunk leftChunk(CEAChunk parentChunk) {
+        CEAChunk newChunk;
         CEAFrame firstFrame = parentChunk.getFirstFrame();
         CEAFrame middleFrame;
         CEAFrame lastFrame = parentChunk.getMiddleFrame();
 
         middleFrame = middleChunkFrame(firstFrame, lastFrame);
+        
+        newChunk = new CEAChunk(firstFrame, middleFrame, lastFrame);
+        newChunk.setFrameMatch(CEAChunk.FRAME_0_2_MATCH_INDEX, parentChunk.getFrameMatch(CEAChunk.FRAME_0_1_MATCH_INDEX));
 
-        return new CEAChunk(firstFrame, middleFrame, lastFrame);
+        return newChunk;
     }
 
     public CEAChunk rightChunk(CEAChunk parentChunk) {
+        CEAChunk newChunk;
         CEAFrame firstFrame = parentChunk.getMiddleFrame();
         CEAFrame middleFrame;
         CEAFrame lastFrame = parentChunk.getLastFrame();
 
         middleFrame = middleChunkFrame(firstFrame, lastFrame);
 
-        return new CEAChunk(firstFrame, middleFrame, lastFrame);
+        newChunk = new CEAChunk(firstFrame, middleFrame, lastFrame);
+        newChunk.setFrameMatch(CEAChunk.FRAME_0_2_MATCH_INDEX, parentChunk.getFrameMatch(CEAChunk.FRAME_1_2_MATCH_INDEX));
+
+        return newChunk;
     }
 
     private boolean nextFullChunkAvailable(long seconds, long sampledOffset) {

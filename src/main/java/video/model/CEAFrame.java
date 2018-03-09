@@ -9,11 +9,13 @@ public class CEAFrame {
     private Mat frame;
     private long position;
     private Duration timestamp;
+    private CEAVideo video;
 
-    public CEAFrame(Mat frame, long position, Duration timestamp) {
+    public CEAFrame(Mat frame, long position, Duration timestamp, CEAVideo video) {
         this.frame = frame;
         this.position = position;
         this.timestamp = timestamp;
+        this.video = video;
     }
 
     public Mat getFrame() {
@@ -38,5 +40,13 @@ public class CEAFrame {
 
     public void setTimestamp(Duration timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public CEAVideo getVideo() {
+        return video;
+    }
+
+    public void setVideo(CEAVideo video) {
+        this.video = video;
     }
 }
