@@ -33,9 +33,14 @@ public class DefaultDetector implements SlideRegionDetector {
         contours = findContours(copiedFrame);
         frameArea = frame.getVideo().getFrameArea();
         slideRegionContour = selectSlideRegionContour(contours, frameArea);
-        slideRegionMask = prepareMask(slideRegionContour, frame);
+        if(slideRegionContour != null) {
+            //TODO: log no srd found?
+            slideRegionMask = prepareMask(slideRegionContour, frame);
+            return new CEASlideRegion(slideRegionMask);
+        }
 
-        return new CEASlideRegion(slideRegionMask);
+
+        return null;
     }
 
     private void prepareFrame(Mat frame) {

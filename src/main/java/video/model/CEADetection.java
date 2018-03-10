@@ -1,6 +1,6 @@
 package video.model;
 
-public class CEADetection {
+public class CEADetection implements Comparable<CEADetection>{
 
     private CEAFrame frame;
     private CEADetectionType type;
@@ -24,5 +24,18 @@ public class CEADetection {
 
     public void setType(CEADetectionType type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "CEADetection{" +
+                "frame=" + frame +
+                ", type=" + type +
+                '}';
+    }
+
+    @Override
+    public int compareTo(CEADetection o) {
+        return Long.compare(frame.getPosition(), o.frame.getPosition());
     }
 }

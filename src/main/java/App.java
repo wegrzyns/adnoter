@@ -1,5 +1,6 @@
 
 import legacyvideo.OpenCV;
+import video.CEASlideTransitionDetectorManager;
 
 /**
  * Created by Krzysiu on 15.10.2017.
@@ -16,9 +17,11 @@ public class App {
 //            e.printStackTrace();
 //        }
 
-        OpenCV openCV = new OpenCV();
-        openCV.open("cut4.mp4");
+//        OpenCV openCV = new OpenCV();
+//        openCV.open("cut4.mp4");
 //        openCV.open("cut1.mp4");
+
+        CEASlideTransitionDetectorManager.processVideo("medicalVideo.mp4");
 
     }
 }

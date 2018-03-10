@@ -49,4 +49,14 @@ public class CEAFrame {
     public void setVideo(CEAVideo video) {
         this.video = video;
     }
+
+    @Override
+    public String toString() {
+        return "CEAFrame{" +
+                "frame=" + frame +
+                ", position=" + position +
+                ", timestamp=" + timestamp +
+                ", video=" + video +
+                '}';
+    }
 }

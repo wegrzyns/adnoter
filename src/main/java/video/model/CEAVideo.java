@@ -3,10 +3,14 @@ package video.model;
 import org.opencv.core.Mat;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
 public class CEAVideo {
+
+    private static Logger logger = LoggerFactory.getLogger(CEAVideo.class);
 
     private VideoCapture video;
     private double frameArea;
@@ -24,14 +28,15 @@ public class CEAVideo {
 
     }
 
-    public CEAFrame getFrame(long frameNumber) {
+    public synchronized CEAFrame getFrame(long frameNumber) {
         return new CEAFrame(frame(frameNumber), frameNumber, timeStamp(frameNumber), this);
     }
 
     private Mat frame(long frameNumber) {
         Mat frame = new Mat();
         setNextFramePosition(frameNumber);
-        video.read(frame);
+        //TODO: better of this case
+        if (!video.read(frame)) logger.info(String.format("Frame %d not found in video", frameNumber));
         return frame;
     }
 

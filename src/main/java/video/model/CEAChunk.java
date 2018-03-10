@@ -8,8 +8,8 @@ public class CEAChunk {
 
     public static final int FRAME_MATCH_NOT_COMPUTED = -1;
     public static final int FRAME_0_1_MATCH_INDEX = 0;
-    public static final int FRAME_0_2_MATCH_INDEX = 1;
-    public static final int FRAME_1_2_MATCH_INDEX = 2;
+    public static final int FRAME_1_2_MATCH_INDEX = 1;
+    public static final int FRAME_0_2_MATCH_INDEX = 2;
 
     private CEAFrame firstFrame;
     private CEAFrame middleFrame;
@@ -41,6 +41,10 @@ public class CEAChunk {
         toRet.add(lastFrame);
 
         return toRet;
+    }
+
+    public boolean frameMatchesNotComputed() {
+        return frameMatches.stream().anyMatch(integer -> integer == FRAME_MATCH_NOT_COMPUTED);
     }
 
     public int getFrameMatch(int index) {

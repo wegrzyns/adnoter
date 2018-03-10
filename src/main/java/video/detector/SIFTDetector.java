@@ -9,8 +9,10 @@ import org.opencv.imgproc.Imgproc;
 import org.opencv.xfeatures2d.SIFT;
 import video.model.CEAChunk;
 import video.model.CEAFrame;
+import video.model.CEASlideRegion;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -29,14 +31,20 @@ public class SIFTDetector implements FrameSimilarityDetector {
 
         List<Mat> framesKeyPointsDescriptors = chunkFrames.stream()
                 .map(frame -> {
+                    CEASlideRegion slideRegion = slideRegionManager.getSlideRegion(frame);
+                    if(slideRegion == null) return null;
+                    Mat slideRegionMask = slideRegion.getSlideRegionMask();
                     Mat preparedFrame = prepareFrame(frame);
                     MatOfKeyPoint keyPoints = detectFeatures(
                             preparedFrame,
-                            slideRegionManager.getSlideRegion(frame).getSlideRegionMask());
+                            slideRegionMask);
                     return keyPointDescriptors(preparedFrame, keyPoints);
                 })
+                .filter(Objects::nonNull)
                 .collect(Collectors.toList());
 
+
+        if(framesKeyPointsDescriptors.size() < 3) return chunk;
 
         IntStream.rangeClosed(0, 2)
                 .filter(i -> frameMatchNotComputed(chunk.getFrameMatch(i)))
@@ -65,6 +73,7 @@ public class SIFTDetector implements FrameSimilarityDetector {
 
     private int matchFramesDescriptors(int matchIndex, List<Mat> descriptors) {
         Pair<Integer, Integer> indexes = CEAChunk.getFrameMatchIndex(matchIndex);
+
         Mat descriptor1 = descriptors.get(indexes.getKey());
         Mat descriptor2 = descriptors.get(indexes.getValue());
 

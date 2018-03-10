@@ -31,7 +31,8 @@ public class CEAVideoSampler {
         }
 
         long remainingSeconds = remainingVideoSeconds(sampledFramesOffset);
-        createChunk(chunks, remainingSeconds, sampledFramesOffset);
+        //TODO: hacky -1 solution, prolly breaks tests, better fix needed (better accuracy)
+        createChunk(chunks, remainingSeconds-1, sampledFramesOffset);
 
         return chunks;
     }
@@ -43,7 +44,7 @@ public class CEAVideoSampler {
         CEAFrame lastFrame = parentChunk.getMiddleFrame();
 
         middleFrame = middleChunkFrame(firstFrame, lastFrame);
-        
+
         newChunk = new CEAChunk(firstFrame, middleFrame, lastFrame);
         newChunk.setFrameMatch(CEAChunk.FRAME_0_2_MATCH_INDEX, parentChunk.getFrameMatch(CEAChunk.FRAME_0_1_MATCH_INDEX));
 
