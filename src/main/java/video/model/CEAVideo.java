@@ -35,7 +35,7 @@ public class CEAVideo {
     private Mat frame(long frameNumber) {
         Mat frame = new Mat();
         setNextFramePosition(frameNumber);
-        //TODO: better of this case
+        //TODO: better handling of this case
         if (!video.read(frame)) logger.info(String.format("Frame %d not found in video", frameNumber));
         return frame;
     }

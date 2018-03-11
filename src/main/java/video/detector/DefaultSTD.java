@@ -6,7 +6,6 @@ import video.model.CEADetection;
 import video.model.CEADetectionType;
 import video.parser.CEAVideoSampler;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;

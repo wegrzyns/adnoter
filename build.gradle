@@ -38,6 +38,7 @@ dependencies {
     compile group: 'edu.cmu.sphinx', name: 'sphinx4-data', version:'5prealpha-SNAPSHOT'
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     compile name: 'opencv-340'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.4'
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile("junit:junit")
 }
