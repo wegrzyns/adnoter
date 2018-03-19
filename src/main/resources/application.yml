@@ -1,2 +1,4 @@
-logging:
-  file: logs/logs.log
+spring:
+  main:
+    web-environment: false
+slideTransitionMatchThresholdMilliseconds: 20
