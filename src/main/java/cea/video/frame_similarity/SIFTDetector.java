@@ -1,17 +1,18 @@
 package cea.video.frame_similarity;
 
+import cea.video.model.CEAChunk;
+import cea.video.model.CEAFrame;
+import cea.video.model.CEASlideRegion;
+import cea.video.slide_region.DefaultManager;
+import cea.video.slide_region.SlideRegionManager;
 import javafx.util.Pair;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfDMatch;
 import org.opencv.core.MatOfKeyPoint;
+import org.opencv.core.Size;
 import org.opencv.features2d.BFMatcher;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.xfeatures2d.SIFT;
-import cea.video.slide_region.DefaultManager;
-import cea.video.slide_region.SlideRegionManager;
-import cea.video.model.CEAChunk;
-import cea.video.model.CEAFrame;
-import cea.video.model.CEASlideRegion;
 
 import java.util.List;
 import java.util.Objects;
@@ -69,6 +70,7 @@ public class SIFTDetector implements FrameSimilarityDetector {
     private Mat prepareFrame(CEAFrame ceaframe) {
         Mat frame = ceaframe.getFrame().clone();
         Imgproc.cvtColor(frame, frame, Imgproc.COLOR_RGB2GRAY);
+        Imgproc.GaussianBlur(frame, frame,  new Size(21, 21), 0);
         return frame;
     }
 

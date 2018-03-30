@@ -22,8 +22,11 @@ public class DefaultDetector implements SlideRegionDetector {
     private static final int BINARIZATION_INTENSITY_ABOVE_THRESHOLD = 240;
     private static final int MINIMAL_FRAME_AREA_FRACTION = 14;
     private static final double STANDARD_ASPECT_RATIO = 4.0/3.0;
-    private static final double MIN_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 0.70;
-    private static final double MAX_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 1.30;
+    private static final double FULL_HD_ASPECT_RATIO = 16.0/9.0;
+    private static final double MIN_STANDARD_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 0.70;
+    private static final double MAX_STANDARD_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 1.30;
+    private static final double MIN_FULL_HD_ASPECT_RATIO = FULL_HD_ASPECT_RATIO * 0.70;
+    private static final double MAX_FULL_HD_ASPECT_RATIO = FULL_HD_ASPECT_RATIO * 1.30;
 
     @Override
     public CEASlideRegion detect(CEAFrame frame) {
@@ -81,10 +84,10 @@ public class DefaultDetector implements SlideRegionDetector {
 
     private MatOfPoint selectSlideRegionContour(List<MatOfPoint> contours, double frameArea) {
          return contours.stream()
-                .map(this::approximateContour)
-                .filter(this::isQuadrangle)
+//                .map(this::approximateContour)
+                .filter(this::isAtLeastQuadrangle)
                 .filter(contour -> isAreaSufficient(contour, frameArea))
-                .filter(this::isRectangle)
+//                .filter(this::isRectangle)
                 .filter(this::isAspectRatioCorrect)
                 .max(Comparator.comparing(GenericUtil.cache(Imgproc::contourArea)))
                 .orElse(null);
@@ -97,8 +100,8 @@ public class DefaultDetector implements SlideRegionDetector {
         return TypeUtil.convertPoint2fToMat(contour2f);
     }
 
-    private boolean isQuadrangle(MatOfPoint matOfPoint) {
-        return matOfPoint.toList().size() == 4;
+    private boolean isAtLeastQuadrangle(MatOfPoint matOfPoint) {
+        return matOfPoint.toList().size() >= 4;
     }
 
     private boolean isAreaSufficient(MatOfPoint matOfPoint, double frameArea) {
@@ -119,7 +122,8 @@ public class DefaultDetector implements SlideRegionDetector {
     private boolean isAspectRatioCorrect(MatOfPoint matOfPoint) {
         Rect rectangle = Imgproc.boundingRect(matOfPoint);
         double aspectRatio = rectangle.width / (double)rectangle.height;
-        return NumberUtil.between(aspectRatio, MIN_ASPECT_RATIO, MAX_ASPECT_RATIO);
+        return NumberUtil.between(aspectRatio, MIN_STANDARD_ASPECT_RATIO, MAX_STANDARD_ASPECT_RATIO)
+                || NumberUtil.between(aspectRatio, MIN_FULL_HD_ASPECT_RATIO, MAX_FULL_HD_ASPECT_RATIO);
     }
 
     private Mat prepareMask(MatOfPoint slideRegion, CEAFrame originalFrame) {

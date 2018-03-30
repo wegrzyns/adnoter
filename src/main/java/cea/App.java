@@ -25,6 +25,7 @@ public class App {
 //        openCV.open("cut4.mp4");
 //        openCV.open("cut1.mp4");
 
-        CEASlideTransitionDetectorManager.processVideo("medicalVideo.mp4");
+//        CEASlideTransitionDetectorManager.processVideo("medicalVideo.mp4");
+        CEASlideTransitionDetectorManager.evaluateAlgorithm("testInput.json");
     }
 }

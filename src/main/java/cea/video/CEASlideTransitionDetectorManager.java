@@ -3,10 +3,11 @@ package cea.video;
 import cea.Util.JsonUtil;
 import cea.evaluation.measure.Measure;
 import cea.evaluation.model.CEABaseline;
+import cea.video.detector.DefaultSTD;
+import cea.video.detector.StdDeviationSTD;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import cea.video.detector.DefaultSTD;
-import cea.video.detector.SlideTransistionDetector;
+import cea.video.detector.SlideTransitionDetector;
 import cea.video.model.CEAChunk;
 import cea.video.model.CEADetection;
 import cea.video.model.CEASamplerDTO;
@@ -23,19 +24,21 @@ import java.util.stream.Collectors;
 
 public class CEASlideTransitionDetectorManager {
 
+    private static final int CHUNK_DURATION_SECONDS = 10;
+
     private static Logger logger = LoggerFactory.getLogger(CEASlideTransitionDetectorManager.class);
 
     public static List<CEADetection> processVideo(String path) {
         CEAVideo video = CEAVideoReader.readFile(path);
         CEAVideoSampler sampler = new CEAVideoSampler(video);
 
-        SlideTransistionDetector std = new DefaultSTD();
+        SlideTransitionDetector std = new StdDeviationSTD();
         //TODO: Chunk duration/length to configuration
         //TODO: Video offset(from-tO) for fragment testing, to configuration
 
-        CEASamplerDTO samplerDTO = new CEASamplerDTO(video, Duration.ofSeconds(30));
-//        samplerDTO.setSamplingStart(Duration.ofMinutes(2));
-//        samplerDTO.setSamplingEnd(Duration.ofMinutes(3));
+        CEASamplerDTO samplerDTO = new CEASamplerDTO(video, Duration.ofSeconds(CHUNK_DURATION_SECONDS));
+//        samplerDTO.setSamplingStart(Duration.ofMinutes(5).plusSeconds(30));
+//        samplerDTO.setSamplingEnd(Duration.ofMinutes(5).plusSeconds(31));
         List<CEAChunk> videoChunks = sampler.sampleChunks(samplerDTO);
 
         return videoChunks.parallelStream()
@@ -55,6 +58,8 @@ public class CEASlideTransitionDetectorManager {
         logger.info("============= Slide Transition Detection Algorithm =============");
         logger.info(String.format("File name: %s",baseline.getFilePath()));
         logger.info(String.format("Overall execution time %s\n", Duration.between(start, end)));
+
+        logger.info(String.format("Detection Resolution: %.2f s", CHUNK_DURATION_SECONDS/2.0));
 
         Measure measure = new Measure(detections, baseline.getSlideTransitions());
 

@@ -42,7 +42,7 @@ public class ImageUtil {
             Imgproc.cvtColor(targetFrame, targetFrame, Imgproc.COLOR_GRAY2RGB);
         }
         if(contours != null) {
-            Imgproc.drawContours(targetFrame, contours, -1, new Scalar(0, 0, 255), 3);
+            Imgproc.drawContours(targetFrame, contours, -1, new Scalar(0, 0, 255), 18);
         }
         if(siftFeatures != null) {
             Features2d.drawKeypoints(targetFrame, siftFeatures, targetFrame, new Scalar(0, 255, 0), Features2d.DRAW_RICH_KEYPOINTS);
