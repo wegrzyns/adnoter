@@ -1,8 +1,8 @@
 package cea.video.detector;
 
 import cea.Util.NumberUtil;
-import cea.video.model.CEAChunk;
-import cea.video.parser.CEAVideoSampler;
+import cea.video.model.Chunk;
+import cea.video.parser.VideoSampler;
 
 import java.util.List;
 import java.util.Stack;
@@ -10,7 +10,7 @@ import java.util.Stack;
 public class DefaultSTD extends SlideTransitionDetector {
 
     @Override
-    protected void checkForSlideTransition(CEAChunk computedChunk, Stack<CEAChunk> stack, CEAVideoSampler sampler) {
+    protected void checkForSlideTransition(Chunk computedChunk, Stack<Chunk> stack, VideoSampler sampler) {
         if(slideTransitionLeftChunk(computedChunk)) {
             stack.push(sampler.leftChunk(computedChunk));
         }
@@ -20,10 +20,10 @@ public class DefaultSTD extends SlideTransitionDetector {
         }
     }
 
-    private boolean slideTransitionLeftChunk(CEAChunk chunk) {
-        double m1 = chunk.getFrameMatch(CEAChunk.FRAME_0_1_MATCH_INDEX);
-        double m2 = chunk.getFrameMatch(CEAChunk.FRAME_1_2_MATCH_INDEX);
-        double m3 = chunk.getFrameMatch(CEAChunk.FRAME_0_2_MATCH_INDEX);
+    private boolean slideTransitionLeftChunk(Chunk chunk) {
+        double m1 = chunk.getFrameMatch(Chunk.FRAME_0_1_MATCH_INDEX);
+        double m2 = chunk.getFrameMatch(Chunk.FRAME_1_2_MATCH_INDEX);
+        double m3 = chunk.getFrameMatch(Chunk.FRAME_0_2_MATCH_INDEX);
         double threshold = threshold(chunk);
 
         if(m1 > threshold) {
@@ -42,10 +42,10 @@ public class DefaultSTD extends SlideTransitionDetector {
 
     }
 
-    private boolean slideTransitionRightChunk(CEAChunk chunk) {
-        double m1 = chunk.getFrameMatch(CEAChunk.FRAME_0_1_MATCH_INDEX);
-        double m2 = chunk.getFrameMatch(CEAChunk.FRAME_1_2_MATCH_INDEX);
-        double m3 = chunk.getFrameMatch(CEAChunk.FRAME_0_2_MATCH_INDEX);
+    private boolean slideTransitionRightChunk(Chunk chunk) {
+        double m1 = chunk.getFrameMatch(Chunk.FRAME_0_1_MATCH_INDEX);
+        double m2 = chunk.getFrameMatch(Chunk.FRAME_1_2_MATCH_INDEX);
+        double m3 = chunk.getFrameMatch(Chunk.FRAME_0_2_MATCH_INDEX);
         double threshold = threshold(chunk);
 
         if(m1 > threshold && m2 < threshold && m3 < threshold) {
@@ -61,7 +61,7 @@ public class DefaultSTD extends SlideTransitionDetector {
     }
 
 
-    private double threshold(CEAChunk chunk) {
+    private double threshold(Chunk chunk) {
         List<Integer> frameMatches = chunk.getFrameMatches();
 
         double meanAbsoluteDeviation = NumberUtil.meanAbsoluteDevation(frameMatches);

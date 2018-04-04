@@ -1,19 +1,19 @@
 package cea.video.parser;
 
-import cea.video.model.CEASamplerDTO;
+import cea.video.model.Chunk;
+import cea.video.model.SamplerDTO;
 import org.junit.Test;
 import org.opencv.core.Mat;
-import cea.video.model.CEAChunk;
-import cea.video.model.CEAFrame;
-import cea.video.model.CEAVideo;
-import cea.video.parser.stubs.CEAVideoStub;
+import cea.video.model.Frame;
+import cea.video.model.Video;
+import cea.video.parser.stubs.VideoStub;
 
 import java.time.Duration;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class CEAVideoSamplerTest extends BaseParserTest{
+public class VideoSamplerTest extends BaseParserTest{
 
     private static final long CHUNK_COUNT = 3;
     private static final int CHUNK_SIZE_SECONDS = 1;
@@ -24,21 +24,21 @@ public class CEAVideoSamplerTest extends BaseParserTest{
 
     @Test
     public void sampleChunks() throws Exception {
-        CEAVideo video = CEAVideoReader.readFile(exampleVideoFileName());
-        CEAVideoSampler sampler = new CEAVideoSampler(video);
-        CEASamplerDTO samplerDTO = new CEASamplerDTO(video, Duration.ofSeconds(CHUNK_SIZE_SECONDS));
+        Video video = VideoReader.readFile(exampleVideoFileName());
+        VideoSampler sampler = new VideoSampler(video);
+        SamplerDTO samplerDTO = new SamplerDTO(video, Duration.ofSeconds(CHUNK_SIZE_SECONDS));
 
-        List<CEAChunk> chunks = sampler.sampleChunks(samplerDTO);
+        List<Chunk> chunks = sampler.sampleChunks(samplerDTO);
 
         assertEquals(CHUNK_COUNT, chunks.size());
     }
 
     @Test
     public void leftChunk() throws Exception {
-        CEAChunk parentChunk = exampleChunk();
-        CEAVideoSampler sampler = exampleSampler();
+        Chunk parentChunk = exampleChunk();
+        VideoSampler sampler = exampleSampler();
 
-        CEAChunk leftChunk = sampler.leftChunk(parentChunk);
+        Chunk leftChunk = sampler.leftChunk(parentChunk);
         assertNotNull(leftChunk);
 
         long middleFramePosition = MIDDLE_FRAME_EXAMPLE_CHUNK_POSITION/2 + FIRST_FRAME_EXAMPLE_CHUNK_POSITION;
@@ -54,10 +54,10 @@ public class CEAVideoSamplerTest extends BaseParserTest{
 
     @Test
     public void rightChunk() throws Exception {
-        CEAChunk parentChunk = exampleChunk();
-        CEAVideoSampler sampler = exampleSampler();
+        Chunk parentChunk = exampleChunk();
+        VideoSampler sampler = exampleSampler();
 
-        CEAChunk rightChunk = sampler.rightChunk(parentChunk);
+        Chunk rightChunk = sampler.rightChunk(parentChunk);
         assertNotNull(rightChunk);
 
         long middleFramePosition = MIDDLE_FRAME_EXAMPLE_CHUNK_POSITION + (LAST_FRAME_EXAMPLE_CHUNK_POSITION - MIDDLE_FRAME_EXAMPLE_CHUNK_POSITION)/2;
@@ -71,27 +71,27 @@ public class CEAVideoSamplerTest extends BaseParserTest{
         assertEquals( (long) (LAST_FRAME_EXAMPLE_CHUNK_POSITION/FPS), rightChunk.getLastFrame().getTimestamp().getSeconds());
     }
 
-    private CEAChunk exampleChunk() {
-        CEAVideo video = new CEAVideo();
-        CEAFrame firstFrame = new CEAFrame(
+    private Chunk exampleChunk() {
+        Video video = new Video();
+        Frame firstFrame = new Frame(
                 new Mat(),
                 FIRST_FRAME_EXAMPLE_CHUNK_POSITION,
                 Duration.ofSeconds((long) (FIRST_FRAME_EXAMPLE_CHUNK_POSITION/FPS)), video);
-        CEAFrame middleFrame = new CEAFrame(
+        Frame middleFrame = new Frame(
                 new Mat(),
                 MIDDLE_FRAME_EXAMPLE_CHUNK_POSITION,
                 Duration.ofSeconds((long) (MIDDLE_FRAME_EXAMPLE_CHUNK_POSITION/FPS)), video);
-        CEAFrame lastFrame = new CEAFrame(
+        Frame lastFrame = new Frame(
                 new Mat(),
                 LAST_FRAME_EXAMPLE_CHUNK_POSITION,
                 Duration.ofSeconds((long) (LAST_FRAME_EXAMPLE_CHUNK_POSITION/FPS)), video);
-        return new CEAChunk(firstFrame, middleFrame, lastFrame);
+        return new Chunk(firstFrame, middleFrame, lastFrame);
     }
 
-    private CEAVideoSampler exampleSampler() {
-        CEAVideo video = new CEAVideoStub();
+    private VideoSampler exampleSampler() {
+        Video video = new VideoStub();
         video.setFrameRate(FPS);
-        return new CEAVideoSampler(video);
+        return new VideoSampler(video);
     }
 
 }

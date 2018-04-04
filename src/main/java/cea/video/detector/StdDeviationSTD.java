@@ -1,7 +1,7 @@
 package cea.video.detector;
 
-import cea.video.model.CEAChunk;
-import cea.video.parser.CEAVideoSampler;
+import cea.video.model.Chunk;
+import cea.video.parser.VideoSampler;
 import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
 
 import java.util.Stack;
@@ -10,7 +10,7 @@ import java.util.Stack;
 public class StdDeviationSTD extends SlideTransitionDetector {
 
     @Override
-    protected void checkForSlideTransition(CEAChunk computedChunk, Stack<CEAChunk> stack, CEAVideoSampler sampler) {
+    protected void checkForSlideTransition(Chunk computedChunk, Stack<Chunk> stack, VideoSampler sampler) {
         if(slideTransitionLeftChunk(computedChunk)) {
             stack.push(sampler.leftChunk(computedChunk));
         }
@@ -20,29 +20,29 @@ public class StdDeviationSTD extends SlideTransitionDetector {
         }
     }
 
-    private boolean slideTransitionLeftChunk(CEAChunk computedChunk) {
-        int frameSimilarity = computedChunk.getFrameMatch(CEAChunk.FRAME_0_1_MATCH_INDEX);
+    private boolean slideTransitionLeftChunk(Chunk computedChunk) {
+        int frameSimilarity = computedChunk.getFrameMatch(Chunk.FRAME_0_1_MATCH_INDEX);
         return slideTransition(computedChunk, frameSimilarity);
     }
 
-    private boolean slideTransitionRightChunk(CEAChunk computedChunk) {
-        int frameSimilarity = computedChunk.getFrameMatch(CEAChunk.FRAME_1_2_MATCH_INDEX);
+    private boolean slideTransitionRightChunk(Chunk computedChunk) {
+        int frameSimilarity = computedChunk.getFrameMatch(Chunk.FRAME_1_2_MATCH_INDEX);
         return slideTransition(computedChunk, frameSimilarity);
     }
 
-    private boolean slideTransition(CEAChunk chunk, int frameSimilarity) {
+    private boolean slideTransition(Chunk chunk, int frameSimilarity) {
         return frameSimilarity < threshold(chunk);
     }
 
 
-    private double threshold(CEAChunk chunk) {
+    private double threshold(Chunk chunk) {
         StandardDeviation std = new StandardDeviation();
         double frameSimilaritySTD = std.evaluate(chunk.getFrameMatches().stream().mapToDouble(match -> match).toArray());
 
         return mu(chunk) * (1 - 1 / frameSimilaritySTD);
     }
 
-    private double mu(CEAChunk chunk) {
+    private double mu(Chunk chunk) {
         int m = chunk.getFrameMatches().size();
         int similaritySum = chunk.getFrameMatches().stream()
                 .mapToInt(match -> match)

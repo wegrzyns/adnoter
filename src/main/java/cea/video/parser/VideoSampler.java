@@ -1,29 +1,29 @@
 package cea.video.parser;
 
+import cea.video.model.Chunk;
+import cea.video.model.Frame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import cea.video.model.CEAChunk;
-import cea.video.model.CEAFrame;
-import cea.video.model.CEASamplerDTO;
-import cea.video.model.CEAVideo;
+import cea.video.model.SamplerDTO;
+import cea.video.model.Video;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CEAVideoSampler {
+public class VideoSampler {
 
-    private static Logger logger = LoggerFactory.getLogger(CEAVideoReader.class);
+    private static Logger logger = LoggerFactory.getLogger(VideoReader.class);
 
-    private CEAVideo video;
+    private Video video;
 
-    public CEAVideoSampler(CEAVideo video) {
+    public VideoSampler(Video video) {
         this.video = video;
     }
 
-    public List<CEAChunk> sampleChunks(CEASamplerDTO samplerArg) {
+    public List<Chunk> sampleChunks(SamplerDTO samplerArg) {
         long sampledFramesOffset = samplerArg.startFrameOffset();
-        List<CEAChunk> chunks = new ArrayList<>();
+        List<Chunk> chunks = new ArrayList<>();
 
         while(nextFullChunkAvailable(samplerArg, sampledFramesOffset)) {
             sampledFramesOffset = createChunk(chunks, samplerArg.getChunkLenghtInSeconds(), sampledFramesOffset);
@@ -38,51 +38,51 @@ public class CEAVideoSampler {
         return chunks;
     }
 
-    public CEAChunk leftChunk(CEAChunk parentChunk) {
-        CEAChunk newChunk;
-        CEAFrame firstFrame = parentChunk.getFirstFrame();
-        CEAFrame middleFrame;
-        CEAFrame lastFrame = parentChunk.getMiddleFrame();
+    public Chunk leftChunk(Chunk parentChunk) {
+        Chunk newChunk;
+        Frame firstFrame = parentChunk.getFirstFrame();
+        Frame middleFrame;
+        Frame lastFrame = parentChunk.getMiddleFrame();
 
         middleFrame = middleChunkFrame(firstFrame, lastFrame);
 
-        newChunk = new CEAChunk(firstFrame, middleFrame, lastFrame);
-        newChunk.setFrameMatch(CEAChunk.FRAME_0_2_MATCH_INDEX, parentChunk.getFrameMatch(CEAChunk.FRAME_0_1_MATCH_INDEX));
+        newChunk = new Chunk(firstFrame, middleFrame, lastFrame);
+        newChunk.setFrameMatch(Chunk.FRAME_0_2_MATCH_INDEX, parentChunk.getFrameMatch(Chunk.FRAME_0_1_MATCH_INDEX));
 
         return newChunk;
     }
 
-    public CEAChunk rightChunk(CEAChunk parentChunk) {
-        CEAChunk newChunk;
-        CEAFrame firstFrame = parentChunk.getMiddleFrame();
-        CEAFrame middleFrame;
-        CEAFrame lastFrame = parentChunk.getLastFrame();
+    public Chunk rightChunk(Chunk parentChunk) {
+        Chunk newChunk;
+        Frame firstFrame = parentChunk.getMiddleFrame();
+        Frame middleFrame;
+        Frame lastFrame = parentChunk.getLastFrame();
 
         middleFrame = middleChunkFrame(firstFrame, lastFrame);
 
-        newChunk = new CEAChunk(firstFrame, middleFrame, lastFrame);
-        newChunk.setFrameMatch(CEAChunk.FRAME_0_2_MATCH_INDEX, parentChunk.getFrameMatch(CEAChunk.FRAME_1_2_MATCH_INDEX));
+        newChunk = new Chunk(firstFrame, middleFrame, lastFrame);
+        newChunk.setFrameMatch(Chunk.FRAME_0_2_MATCH_INDEX, parentChunk.getFrameMatch(Chunk.FRAME_1_2_MATCH_INDEX));
 
         return newChunk;
     }
 
-    private boolean nextFullChunkAvailable(CEASamplerDTO samplerArg, long sampledOffset) {
+    private boolean nextFullChunkAvailable(SamplerDTO samplerArg, long sampledOffset) {
         return Math.ceil(framesPerSeconds(samplerArg.getChunkLenghtInSeconds())) + sampledOffset < samplerArg.endFrameOffset();
     }
 
-    private long createChunk(List<CEAChunk> chunks, long seconds, long sampledFramesOffset) {
-        CEAFrame firstFrame, middleFrame, lastFrame;
+    private long createChunk(List<Chunk> chunks, long seconds, long sampledFramesOffset) {
+        Frame firstFrame, middleFrame, lastFrame;
 
         firstFrame = firstChunkFrame(chunks.size(), lastFrameOfLastChunk(chunks), sampledFramesOffset);
         middleFrame = middleChunkFrame(seconds, sampledFramesOffset);
         lastFrame = lastChunkFrame(seconds, sampledFramesOffset);
 
-        chunks.add(new CEAChunk(firstFrame, middleFrame, lastFrame));
+        chunks.add(new Chunk(firstFrame, middleFrame, lastFrame));
 
         return lastFrame.getPosition();
     }
 
-    private CEAFrame firstChunkFrame(long prevChunkNumber, CEAFrame lastFramePrevChunk, long sampledFramesOffset) {
+    private Frame firstChunkFrame(long prevChunkNumber, Frame lastFramePrevChunk, long sampledFramesOffset) {
         if(Objects.equals(prevChunkNumber, 0L)) {
            return video.getFrame(sampledFramesOffset);
         }
@@ -95,11 +95,11 @@ public class CEAVideoSampler {
         return video.getFrame(lastFramePrevChunk.getPosition() + 1);
     }
 
-    private CEAFrame middleChunkFrame(long seconds, long sampledFramesOffset) {
+    private Frame middleChunkFrame(long seconds, long sampledFramesOffset) {
         return frameByDoubleRoundedDown(framesPerSeconds(seconds)/2 + sampledFramesOffset);
     }
 
-    private CEAFrame lastChunkFrame(long seconds, long sampledFramesOffset) {
+    private Frame lastChunkFrame(long seconds, long sampledFramesOffset) {
         return frameByDoubleRoundedDown(framesPerSeconds(seconds) + sampledFramesOffset);
     }
 
@@ -107,29 +107,29 @@ public class CEAVideoSampler {
         return video.getFrameRate()*seconds;
     }
 
-    private CEAFrame frameByDoubleRoundedDown(double framePosition) {
+    private Frame frameByDoubleRoundedDown(double framePosition) {
         return video.getFrame( (long) Math.floor(framePosition));
     }
 
-    private long remainingVideoSeconds(long sampledFramesOffset, CEASamplerDTO samplerArg) {
+    private long remainingVideoSeconds(long sampledFramesOffset, SamplerDTO samplerArg) {
         long remainingFramesCount = samplerArg.endFrameOffset() - sampledFramesOffset;
         return (long) Math.floor(remainingFramesCount / video.getFrameRate());
     }
 
-    private CEAFrame lastFrameOfLastChunk(List<CEAChunk> chunks) {
+    private Frame lastFrameOfLastChunk(List<Chunk> chunks) {
         if(chunks.isEmpty()) {
             return null;
         }
         return chunks.get(chunks.size() - 1).getLastFrame();
     }
 
-    private CEAFrame middleChunkFrame(CEAFrame firstChunkFrame, CEAFrame lastChunkFrame) {
+    private Frame middleChunkFrame(Frame firstChunkFrame, Frame lastChunkFrame) {
         long childSegmentSecondLength = secondsBetweenFrames(firstChunkFrame, lastChunkFrame);
 
         return middleChunkFrame(childSegmentSecondLength, firstChunkFrame.getPosition());
     }
 
-    private long secondsBetweenFrames(CEAFrame earlierFrame, CEAFrame laterFrame) {
+    private long secondsBetweenFrames(Frame earlierFrame, Frame laterFrame) {
         return laterFrame.getTimestamp().getSeconds() - earlierFrame.getTimestamp().getSeconds();
     }
 

@@ -1,41 +1,41 @@
 package cea.video.model;
 
-public class CEADetection implements Comparable<CEADetection>{
+public class Detection implements Comparable<Detection>{
 
-    private CEAFrame frame;
-    private CEADetectionType type;
+    private Frame frame;
+    private DetectionType type;
 
-    public CEADetection(CEAFrame frame, CEADetectionType type) {
+    public Detection(Frame frame, DetectionType type) {
         this.frame = frame;
         this.type = type;
     }
 
-    public CEAFrame getFrame() {
+    public Frame getFrame() {
         return frame;
     }
 
-    public void setFrame(CEAFrame frame) {
+    public void setFrame(Frame frame) {
         this.frame = frame;
     }
 
-    public CEADetectionType getType() {
+    public DetectionType getType() {
         return type;
     }
 
-    public void setType(CEADetectionType type) {
+    public void setType(DetectionType type) {
         this.type = type;
     }
 
     @Override
     public String toString() {
-        return "CEADetection{" +
+        return "Detection{" +
                 "frame=" + frame +
                 ", type=" + type +
                 '}';
     }
 
     @Override
-    public int compareTo(CEADetection o) {
+    public int compareTo(Detection o) {
         return Long.compare(frame.getPosition(), o.frame.getPosition());
     }
 }

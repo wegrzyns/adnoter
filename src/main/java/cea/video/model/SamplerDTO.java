@@ -2,17 +2,17 @@ package cea.video.model;
 
 import java.time.Duration;
 
-public class CEASamplerDTO {
+public class SamplerDTO {
 
     private static final int DEFAULT_SAMPLING_START = 0;
     private static final int DEFAULT_SAMPLING_END = -1;
 
-    private CEAVideo video;
+    private Video video;
     private Duration chunkLength;
     private Duration samplingStart;
     private Duration samplingEnd;
 
-    public CEASamplerDTO(CEAVideo video, Duration chunkLength) {
+    public SamplerDTO(Video video, Duration chunkLength) {
         this.video = video;
         this.chunkLength = chunkLength;
         this.samplingStart = Duration.ofSeconds(DEFAULT_SAMPLING_START);
@@ -34,11 +34,11 @@ public class CEASamplerDTO {
         return (long) (video.getFrameRate()*samplingEnd.getSeconds());
     }
 
-    public CEAVideo getVideo() {
+    public Video getVideo() {
         return video;
     }
 
-    public void setVideo(CEAVideo video) {
+    public void setVideo(Video video) {
         this.video = video;
     }
 

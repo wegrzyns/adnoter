@@ -1,9 +1,9 @@
 package cea.video.slide_region;
 
-import cea.video.model.CEAFrame;
-import cea.video.model.CEASlideRegion;
+import cea.video.model.Frame;
+import cea.video.model.SlideRegion;
 
 public interface SlideRegionDetector {
 
-    CEASlideRegion detect(CEAFrame frame);
+    SlideRegion detect(Frame frame);
 }

@@ -3,12 +3,12 @@ package cea.video.slide_region;
 import cea.Util.GenericUtil;
 import cea.Util.NumberUtil;
 import cea.Util.TypeUtil;
+import cea.video.model.Frame;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import cea.video.model.CEAFrame;
-import cea.video.model.CEASlideRegion;
+import cea.video.model.SlideRegion;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class DefaultDetector implements SlideRegionDetector {
     private static final double MAX_FULL_HD_ASPECT_RATIO = FULL_HD_ASPECT_RATIO * 1.30;
 
     @Override
-    public CEASlideRegion detect(CEAFrame frame) {
+    public SlideRegion detect(Frame frame) {
         Mat copiedFrame = frame.getFrame().clone();
         double frameArea;
         List<MatOfPoint> contours;
@@ -60,7 +60,7 @@ public class DefaultDetector implements SlideRegionDetector {
             //VISUALIZATION
 
             slideRegionMask = prepareMask(slideRegionContour, frame);
-            return new CEASlideRegion(slideRegionMask);
+            return new SlideRegion(slideRegionMask);
         }
 
         logger.debug(String.format("No slide region found for frame at %s", frame.getTimestamp()));
@@ -126,7 +126,7 @@ public class DefaultDetector implements SlideRegionDetector {
                 || NumberUtil.between(aspectRatio, MIN_FULL_HD_ASPECT_RATIO, MAX_FULL_HD_ASPECT_RATIO);
     }
 
-    private Mat prepareMask(MatOfPoint slideRegion, CEAFrame originalFrame) {
+    private Mat prepareMask(MatOfPoint slideRegion, Frame originalFrame) {
         Mat slideRegionMask = Mat.zeros(originalFrame.getFrame().rows(), originalFrame.getFrame().cols(), CvType.CV_8UC(1));
         Imgproc.fillConvexPoly(slideRegionMask, slideRegion, new Scalar(1));
         return slideRegionMask;

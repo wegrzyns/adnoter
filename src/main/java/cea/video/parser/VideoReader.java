@@ -5,7 +5,7 @@ import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import cea.video.model.CEAVideo;
+import cea.video.model.Video;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,15 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class CEAVideoReader {
+public class VideoReader {
 
-    private static Logger logger = LoggerFactory.getLogger(CEAVideoReader.class);
+    private static Logger logger = LoggerFactory.getLogger(VideoReader.class);
 
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
-    public static CEAVideo readFile(String path) {
+    public static Video readFile(String path) {
         VideoCapture video = new VideoCapture(path);
 
         if(!video.isOpened()) {
@@ -34,14 +34,14 @@ public class CEAVideoReader {
         return createADNVideo(video);
     }
 
-    public static List<CEAVideo> readDirectory(String path) throws IOException {
+    public static List<Video> readDirectory(String path) throws IOException {
 
         if(!Files.isDirectory(Paths.get(path))) {
             logger.error(String.format("Path %s does not point to a directory", path));
             throw new IllegalArgumentException("Supplied path does not point to a valid directory");
         }
 
-        List<CEAVideo> videos = new ArrayList<>();
+        List<Video> videos = new ArrayList<>();
         try(Stream<Path> paths = Files.walk(Paths.get(path)) ) {
             paths
                     .filter(Files::isRegularFile)
@@ -51,8 +51,8 @@ public class CEAVideoReader {
         return videos;
     }
 
-    private static CEAVideo createADNVideo(VideoCapture video) {
-        return new CEAVideo(video, frameArea(video), frameRate(video), frameCount(video));
+    private static Video createADNVideo(VideoCapture video) {
+        return new Video(video, frameArea(video), frameRate(video), frameCount(video));
     }
 
     private static double frameArea(VideoCapture video) {

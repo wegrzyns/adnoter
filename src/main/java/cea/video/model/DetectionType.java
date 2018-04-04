@@ -1,5 +1,5 @@
 package cea.video.model;
 
-public enum CEADetectionType {
+public enum DetectionType {
     SlideChange
 }

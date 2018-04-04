@@ -4,16 +4,16 @@ import javafx.util.Pair;
 
 import java.util.*;
 
-public class CEAChunk {
+public class Chunk {
 
     public static final int FRAME_MATCH_NOT_COMPUTED = -1;
     public static final int FRAME_0_1_MATCH_INDEX = 0;
     public static final int FRAME_1_2_MATCH_INDEX = 1;
     public static final int FRAME_0_2_MATCH_INDEX = 2;
 
-    private CEAFrame firstFrame;
-    private CEAFrame middleFrame;
-    private CEAFrame lastFrame;
+    private Frame firstFrame;
+    private Frame middleFrame;
+    private Frame lastFrame;
     private List<Integer> frameMatches;
     private static Map<Integer, Pair<Integer, Integer>> frameMatchesIndexes;
 
@@ -24,7 +24,7 @@ public class CEAChunk {
         frameMatchesIndexes.put(FRAME_1_2_MATCH_INDEX, new Pair<>(1, 2));
     }
 
-    public CEAChunk(CEAFrame firstFrame, CEAFrame middleFrame, CEAFrame lastFrame) {
+    public Chunk(Frame firstFrame, Frame middleFrame, Frame lastFrame) {
         this.firstFrame = firstFrame;
         this.middleFrame = middleFrame;
         this.lastFrame = lastFrame;
@@ -34,8 +34,8 @@ public class CEAChunk {
         this.frameMatches = Arrays.asList(arr);
     }
 
-    public List<CEAFrame> framesAsList() {
-        List<CEAFrame> toRet = new ArrayList<>();
+    public List<Frame> framesAsList() {
+        List<Frame> toRet = new ArrayList<>();
         toRet.add(firstFrame);
         toRet.add(middleFrame);
         toRet.add(lastFrame);
@@ -59,27 +59,27 @@ public class CEAChunk {
         return frameMatchesIndexes.get(matchIndex);
     }
 
-    public CEAFrame getFirstFrame() {
+    public Frame getFirstFrame() {
         return firstFrame;
     }
 
-    public void setFirstFrame(CEAFrame firstFrame) {
+    public void setFirstFrame(Frame firstFrame) {
         this.firstFrame = firstFrame;
     }
 
-    public CEAFrame getMiddleFrame() {
+    public Frame getMiddleFrame() {
         return middleFrame;
     }
 
-    public void setMiddleFrame(CEAFrame middleFrame) {
+    public void setMiddleFrame(Frame middleFrame) {
         this.middleFrame = middleFrame;
     }
 
-    public CEAFrame getLastFrame() {
+    public Frame getLastFrame() {
         return lastFrame;
     }
 
-    public void setLastFrame(CEAFrame lastFrame) {
+    public void setLastFrame(Frame lastFrame) {
         this.lastFrame = lastFrame;
     }
 

@@ -1,6 +1,6 @@
 package cea.evaluation.measure;
 
-import cea.video.model.CEADetection;
+import cea.video.model.Detection;
 
 import java.time.Duration;
 import java.util.List;
@@ -13,7 +13,7 @@ public class Measure {
     private final int detectionSize;
     private final int baselineSize;
 
-    public Measure(List<CEADetection> detections, List<Duration> baseline) {
+    public Measure(List<Detection> detections, List<Duration> baseline) {
         truePositives = truePositives(detections, baseline);
         detectionSize = detections.size();
         baselineSize = baseline.size();
@@ -37,7 +37,7 @@ public class Measure {
         return Math.abs(milis1 - milis2) < CORRECT_SLIDE_CHANGE_MATCH_THRESHOLD_MILLISECONDS;
     }
 
-    public static int truePositives(List<CEADetection> detections, List<Duration> baseline) {
+    public static int truePositives(List<Detection> detections, List<Duration> baseline) {
         int truePositives = 0;
 
         List<Duration> groundTruth = baseline.stream().sorted().collect(Collectors.toList());

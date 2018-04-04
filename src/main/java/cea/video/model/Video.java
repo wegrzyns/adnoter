@@ -8,28 +8,28 @@ import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
-public class CEAVideo {
+public class Video {
 
-    private static Logger logger = LoggerFactory.getLogger(CEAVideo.class);
+    private static Logger logger = LoggerFactory.getLogger(Video.class);
 
     private VideoCapture video;
     private double frameArea;
     private double frameRate;
     private long frameCount;
 
-    public CEAVideo(VideoCapture video, double frameArea, double frameRate, long frameCount) {
+    public Video(VideoCapture video, double frameArea, double frameRate, long frameCount) {
         this.video = video;
         this.frameArea = frameArea;
         this.frameRate = frameRate;
         this.frameCount = frameCount;
     }
 
-    public CEAVideo() {
+    public Video() {
 
     }
 
-    public synchronized CEAFrame getFrame(long frameNumber) {
-        return new CEAFrame(frame(frameNumber), frameNumber, timeStamp(frameNumber), this);
+    public synchronized Frame getFrame(long frameNumber) {
+        return new Frame(frame(frameNumber), frameNumber, timeStamp(frameNumber), this);
     }
 
     private Mat frame(long frameNumber) {

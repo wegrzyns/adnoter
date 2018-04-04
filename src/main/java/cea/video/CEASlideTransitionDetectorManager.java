@@ -3,17 +3,16 @@ package cea.video;
 import cea.Util.JsonUtil;
 import cea.evaluation.measure.Measure;
 import cea.evaluation.model.CEABaseline;
-import cea.video.detector.DefaultSTD;
 import cea.video.detector.StdDeviationSTD;
+import cea.video.model.Detection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import cea.video.detector.SlideTransitionDetector;
-import cea.video.model.CEAChunk;
-import cea.video.model.CEADetection;
-import cea.video.model.CEASamplerDTO;
-import cea.video.model.CEAVideo;
-import cea.video.parser.CEAVideoReader;
-import cea.video.parser.CEAVideoSampler;
+import cea.video.model.Chunk;
+import cea.video.model.SamplerDTO;
+import cea.video.model.Video;
+import cea.video.parser.VideoReader;
+import cea.video.parser.VideoSampler;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -28,18 +27,18 @@ public class CEASlideTransitionDetectorManager {
 
     private static Logger logger = LoggerFactory.getLogger(CEASlideTransitionDetectorManager.class);
 
-    public static List<CEADetection> processVideo(String path) {
-        CEAVideo video = CEAVideoReader.readFile(path);
-        CEAVideoSampler sampler = new CEAVideoSampler(video);
+    public static List<Detection> processVideo(String path) {
+        Video video = VideoReader.readFile(path);
+        VideoSampler sampler = new VideoSampler(video);
 
         SlideTransitionDetector std = new StdDeviationSTD();
         //TODO: Chunk duration/length to configuration
         //TODO: Video offset(from-tO) for fragment testing, to configuration
 
-        CEASamplerDTO samplerDTO = new CEASamplerDTO(video, Duration.ofSeconds(CHUNK_DURATION_SECONDS));
+        SamplerDTO samplerDTO = new SamplerDTO(video, Duration.ofSeconds(CHUNK_DURATION_SECONDS));
 //        samplerDTO.setSamplingStart(Duration.ofMinutes(5).plusSeconds(30));
 //        samplerDTO.setSamplingEnd(Duration.ofMinutes(5).plusSeconds(31));
-        List<CEAChunk> videoChunks = sampler.sampleChunks(samplerDTO);
+        List<Chunk> videoChunks = sampler.sampleChunks(samplerDTO);
 
         return videoChunks.parallelStream()
                 .map(chunk -> std.detect(chunk, sampler))
@@ -51,7 +50,7 @@ public class CEASlideTransitionDetectorManager {
         CEABaseline baseline = JsonUtil.evaluationFromJson(pathToJsonInput);
         Instant start = Instant.now();
 
-        List<CEADetection> detections = processVideo(baseline.getFilePath());
+        List<Detection> detections = processVideo(baseline.getFilePath());
 
         Instant end = Instant.now();
 
