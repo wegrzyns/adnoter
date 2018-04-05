@@ -1,6 +1,7 @@
 package cea.video.detector;
 
 import cea.video.frame_similarity.FrameSimilarityDetector;
+import cea.video.frame_similarity.PixelDiffDetector;
 import cea.video.frame_similarity.SIFTDetector;
 import cea.video.model.Chunk;
 import cea.video.model.Detection;
@@ -18,7 +19,7 @@ public abstract class SlideTransitionDetector {
 
     public List<Detection> detect(Chunk chunk, VideoSampler sampler) {
         List<Detection> toRet = new ArrayList<>();
-        FrameSimilarityDetector fsd = new SIFTDetector();
+        FrameSimilarityDetector fsd = new PixelDiffDetector();
         Chunk computedChunk;
         Stack<Chunk> stack = new Stack<>();
         stack.push(chunk);
@@ -26,17 +27,27 @@ public abstract class SlideTransitionDetector {
         while(!stack.empty()) {
             computedChunk = fsd.computeChunkFramesSimiliarity(stack.pop());
             if(stopCondition(computedChunk)) {
-                toRet.add(new Detection(computedChunk.getMiddleFrame(), DetectionType.SlideChange));
+                toRet.add(new Detection(computedChunk.getMiddleFrame(), DetectionType.SlideChange, fsd.getClass().getSimpleName()));
+                closeChunk(computedChunk);
                 continue;
             }
 
             if(computedChunk.frameMatchesNotComputed()) {
+                closeChunk(computedChunk);
                 continue;
             }
             checkForSlideTransition(computedChunk, stack, sampler);
         }
 
         return toRet;
+    }
+
+    protected void closeChunk(Chunk chunk) {
+        try {
+            chunk.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private boolean stopCondition(Chunk chunk) {

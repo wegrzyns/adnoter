@@ -4,7 +4,7 @@ import javafx.util.Pair;
 
 import java.util.*;
 
-public class Chunk {
+public class Chunk implements AutoCloseable{
 
     public static final int FRAME_MATCH_NOT_COMPUTED = -1;
     public static final int FRAME_0_1_MATCH_INDEX = 0;
@@ -45,6 +45,13 @@ public class Chunk {
 
     public boolean frameMatchesNotComputed() {
         return frameMatches.stream().anyMatch(integer -> integer == FRAME_MATCH_NOT_COMPUTED);
+    }
+
+    @Override
+    public void close() throws Exception {
+        for (Frame frame: framesAsList()) {
+            frame.close();
+        }
     }
 
     public int getFrameMatch(int index) {

@@ -31,6 +31,7 @@ public class DefaultDetector implements SlideRegionDetector {
     @Override
     public SlideRegion detect(Frame frame) {
         Mat copiedFrame = frame.getFrame().clone();
+
         double frameArea;
         List<MatOfPoint> contours;
         MatOfPoint slideRegionContour;
@@ -50,6 +51,7 @@ public class DefaultDetector implements SlideRegionDetector {
         frameArea = frame.getVideo().getFrameArea();
         slideRegionContour = selectSlideRegionContour(contours, frameArea);
 
+        copiedFrame.release();
         if(slideRegionContour != null) {
 
             //VISUALIZATION
@@ -60,7 +62,7 @@ public class DefaultDetector implements SlideRegionDetector {
             //VISUALIZATION
 
             slideRegionMask = prepareMask(slideRegionContour, frame);
-            return new SlideRegion(slideRegionMask);
+            return new SlideRegion(slideRegionMask, slideRegionContour);
         }
 
         logger.debug(String.format("No slide region found for frame at %s", frame.getTimestamp()));
@@ -74,6 +76,7 @@ public class DefaultDetector implements SlideRegionDetector {
         Imgproc.threshold(frame, frame, 200, BINARIZATION_INTENSITY_ABOVE_THRESHOLD, Imgproc.THRESH_OTSU);
         Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(7, 7));
         Imgproc.morphologyEx(frame, frame, Imgproc.MORPH_OPEN, kernel);
+        kernel.release();
     }
 
     private List<MatOfPoint> findContours(Mat copiedFrame) {
@@ -84,10 +87,11 @@ public class DefaultDetector implements SlideRegionDetector {
 
     private MatOfPoint selectSlideRegionContour(List<MatOfPoint> contours, double frameArea) {
          return contours.stream()
-//                .map(this::approximateContour)
-                .filter(this::isAtLeastQuadrangle)
+                .map(this::approximateContour)
+//                .filter(this::isAtLeastQuadrangle)
+                 .filter(this::isQuadrangle)
                 .filter(contour -> isAreaSufficient(contour, frameArea))
-//                .filter(this::isRectangle)
+                .filter(this::isRectangle)
                 .filter(this::isAspectRatioCorrect)
                 .max(Comparator.comparing(GenericUtil.cache(Imgproc::contourArea)))
                 .orElse(null);
@@ -102,6 +106,10 @@ public class DefaultDetector implements SlideRegionDetector {
 
     private boolean isAtLeastQuadrangle(MatOfPoint matOfPoint) {
         return matOfPoint.toList().size() >= 4;
+    }
+
+    private boolean isQuadrangle(MatOfPoint matOfPoint) {
+        return matOfPoint.toList().size() == 4;
     }
 
     private boolean isAreaSufficient(MatOfPoint matOfPoint, double frameArea) {
@@ -128,7 +136,9 @@ public class DefaultDetector implements SlideRegionDetector {
 
     private Mat prepareMask(MatOfPoint slideRegion, Frame originalFrame) {
         Mat slideRegionMask = Mat.zeros(originalFrame.getFrame().rows(), originalFrame.getFrame().cols(), CvType.CV_8UC(1));
-        Imgproc.fillConvexPoly(slideRegionMask, slideRegion, new Scalar(1));
+        Rect boundingRect = Imgproc.boundingRect(slideRegion);
+        MatOfPoint boundingRectMatOfPoint = TypeUtil.convertRectToMatOfPoint(boundingRect);
+        Imgproc.fillConvexPoly(slideRegionMask, boundingRectMatOfPoint, new Scalar(1));
         return slideRegionMask;
     }
 

@@ -47,6 +47,5 @@ public class ImageUtil {
         if(siftFeatures != null) {
             Features2d.drawKeypoints(targetFrame, siftFeatures, targetFrame, new Scalar(0, 255, 0), Features2d.DRAW_RICH_KEYPOINTS);
         }
-
     }
 }

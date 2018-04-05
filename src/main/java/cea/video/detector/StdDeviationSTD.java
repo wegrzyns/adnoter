@@ -1,31 +1,19 @@
 package cea.video.detector;
 
 import cea.video.model.Chunk;
-import cea.video.parser.VideoSampler;
 import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
 
-import java.util.Stack;
-
 //based on Jeong HJ, Kim T-E, Kim HG, Kim MH (2015) Automatic detection of slide transitions in lecture videos. Multimed Tools Appl 74(18):7537–7554.
-public class StdDeviationSTD extends SlideTransitionDetector {
+public class StdDeviationSTD extends DefaultSlideTransitionDetector {
 
     @Override
-    protected void checkForSlideTransition(Chunk computedChunk, Stack<Chunk> stack, VideoSampler sampler) {
-        if(slideTransitionLeftChunk(computedChunk)) {
-            stack.push(sampler.leftChunk(computedChunk));
-        }
-
-        if(slideTransitionRightChunk(computedChunk)) {
-            stack.push(sampler.rightChunk(computedChunk));
-        }
-    }
-
-    private boolean slideTransitionLeftChunk(Chunk computedChunk) {
+    protected boolean slideTransitionLeftChunk(Chunk computedChunk) {
         int frameSimilarity = computedChunk.getFrameMatch(Chunk.FRAME_0_1_MATCH_INDEX);
         return slideTransition(computedChunk, frameSimilarity);
     }
 
-    private boolean slideTransitionRightChunk(Chunk computedChunk) {
+    @Override
+    protected boolean slideTransitionRightChunk(Chunk computedChunk) {
         int frameSimilarity = computedChunk.getFrameMatch(Chunk.FRAME_1_2_MATCH_INDEX);
         return slideTransition(computedChunk, frameSimilarity);
     }

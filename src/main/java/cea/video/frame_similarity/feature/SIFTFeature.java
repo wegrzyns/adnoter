@@ -2,6 +2,7 @@ package cea.video.frame_similarity.feature;
 
 import cea.video.model.FeatureType;
 import cea.video.model.Frame;
+import cea.video.model.SlideRegion;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfDMatch;
 import org.opencv.core.MatOfKeyPoint;
@@ -16,12 +17,16 @@ public class SIFTFeature extends Feature {
     private Mat keyPointDescriptors;
 
     @Override
-    public Feature detectFeature(Frame frame, Mat slideRegionMask) {
+    public Feature detectFeature(Frame frame, SlideRegion slideRegion) {
         Mat preparedFrame = prepareFrame(frame);
-        MatOfKeyPoint siftFeatures = detectFeatures(preparedFrame, slideRegionMask);
+        MatOfKeyPoint siftFeatures = detectFeatures(preparedFrame, slideRegion.getSlideRegionMask());
         this.keyPointDescriptors = keyPointDescriptors(preparedFrame, siftFeatures);
-        frame.setFeatureComputed(FeatureType.SIFT);
-        frame.addFeature(FeatureType.SIFT, this);
+        preparedFrame.release();
+        try {
+            slideRegion.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return this;
     }
 
@@ -65,5 +70,15 @@ public class SIFTFeature extends Feature {
 
     public void setKeyPointDescriptors(Mat keyPointDescriptors) {
         this.keyPointDescriptors = keyPointDescriptors;
+    }
+
+    @Override
+    public FeatureType featureType() {
+        return FeatureType.SIFT;
+    }
+
+    @Override
+    public void close() throws Exception {
+        keyPointDescriptors.release();
     }
 }

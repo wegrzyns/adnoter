@@ -1,9 +1,6 @@
 package cea.Util;
 
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfPoint;
-import org.opencv.core.MatOfPoint2f;
+import org.opencv.core.*;
 
 public class TypeUtil {
 
@@ -23,5 +20,13 @@ public class TypeUtil {
         Mat toRet = new Mat();
         matOfPoint.convertTo(toRet, CvType.CV_32S);
         return toRet;
+    }
+
+    public static MatOfPoint convertRectToMatOfPoint(Rect rect) {
+        return new MatOfPoint(
+                rect.tl(),
+                new Point(rect.tl().x, rect.tl().y + rect.height),
+                rect.br(),
+                new Point(rect.tl().x + rect.width, rect.tl().y));
     }
 }

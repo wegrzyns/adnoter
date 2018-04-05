@@ -7,7 +7,7 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Frame {
+public class Frame implements AutoCloseable {
 
     private Mat frame;
     private long position;
@@ -81,5 +81,11 @@ public class Frame {
         return "Frame{" +
                 ", timestamp=" + timestamp +
                 '}';
+    }
+
+    @Override
+    public void close() throws Exception {
+        frame.release();
+
     }
 }

@@ -2,25 +2,13 @@ package cea.video.detector;
 
 import cea.Util.NumberUtil;
 import cea.video.model.Chunk;
-import cea.video.parser.VideoSampler;
 
 import java.util.List;
-import java.util.Stack;
 
-public class DefaultSTD extends SlideTransitionDetector {
+public class DefaultSTD extends DefaultSlideTransitionDetector {
 
     @Override
-    protected void checkForSlideTransition(Chunk computedChunk, Stack<Chunk> stack, VideoSampler sampler) {
-        if(slideTransitionLeftChunk(computedChunk)) {
-            stack.push(sampler.leftChunk(computedChunk));
-        }
-
-        if(slideTransitionRightChunk(computedChunk)) {
-            stack.push(sampler.rightChunk(computedChunk));
-        }
-    }
-
-    private boolean slideTransitionLeftChunk(Chunk chunk) {
+    protected boolean slideTransitionLeftChunk(Chunk chunk) {
         double m1 = chunk.getFrameMatch(Chunk.FRAME_0_1_MATCH_INDEX);
         double m2 = chunk.getFrameMatch(Chunk.FRAME_1_2_MATCH_INDEX);
         double m3 = chunk.getFrameMatch(Chunk.FRAME_0_2_MATCH_INDEX);
@@ -42,7 +30,8 @@ public class DefaultSTD extends SlideTransitionDetector {
 
     }
 
-    private boolean slideTransitionRightChunk(Chunk chunk) {
+    @Override
+    protected boolean slideTransitionRightChunk(Chunk chunk) {
         double m1 = chunk.getFrameMatch(Chunk.FRAME_0_1_MATCH_INDEX);
         double m2 = chunk.getFrameMatch(Chunk.FRAME_1_2_MATCH_INDEX);
         double m3 = chunk.getFrameMatch(Chunk.FRAME_0_2_MATCH_INDEX);

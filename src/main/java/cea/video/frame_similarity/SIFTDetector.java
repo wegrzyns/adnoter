@@ -19,11 +19,6 @@ import java.util.stream.IntStream;
 public class SIFTDetector extends FrameSimilarityDetector {
 
     @Override
-    protected FeatureType featureType() {
-        return FeatureType.SIFT;
-    }
-
-    @Override
     protected Feature feature() {
         return new SIFTFeature();
     }

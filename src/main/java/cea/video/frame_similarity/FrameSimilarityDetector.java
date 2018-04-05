@@ -23,11 +23,10 @@ public abstract class FrameSimilarityDetector {
 
         List<Feature> features = chunkFrames.stream()
                 .map(frame -> {
-                    if(frame.isFeatureComputed(featureType())) return frame.getFeature(FeatureType.SIFT);
+                    if(frame.isFeatureComputed(featureType())) return frame.getFeature(featureType());
                     SlideRegion slideRegion = slideRegionManager.getSlideRegion(frame);
                     if(slideRegion == null) return null;
-                    Mat slideRegionMask = slideRegion.getSlideRegionMask();
-                    return feature().detectFeature(frame, slideRegionMask);
+                    return feature().computeFeature(frame, slideRegion);
                 })
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
@@ -42,7 +41,9 @@ public abstract class FrameSimilarityDetector {
         return chunk;
     }
 
-    protected abstract FeatureType featureType();
+    protected FeatureType featureType() {
+        return feature().featureType();
+    }
 
     protected abstract Feature feature();
 

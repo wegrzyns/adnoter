@@ -17,8 +17,12 @@ import cea.video.parser.VideoSampler;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class CEASlideTransitionDetectorManager {
@@ -55,9 +59,15 @@ public class CEASlideTransitionDetectorManager {
         Instant end = Instant.now();
 
         logger.info("============= Slide Transition Detection Algorithm =============");
+        DateTimeFormatter formatter =
+                DateTimeFormatter.ofLocalizedDateTime( FormatStyle.SHORT )
+                        .withZone( ZoneId.systemDefault() );
+        logger.info(String.format("Date: %s", formatter.format(Instant.now())));
         logger.info(String.format("File name: %s",baseline.getFilePath()));
         logger.info(String.format("Overall execution time %s\n", Duration.between(start, end)));
 
+        //TODO: feature detector name should be pulled from configuration, temporary solution
+        logger.info(String.format("Feature detection algorithm: %s", detections.get(0).getFeatureDetectorName()));
         logger.info(String.format("Detection Resolution: %.2f s", CHUNK_DURATION_SECONDS/2.0));
 
         Measure measure = new Measure(detections, baseline.getSlideTransitions());
