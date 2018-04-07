@@ -31,7 +31,7 @@ public class CEASlideTransitionDetectorManager {
 
     private static Logger logger = LoggerFactory.getLogger(CEASlideTransitionDetectorManager.class);
 
-    public static List<Detection> processVideo(String path) {
+    private static List<Detection> processVideo(String path) {
         Video video = VideoReader.readFile(path);
         VideoSampler sampler = new VideoSampler(video);
 
@@ -40,8 +40,8 @@ public class CEASlideTransitionDetectorManager {
         //TODO: Video offset(from-tO) for fragment testing, to configuration
 
         SamplerDTO samplerDTO = new SamplerDTO(video, Duration.ofSeconds(CHUNK_DURATION_SECONDS));
-//        samplerDTO.setSamplingStart(Duration.ofMinutes(5).plusSeconds(30));
-//        samplerDTO.setSamplingEnd(Duration.ofMinutes(5).plusSeconds(31));
+//        samplerDTO.setSamplingStart(Duration.ofMinutes(2).plusSeconds(30));
+//        samplerDTO.setSamplingEnd(Duration.ofMinutes(5).plusSeconds(30));
         List<Chunk> videoChunks = sampler.sampleChunks(samplerDTO);
 
         return videoChunks.parallelStream()

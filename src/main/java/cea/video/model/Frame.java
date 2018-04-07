@@ -1,6 +1,7 @@
 package cea.video.model;
 
 import cea.video.frame_similarity.feature.Feature;
+import cea.video.frame_similarity.feature.FeatureType;
 import org.opencv.core.Mat;
 
 import java.time.Duration;

@@ -97,4 +97,14 @@ public class Chunk implements AutoCloseable{
     public void setFrameMatches(List<Integer> frameMatches) {
         this.frameMatches = frameMatches;
     }
+
+    @Override
+    public String toString() {
+        return "Chunk{" +
+                "firstFrame=" + firstFrame +
+                ", middleFrame=" + middleFrame +
+                ", lastFrame=" + lastFrame +
+                ", frameMatches=" + frameMatches +
+                '}';
+    }
 }

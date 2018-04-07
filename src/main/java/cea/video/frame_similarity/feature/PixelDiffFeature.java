@@ -1,6 +1,5 @@
 package cea.video.frame_similarity.feature;
 
-import cea.video.model.FeatureType;
 import cea.video.model.Frame;
 import cea.video.model.SlideRegion;
 import org.opencv.core.Mat;

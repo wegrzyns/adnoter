@@ -1,6 +1,5 @@
 package cea.video.frame_similarity.feature;
 
-import cea.video.model.FeatureType;
 import cea.video.model.Frame;
 import cea.video.model.SlideRegion;
 
@@ -13,7 +12,7 @@ public abstract class Feature implements AutoCloseable {
         return feature;
     }
 
-    protected void fillFrameWithComputedFeature(Frame frame) {
+    private void fillFrameWithComputedFeature(Frame frame) {
         frame.setFeatureComputed(featureType());
         frame.addFeature(featureType(), this);
 
