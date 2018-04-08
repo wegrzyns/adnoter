@@ -28,25 +28,25 @@ public class Video {
 
     }
 
-    public synchronized Frame getFrame(long frameNumber) {
-        return new Frame(frame(frameNumber), frameNumber, timeStamp(frameNumber), this);
+    public Frame getFrame(long frameNumber) {
+        return new Frame(null, frameNumber, null, this);
     }
 
-    private Mat frame(long frameNumber) {
+    public synchronized Mat frame(long frameNumber) {
         Mat frame = new Mat();
-        setNextFramePosition(frameNumber);
+        prepareFramePositionForSampling(frameNumber);
         //TODO: better handling of this case
         if (!video.read(frame)) logger.info(String.format("Frame %d not found in cea.video", frameNumber));
         return frame;
     }
 
-    private Duration timeStamp(long frameNumber) {
-        setNextFramePosition(frameNumber);
+    public synchronized Duration timeStamp(long frameNumber) {
+        prepareFramePositionForSampling(frameNumber);
         long timeStampMilis = (long) video.get(Videoio.CV_CAP_PROP_POS_MSEC);
         return Duration.ofMillis(timeStampMilis);
     }
 
-    private void setNextFramePosition(long frameNumber) {
+    private void prepareFramePositionForSampling(long frameNumber) {
         video.set(Videoio.CV_CAP_PROP_POS_FRAMES, frameNumber);
     }
 

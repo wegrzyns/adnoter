@@ -29,7 +29,11 @@ public class Frame implements AutoCloseable {
         }
     }
 
-    public Mat getFrame() {
+    public synchronized Mat getFrame() {
+        if(frame == null) {
+            this.frame = video.frame(position);
+            this.timestamp = video.timeStamp(position);
+        }
         return frame;
     }
 

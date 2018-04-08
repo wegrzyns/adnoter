@@ -3,11 +3,11 @@ package cea.video;
 import cea.Util.JsonUtil;
 import cea.evaluation.measure.Measure;
 import cea.evaluation.model.CEABaseline;
-import cea.video.detector.StdDeviationSTD;
+import cea.video.slide_transition_detector.StdDeviationSTD;
 import cea.video.model.Detection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import cea.video.detector.SlideTransitionDetector;
+import cea.video.slide_transition_detector.SlideTransitionDetector;
 import cea.video.model.Chunk;
 import cea.video.model.SamplerDTO;
 import cea.video.model.Video;
@@ -22,12 +22,11 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Collection;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class CEASlideTransitionDetectorManager {
 
-    private static final int CHUNK_DURATION_SECONDS = 10;
+    private static final int CHUNK_DURATION_SECONDS = 3;
 
     private static Logger logger = LoggerFactory.getLogger(CEASlideTransitionDetectorManager.class);
 
@@ -66,7 +65,7 @@ public class CEASlideTransitionDetectorManager {
         logger.info(String.format("File name: %s",baseline.getFilePath()));
         logger.info(String.format("Overall execution time %s\n", Duration.between(start, end)));
 
-        //TODO: feature detector name should be pulled from configuration, temporary solution
+        //TODO: feature slide_transition_detector name should be pulled from configuration, temporary solution
         logger.info(String.format("Feature detection algorithm: %s", detections.get(0).getFeatureDetectorName()));
         logger.info(String.format("Detection Resolution: %.2f s", CHUNK_DURATION_SECONDS/2.0));
 

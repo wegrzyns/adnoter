@@ -1,4 +1,4 @@
-package cea.video.detector;
+package cea.video.slide_transition_detector;
 
 import cea.Util.NumberUtil;
 import cea.video.model.Chunk;

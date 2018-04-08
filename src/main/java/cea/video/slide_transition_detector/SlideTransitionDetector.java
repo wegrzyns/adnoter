@@ -1,4 +1,4 @@
-package cea.video.detector;
+package cea.video.slide_transition_detector;
 
 import cea.video.frame_similarity.FrameSimilarityDetector;
 import cea.video.frame_similarity.feature.FeatureType;
@@ -18,7 +18,7 @@ public abstract class SlideTransitionDetector {
 
     public List<Detection> detect(Chunk chunk, VideoSampler sampler) {
         List<Detection> toRet = new ArrayList<>();
-        FrameSimilarityDetector fsd = new FrameSimilarityDetector(FeatureType.AKAZE);
+        FrameSimilarityDetector fsd = new FrameSimilarityDetector(FeatureType.BRISK);
         Chunk computedChunk;
         Stack<Chunk> stack = new Stack<>();
         stack.push(chunk);

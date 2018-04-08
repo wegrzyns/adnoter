@@ -1,6 +1,5 @@
 package cea.video.frame_similarity.feature;
 
-import org.opencv.core.Mat;
 import org.opencv.features2d.AKAZE;
 import org.opencv.features2d.Feature2D;
 

@@ -5,7 +5,7 @@ import cea.video.model.SlideRegion;
 
 public abstract class Feature implements AutoCloseable {
 
-    public Feature computeFeature(Frame frame, SlideRegion slideRegionMask) {
+    public synchronized Feature computeFeature(Frame frame, SlideRegion slideRegionMask) {
         Feature feature = detectFeature(frame, slideRegionMask);
         feature.fillFrameWithComputedFeature(frame);
 

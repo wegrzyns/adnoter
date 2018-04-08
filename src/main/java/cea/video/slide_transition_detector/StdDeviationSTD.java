@@ -1,4 +1,4 @@
-package cea.video.detector;
+package cea.video.slide_transition_detector;
 
 import cea.video.model.Chunk;
 import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
