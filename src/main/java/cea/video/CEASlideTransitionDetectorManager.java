@@ -1,8 +1,10 @@
 package cea.video;
 
+import cea.Util.ConfigurationUtil;
 import cea.Util.JsonUtil;
 import cea.evaluation.measure.Measure;
 import cea.evaluation.model.CEABaseline;
+import cea.video.slide_region.DefaultDetector;
 import cea.video.slide_transition_detector.StdDeviationSTD;
 import cea.video.model.Detection;
 import org.slf4j.Logger;
@@ -26,7 +28,11 @@ import java.util.stream.Collectors;
 
 public class CEASlideTransitionDetectorManager {
 
-    private static final int CHUNK_DURATION_SECONDS = 3;
+    private static final int CHUNK_DURATION_SECONDS = ConfigurationUtil.configuration().getInt("chunkDurationSeconds");
+    private static final int SAMPLING_START_MINUTES = ConfigurationUtil.configuration().getInt("sampling.startMinutes", -1);
+    private static final int SAMPLING_START_SECONDS = ConfigurationUtil.configuration().getInt("sampling.startSeconds", -1);
+    private static final int SAMPLING_END_MINUTES = ConfigurationUtil.configuration().getInt("sampling.endMinutes", -1);
+    private static final int SAMPLING_END_SECONDS = ConfigurationUtil.configuration().getInt("sampling.endSeconds", -1);
 
     private static Logger logger = LoggerFactory.getLogger(CEASlideTransitionDetectorManager.class);
 
@@ -35,18 +41,25 @@ public class CEASlideTransitionDetectorManager {
         VideoSampler sampler = new VideoSampler(video);
 
         SlideTransitionDetector std = new StdDeviationSTD();
-        //TODO: Chunk duration/length to configuration
-        //TODO: Video offset(from-tO) for fragment testing, to configuration
 
         SamplerDTO samplerDTO = new SamplerDTO(video, Duration.ofSeconds(CHUNK_DURATION_SECONDS));
-//        samplerDTO.setSamplingStart(Duration.ofMinutes(2).plusSeconds(30));
-//        samplerDTO.setSamplingEnd(Duration.ofMinutes(5).plusSeconds(30));
+        samplerDTO = fillSamplingDuration(samplerDTO);
         List<Chunk> videoChunks = sampler.sampleChunks(samplerDTO);
 
         return videoChunks.parallelStream()
                 .map(chunk -> std.detect(chunk, sampler))
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
+    }
+
+    private static SamplerDTO fillSamplingDuration(SamplerDTO samplerDTO) {
+        if(SAMPLING_START_MINUTES > -1 && SAMPLING_END_SECONDS > -1) {
+            samplerDTO.setSamplingStart(Duration.ofMinutes(SAMPLING_START_MINUTES).plusSeconds(SAMPLING_START_SECONDS));
+        }
+        if(SAMPLING_END_MINUTES > -1 && SAMPLING_END_SECONDS > -1) {
+            samplerDTO.setSamplingEnd(Duration.ofMinutes(SAMPLING_END_MINUTES).plusSeconds(SAMPLING_END_SECONDS));
+        }
+        return samplerDTO;
     }
 
     public static void evaluateAlgorithm(String pathToJsonInput) throws IOException {
@@ -63,11 +76,22 @@ public class CEASlideTransitionDetectorManager {
                         .withZone( ZoneId.systemDefault() );
         logger.info(String.format("Date: %s", formatter.format(Instant.now())));
         logger.info(String.format("File name: %s",baseline.getFilePath()));
+        printSamplingDuration();
         logger.info(String.format("Overall execution time %s\n", Duration.between(start, end)));
 
-        //TODO: feature slide_transition_detector name should be pulled from configuration, temporary solution
-        logger.info(String.format("Feature detection algorithm: %s", detections.get(0).getFeatureDetectorName()));
+
+        ConfigurationUtil.configuration()
+                .getKeys("slideRegion")
+                .forEachRemaining(key -> logger.info(formattedParameter(key)));
+        logger.info("Slide region detection operations:");
+        DefaultDetector.slideRegionOperations()
+                .stream()
+                .map(string -> "    " + string)
+                .forEach(logger::info);
+
+        logger.info(String.format("Feature detection algorithm: %s", ConfigurationUtil.configuration().getString("feature.frameSimilarityDetectionFeatureType")));
         logger.info(String.format("Detection Resolution: %.2f s", CHUNK_DURATION_SECONDS/2.0));
+        logger.info(formattedParameter("feature.gaussianBlurKernelSize")+"\n");
 
         Measure measure = new Measure(detections, baseline.getSlideTransitions());
 
@@ -79,5 +103,21 @@ public class CEASlideTransitionDetectorManager {
                 .sorted()
                 .forEach(detection -> logger.info(detection.toString()));
 
+    }
+
+    private static void printSamplingDuration() {
+        if(SAMPLING_START_MINUTES > -1 && SAMPLING_END_SECONDS > -1) {
+            logger.info(String.format("Sampling start: %s", Duration.ofMinutes(SAMPLING_START_MINUTES).plusSeconds(SAMPLING_START_SECONDS)));
+        }
+        if(SAMPLING_END_MINUTES > -1 && SAMPLING_END_SECONDS > -1) {
+            logger.info(String.format("Sampling end: %s", Duration.ofMinutes(SAMPLING_END_MINUTES).plusSeconds(SAMPLING_END_SECONDS)));
+        }
+    }
+
+    private static String formattedParameter(String configurationKey) {
+        String key = ConfigurationUtil.configuration().getKeys(configurationKey).next();
+        String value = ConfigurationUtil.configuration().getString(key);
+
+        return String.format("%s = %s", key, value);
     }
 }

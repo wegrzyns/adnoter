@@ -1,5 +1,6 @@
 package cea.video.slide_transition_detector;
 
+import cea.Util.ConfigurationUtil;
 import cea.video.frame_similarity.FrameSimilarityDetector;
 import cea.video.frame_similarity.feature.FeatureType;
 import cea.video.model.Chunk;
@@ -13,12 +14,12 @@ import java.util.Stack;
 
 public abstract class SlideTransitionDetector {
 
-    //TODO: stop condition threshold to configuration
-    private static final long MILISECONDS_MIN_CHUNK_LEN = 1000;
+    private static final long MILISECONDS_MIN_CHUNK_LEN = ConfigurationUtil.configuration().getInt("stopCondition.millisecondMinimalChunkLength");
+    private static final FeatureType FEATURE_TYPE = FeatureType.valueOf(ConfigurationUtil.configuration().getString("feature.frameSimilarityDetectionFeatureType"));
 
     public List<Detection> detect(Chunk chunk, VideoSampler sampler) {
         List<Detection> toRet = new ArrayList<>();
-        FrameSimilarityDetector fsd = new FrameSimilarityDetector(FeatureType.BRISK);
+        FrameSimilarityDetector fsd = new FrameSimilarityDetector(FEATURE_TYPE);
         Chunk computedChunk;
         Stack<Chunk> stack = new Stack<>();
         stack.push(chunk);

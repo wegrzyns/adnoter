@@ -4,12 +4,10 @@ public class Detection implements Comparable<Detection>{
 
     private Frame frame;
     private DetectionType type;
-    private String featureDetectorName;
 
     public Detection(Frame frame, DetectionType type, String featureDetectorName) {
         this.frame = frame;
         this.type = type;
-        this.featureDetectorName = featureDetectorName;
     }
 
     public Frame getFrame() {
@@ -26,14 +24,6 @@ public class Detection implements Comparable<Detection>{
 
     public void setType(DetectionType type) {
         this.type = type;
-    }
-
-    public String getFeatureDetectorName() {
-        return featureDetectorName;
-    }
-
-    public void setFeatureDetectorName(String featureDetectorName) {
-        this.featureDetectorName = featureDetectorName;
     }
 
     @Override

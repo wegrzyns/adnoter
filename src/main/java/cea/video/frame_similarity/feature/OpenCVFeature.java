@@ -31,7 +31,7 @@ public abstract class OpenCVFeature extends Feature {
     private Mat prepareFrame(Frame ceaframe) {
         Mat frame = ceaframe.getFrame().clone();
         Imgproc.cvtColor(frame, frame, Imgproc.COLOR_RGB2GRAY);
-        Imgproc.GaussianBlur(frame, frame,  new Size(21, 21), 0);
+        Imgproc.GaussianBlur(frame, frame,  new Size(GAUSSIAN_BLUR_KERNEL_SIZE, GAUSSIAN_BLUR_KERNEL_SIZE), 0);
         return frame;
     }
 

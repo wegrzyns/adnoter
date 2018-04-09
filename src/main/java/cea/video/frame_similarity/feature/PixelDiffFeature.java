@@ -23,9 +23,9 @@ public class PixelDiffFeature extends Feature {
         //TODO: check this region cutting latter(if worth time wise)
 //        Mat frame = slideRegion.getMaskRegionOfIntrest(toRet);
         Imgproc.cvtColor(frame, frame, Imgproc.COLOR_RGB2GRAY);
-        Imgproc.GaussianBlur(frame, frame,  new Size(23, 23), 0);
+        Imgproc.GaussianBlur(frame, frame,  new Size(GAUSSIAN_BLUR_KERNEL_SIZE, GAUSSIAN_BLUR_KERNEL_SIZE), 0);
         Imgproc.adaptiveThreshold(frame, frame, 255, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 11, 2);
-        Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(11, 11));
+        Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(13, 13));
         Imgproc.morphologyEx(frame, frame, Imgproc.MORPH_OPEN, kernel);
         kernel.release();
         return frame;

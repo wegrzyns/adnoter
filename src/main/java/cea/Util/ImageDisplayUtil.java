@@ -14,8 +14,7 @@ import java.time.Duration;
 import java.util.List;
 
 
-//TODO: change class name collison with java util class
-public class ImageUtil {
+public class ImageDisplayUtil {
 
     public static void showResult(Mat img, Duration frameTime) {
 //        Imgproc.resize(img, img, new Size(640, 480));

@@ -1,5 +1,6 @@
 package cea.evaluation.measure;
 
+import cea.Util.ConfigurationUtil;
 import cea.video.model.Detection;
 
 import java.time.Duration;
@@ -8,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class Measure {
 
-    public static final int CORRECT_SLIDE_CHANGE_MATCH_THRESHOLD_MILLISECONDS = 1000;
+    public static final int CORRECT_SLIDE_CHANGE_MATCH_THRESHOLD_MILLISECONDS = ConfigurationUtil.configuration().getInt("evaluation.correctSlideChangeMatchThresholdMilliseconds");
     private final int truePositives;
     private final int detectionSize;
     private final int baselineSize;
@@ -33,7 +34,6 @@ public class Measure {
 
 
     public static boolean timestampMatch(long milis1, long milis2) {
-        //TODO: constant to configuration
         return Math.abs(milis1 - milis2) < CORRECT_SLIDE_CHANGE_MATCH_THRESHOLD_MILLISECONDS;
     }
 

@@ -12,7 +12,7 @@ public class JsonUtil {
     public static CEABaseline evaluationFromJson(String path) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
-        File input = new File("testInput.json");
+        File input = new File(path);
         return mapper.readValue(input, CEABaseline.class);
     }
 }

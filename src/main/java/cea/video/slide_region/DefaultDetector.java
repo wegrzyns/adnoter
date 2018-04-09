@@ -1,5 +1,6 @@
 package cea.video.slide_region;
 
+import cea.Util.ConfigurationUtil;
 import cea.Util.GenericUtil;
 import cea.Util.NumberUtil;
 import cea.Util.TypeUtil;
@@ -19,14 +20,17 @@ public class DefaultDetector implements SlideRegionDetector {
 
     private static Logger logger = LoggerFactory.getLogger(DefaultDetector.class);
 
-    private static final int BINARIZATION_INTENSITY_ABOVE_THRESHOLD = 240;
-    private static final int MINIMAL_FRAME_AREA_FRACTION = 14;
+    private static final int BINARIZATION_INTENSITY_ABOVE_THRESHOLD = 255;
+    private static final int MINIMAL_FRAME_AREA_FRACTION = ConfigurationUtil.configuration().getInt("slideRegion.minimalFrameAreaFraction");
     private static final double STANDARD_ASPECT_RATIO = 4.0/3.0;
     private static final double FULL_HD_ASPECT_RATIO = 16.0/9.0;
-    private static final double MIN_STANDARD_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 0.70;
-    private static final double MAX_STANDARD_ASPECT_RATIO = STANDARD_ASPECT_RATIO * 1.30;
-    private static final double MIN_FULL_HD_ASPECT_RATIO = FULL_HD_ASPECT_RATIO * 0.70;
-    private static final double MAX_FULL_HD_ASPECT_RATIO = FULL_HD_ASPECT_RATIO * 1.30;
+    private static final double ASPECT_RATIO_TOLERANCE = ConfigurationUtil.configuration().getDouble("slideRegion.aspectRatioTolerance");
+    private static final double MIN_STANDARD_ASPECT_RATIO = STANDARD_ASPECT_RATIO * (1 - ASPECT_RATIO_TOLERANCE);
+    private static final double MAX_STANDARD_ASPECT_RATIO = STANDARD_ASPECT_RATIO * (1 + ASPECT_RATIO_TOLERANCE);
+    private static final double MIN_FULL_HD_ASPECT_RATIO = FULL_HD_ASPECT_RATIO * (1 - ASPECT_RATIO_TOLERANCE);
+    private static final double MAX_FULL_HD_ASPECT_RATIO = FULL_HD_ASPECT_RATIO * (1 + ASPECT_RATIO_TOLERANCE);
+    private static final int GAUSSIAN_BLUR_KERNEL_SIZE = ConfigurationUtil.configuration().getInt("slideRegion.gaussianBlurKernelSize");
+    private static final int MORPHOLOGY_OPEN_KERNEL_SIZE = ConfigurationUtil.configuration().getInt("slideRegion.morphologyOpenKernelSize");
 
     @Override
     public SlideRegion detect(Frame frame) {
@@ -43,8 +47,8 @@ public class DefaultDetector implements SlideRegionDetector {
         //--- visualization TODO: handle this better!
 //        List<MatOfPoint> arg = new ArrayList<>();
 //        arg.add(contours);
-//        ImageUtil.drawContoursAndKeypoints(copiedFrame, true, contours, null);
-//        ImageUtil.showResult(copiedFrame, frame.getTimestamp());
+//        ImageDisplayUtil.drawContoursAndKeypoints(copiedFrame, true, contours, null);
+//        ImageDisplayUtil.showResult(copiedFrame, frame.getTimestamp());
 
         //--- end visualization
 
@@ -57,8 +61,8 @@ public class DefaultDetector implements SlideRegionDetector {
             //VISUALIZATION
 //            List<MatOfPoint> arg = new ArrayList<>();
 //            arg.add(slideRegionContour);
-//            ImageUtil.drawContoursAndKeypoints(copiedFrame, true, arg, null);
-//            ImageUtil.showResult(copiedFrame, frame.getTimestamp());
+//            ImageDisplayUtil.drawContoursAndKeypoints(copiedFrame, true, arg, null);
+//            ImageDisplayUtil.showResult(copiedFrame, frame.getTimestamp());
             //VISUALIZATION
 
             slideRegionMask = prepareMask(slideRegionContour, frame);
@@ -71,10 +75,10 @@ public class DefaultDetector implements SlideRegionDetector {
 
     private void prepareFrame(Mat frame) {
         Imgproc.cvtColor(frame, frame, Imgproc.COLOR_RGB2GRAY);
-        Imgproc.GaussianBlur(frame, frame,  new Size(7, 7), 0);
+        Imgproc.GaussianBlur(frame, frame,  new Size(GAUSSIAN_BLUR_KERNEL_SIZE, GAUSSIAN_BLUR_KERNEL_SIZE), 0);
 //        Imgproc.adaptiveThreshold(frame, frame, 240, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 11, 2);
         Imgproc.threshold(frame, frame, 200, BINARIZATION_INTENSITY_ABOVE_THRESHOLD, Imgproc.THRESH_OTSU);
-        Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(7, 7));
+        Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(MORPHOLOGY_OPEN_KERNEL_SIZE, MORPHOLOGY_OPEN_KERNEL_SIZE));
         Imgproc.morphologyEx(frame, frame, Imgproc.MORPH_OPEN, kernel);
         kernel.release();
     }
@@ -87,14 +91,26 @@ public class DefaultDetector implements SlideRegionDetector {
 
     private MatOfPoint selectSlideRegionContour(List<MatOfPoint> contours, double frameArea) {
          return contours.stream()
-                .map(this::approximateContour)
-//                .filter(this::isAtLeastQuadrangle)
-                 .filter(this::isQuadrangle)
+//                .map(this::approximateContour)
+                .filter(this::isAtLeastQuadrangle)
+//                .filter(this::isQuadrangle)
                 .filter(contour -> isAreaSufficient(contour, frameArea))
-                .filter(this::isRectangle)
+//                .filter(this::isRectangle)
                 .filter(this::isAspectRatioCorrect)
                 .max(Comparator.comparing(GenericUtil.cache(Imgproc::contourArea)))
                 .orElse(null);
+    }
+
+    //TODO: better log represenation of slide region operations, non trivial
+    public static List<String> slideRegionOperations() {
+        List<String> toRet = new ArrayList<>();
+//        toRet.add("contour approximation");
+        toRet.add("at least quadrangle check");
+//        toRet.add("quadrangle check");
+//        toRet.add("rectangle check");
+//        toRet.add("aspect ratio check");
+        toRet.set(toRet.size()-1, toRet.get(toRet.size()-1) + "\n");
+        return toRet;
     }
 
     private MatOfPoint approximateContour(MatOfPoint contour) {
