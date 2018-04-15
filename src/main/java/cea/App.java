@@ -26,6 +26,6 @@ public class App {
 //        openCV.open("cut1.mp4");
 
 //        CEASlideTransitionDetectorManager.processVideo("medicalVideo.mp4");
-        CEASlideTransitionDetectorManager.evaluateAlgorithm("testInputFoodPartial.json");
+        CEASlideTransitionDetectorManager.evaluateAlgorithm("testInputEconomyPartial.json");
     }
 }

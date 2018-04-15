@@ -7,7 +7,7 @@ public class DefaultManager implements SlideRegionManager {
 
     @Override
     public SlideRegion getSlideRegion(Frame frame) {
-        SlideRegionDetector slideRegionDetector = new DefaultDetector();
+        SlideRegionDetector slideRegionDetector = new MultiBinarizationDetector();
         SlideRegion toRet = slideRegionDetector.detect(frame);
         if(toRet != null) {
             frame.setSlideRegionDetected();
