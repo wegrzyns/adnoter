@@ -1,14 +1,13 @@
 {
   "filePath": "O150884019100-60384716fl.mp4",
   "slideTransitions":
-    [ "PT2M55S",
+    [ "PT1M15S",
+      "PT2M55S",
       "PT15M6S",
       "PT16M3S",
       "PT16M47S",
       "PT17M5S",
       "PT19M23S",
-      "PT26M44S",
-      "PT26M47S",
       "PT27M13S",
       "PT28M17S",
       "PT28M51S",
@@ -27,7 +26,10 @@
       "PT1H20M43S",
       "PT1H22M16S",
       "PT1H22M19S",
+      "PT1H23M3S",
+      "PT1H23M22S",
       "PT1H26M48S",
-      "PT1H27M07S"
+      "PT1H27M7S",
+      "Pt1H36M4S"
     ]
 }

@@ -1,9 +1,6 @@
 package cea.video.slide_region;
 
-import cea.Util.ConfigurationUtil;
-import cea.Util.GenericUtil;
-import cea.Util.NumberUtil;
-import cea.Util.TypeUtil;
+import cea.Util.*;
 import cea.video.model.Frame;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
@@ -30,7 +27,7 @@ public class DefaultDetector implements SlideRegionDetector {
     private static final double MIN_FULL_HD_ASPECT_RATIO = FULL_HD_ASPECT_RATIO * (1 - ASPECT_RATIO_TOLERANCE);
     private static final double MAX_FULL_HD_ASPECT_RATIO = FULL_HD_ASPECT_RATIO * (1 + ASPECT_RATIO_TOLERANCE);
     private static final int GAUSSIAN_BLUR_KERNEL_SIZE = ConfigurationUtil.configuration().getInt("slideRegion.gaussianBlurKernelSize");
-    private static final int MORPHOLOGY_OPEN_KERNEL_SIZE = ConfigurationUtil.configuration().getInt("slideRegion.morphologyOpenKernelSize");
+    private static final int MORPHOLOGY_OPEN_KERNEL_SIZE = ConfigurationUtil.configuration().getInt("slideRegion.morphologyCloseKernelSize");
 
     @Override
     public SlideRegion detect(Frame frame) {
@@ -55,19 +52,19 @@ public class DefaultDetector implements SlideRegionDetector {
         frameArea = frame.getVideo().getFrameArea();
         slideRegionContour = selectSlideRegionContour(contours, frameArea);
 
-        copiedFrame.release();
         if(slideRegionContour != null) {
 
-            //VISUALIZATION
+//            VISUALIZATION
 //            List<MatOfPoint> arg = new ArrayList<>();
 //            arg.add(slideRegionContour);
 //            ImageDisplayUtil.drawContoursAndKeypoints(copiedFrame, true, arg, null);
 //            ImageDisplayUtil.showResult(copiedFrame, frame.getTimestamp());
-            //VISUALIZATION
+//            VISUALIZATION
 
             slideRegionMask = prepareMask(slideRegionContour, frame);
             return new SlideRegion(slideRegionMask, slideRegionContour);
         }
+        copiedFrame.release();
 
         logger.debug(String.format("No slide region found for frame at %s", frame.getTimestamp()));
         return null;
@@ -77,9 +74,9 @@ public class DefaultDetector implements SlideRegionDetector {
         Imgproc.cvtColor(frame, frame, Imgproc.COLOR_RGB2GRAY);
         Imgproc.GaussianBlur(frame, frame,  new Size(GAUSSIAN_BLUR_KERNEL_SIZE, GAUSSIAN_BLUR_KERNEL_SIZE), 0);
 //        Imgproc.adaptiveThreshold(frame, frame, 240, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 11, 2);
-        Imgproc.threshold(frame, frame, 200, BINARIZATION_INTENSITY_ABOVE_THRESHOLD, Imgproc.THRESH_OTSU);
+        Imgproc.threshold(frame, frame, 224, BINARIZATION_INTENSITY_ABOVE_THRESHOLD, Imgproc.THRESH_OTSU);
         Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(MORPHOLOGY_OPEN_KERNEL_SIZE, MORPHOLOGY_OPEN_KERNEL_SIZE));
-        Imgproc.morphologyEx(frame, frame, Imgproc.MORPH_OPEN, kernel);
+        Imgproc.morphologyEx(frame, frame, Imgproc.MORPH_CLOSE, kernel);
         kernel.release();
     }
 
@@ -91,9 +88,9 @@ public class DefaultDetector implements SlideRegionDetector {
 
     private MatOfPoint selectSlideRegionContour(List<MatOfPoint> contours, double frameArea) {
          return contours.stream()
-//                .map(this::approximateContour)
-                .filter(this::isAtLeastQuadrangle)
-//                .filter(this::isQuadrangle)
+                .map(this::approximateContour)
+//                .filter(this::isAtLeastQuadrangle)
+                .filter(this::isQuadrangle)
                 .filter(contour -> isAreaSufficient(contour, frameArea))
 //                .filter(this::isRectangle)
                 .filter(this::isAspectRatioCorrect)
@@ -104,11 +101,11 @@ public class DefaultDetector implements SlideRegionDetector {
     //TODO: better log represenation of slide region operations, non trivial
     public static List<String> slideRegionOperations() {
         List<String> toRet = new ArrayList<>();
-//        toRet.add("contour approximation");
-        toRet.add("at least quadrangle check");
-//        toRet.add("quadrangle check");
+        toRet.add("contour approximation");
+//        toRet.add("at least quadrangle check");
+        toRet.add("quadrangle check");
 //        toRet.add("rectangle check");
-//        toRet.add("aspect ratio check");
+        toRet.add("aspect ratio check");
         toRet.set(toRet.size()-1, toRet.get(toRet.size()-1) + "\n");
         return toRet;
     }
@@ -116,7 +113,7 @@ public class DefaultDetector implements SlideRegionDetector {
     private MatOfPoint approximateContour(MatOfPoint contour) {
         MatOfPoint2f contour2f = TypeUtil.convertMatToPoint2f(contour);
         double contourLength = Imgproc.arcLength(contour2f, true);
-        Imgproc.approxPolyDP(contour2f, contour2f, contourLength*0.05, true);
+        Imgproc.approxPolyDP(contour2f, contour2f, contourLength*0.02, true);
         return TypeUtil.convertPoint2fToMat(contour2f);
     }
 
@@ -139,7 +136,7 @@ public class DefaultDetector implements SlideRegionDetector {
         Point[] points = rectangleVertices.toArray();
         double diagonal1Len = Point2D.distance(points[0].x, points[0].y, points[2].x, points[2].y);
         double diagonal2Len = Point2D.distance(points[1].x, points[1].y, points[3].x, points[3].y);
-        return NumberUtil.between(diagonal1Len, diagonal2Len * 0.95, diagonal2Len * 1.05);
+        return NumberUtil.between(diagonal1Len, diagonal2Len * 0.97, diagonal2Len * 1.03);
     }
 
     //maybe it is better to not use boundingRect and do this on our rect?

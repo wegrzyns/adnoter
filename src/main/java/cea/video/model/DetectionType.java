@@ -1,5 +1,6 @@
 package cea.video.model;
 
 public enum DetectionType {
-    SlideChange
+    SlideChange,
+    SlideRegionToggle
 }

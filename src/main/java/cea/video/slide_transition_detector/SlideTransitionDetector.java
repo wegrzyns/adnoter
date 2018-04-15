@@ -6,6 +6,7 @@ import cea.video.frame_similarity.feature.FeatureType;
 import cea.video.model.Chunk;
 import cea.video.model.Detection;
 import cea.video.model.DetectionType;
+import cea.video.model.Frame;
 import cea.video.parser.VideoSampler;
 
 import java.util.ArrayList;
@@ -27,19 +28,60 @@ public abstract class SlideTransitionDetector {
         while(!stack.empty()) {
             computedChunk = fsd.computeChunkFramesSimiliarity(stack.pop());
             if(stopCondition(computedChunk)) {
-                toRet.add(new Detection(computedChunk.getMiddleFrame(), DetectionType.SlideChange, fsd.featureDetectorName()));
+                Detection detection = new Detection(computedChunk.getMiddleFrame());
+
+                if(computedChunk.frameMatchesNotComputed()) {
+                    detection.setType(DetectionType.SlideRegionToggle);
+                }
+                else {
+                    detection.setType(DetectionType.SlideChange);
+                }
+                toRet.add(detection);
+
                 closeChunk(computedChunk);
                 continue;
             }
 
             if(computedChunk.frameMatchesNotComputed()) {
-                closeChunk(computedChunk);
+                if(!slideRegionChange(computedChunk, stack, sampler)) {
+                    closeChunk(computedChunk);
+                }
                 continue;
             }
             checkForSlideTransition(computedChunk, stack, sampler);
         }
 
         return toRet;
+    }
+
+    private boolean slideRegionChange(Chunk computedChunk, Stack<Chunk> stack, VideoSampler sampler) {
+        if(slideRegionToggled(computedChunk)) {
+            if(slideRegionToggledLeftChunk(computedChunk)) {
+                stack.push(sampler.leftChunk(computedChunk));
+            }
+
+            if(slideRegionToggledRightChunk(computedChunk)) {
+                stack.push(sampler.rightChunk(computedChunk));
+            }
+
+            return true;
+        }
+        return false;
+    }
+
+    private boolean slideRegionToggledLeftChunk(Chunk computedChunk) {
+        return computedChunk.getFirstFrame().isSlideRegionDetected()
+                != computedChunk.getMiddleFrame().isSlideRegionDetected();
+    }
+
+    private boolean slideRegionToggledRightChunk(Chunk computedChunk) {
+        return computedChunk.getMiddleFrame().isSlideRegionDetected()
+                != computedChunk.getLastFrame().isSlideRegionDetected();
+    }
+
+    private boolean slideRegionToggled(Chunk chunk) {
+        return chunk.framesAsList().stream().anyMatch(Frame::isSlideRegionDetected) &&
+                chunk.framesAsList().stream().anyMatch(frame -> !frame.isSlideRegionDetected());
     }
 
     void closeChunk(Chunk chunk) {

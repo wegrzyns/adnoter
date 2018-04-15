@@ -16,6 +16,7 @@ public class Frame implements AutoCloseable {
     private Video video;
     private Map<FeatureType, Boolean> isFeatureComputed;
     private Map<FeatureType, Feature> features;
+    private boolean slideRegionDetected;
 
     public Frame(Mat frame, long position, Duration timestamp, Video video) {
         this.frame = frame;
@@ -27,10 +28,11 @@ public class Frame implements AutoCloseable {
         for(FeatureType featureType: FeatureType.values()) {
             isFeatureComputed.put(featureType, false);
         }
+        this.slideRegionDetected = false;
     }
 
     public synchronized Mat getFrame() {
-        if(frame == null) {
+        if(frame == null || frame.empty()) {
             this.frame = video.frame(position);
             this.timestamp = video.timeStamp(position);
         }
@@ -79,6 +81,14 @@ public class Frame implements AutoCloseable {
 
     public synchronized void addFeature(FeatureType featureType, Feature feature) {
         features.put(featureType, feature);
+    }
+
+    public void setSlideRegionDetected() {
+        this.slideRegionDetected = true;
+    }
+
+    public boolean isSlideRegionDetected() {
+        return slideRegionDetected;
     }
 
     @Override

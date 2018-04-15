@@ -8,6 +8,10 @@ public class DefaultManager implements SlideRegionManager {
     @Override
     public SlideRegion getSlideRegion(Frame frame) {
         SlideRegionDetector slideRegionDetector = new DefaultDetector();
-        return slideRegionDetector.detect(frame);
+        SlideRegion toRet = slideRegionDetector.detect(frame);
+        if(toRet != null) {
+            frame.setSlideRegionDetected();
+        }
+        return toRet;
     }
 }

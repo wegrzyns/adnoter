@@ -5,7 +5,11 @@ public class Detection implements Comparable<Detection>{
     private Frame frame;
     private DetectionType type;
 
-    public Detection(Frame frame, DetectionType type, String featureDetectorName) {
+    public Detection(Frame frame) {
+        this.frame = frame;
+    }
+
+    public Detection(Frame frame, DetectionType type) {
         this.frame = frame;
         this.type = type;
     }

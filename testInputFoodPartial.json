@@ -1,7 +1,7 @@
 {
   "filePath": "O150996520500-83143085fl.mp4",
   "slideTransitions":
-    [ "PT6M5S",   //slide region in
+    [ "PT6M5S",
       "PT6M10S",
       "PT7M8S",
       "PT7M59S",
@@ -15,7 +15,6 @@
       "PT14M35S",
       "PT14M57S",
       "PT15M39S",
-      "PT17M7S",    //skippable
       "PT17M8S",
       "PT18M24S",
       "PT19M25S",
@@ -35,17 +34,13 @@
       "PT30M1S",
       "PT30M24S",
       "PT30M47S",
-      "PT31M17S",   //slide region out
-      "PT39M29S",   //slide region in
+      "PT31M17S",
+      "PT39M29S",
       "PT40M",
       "PT41M14S",
       "PT41M45S",
       "PT42M34S",
       "PT43M44S",
-//      "PT43M49S",   //skippable
-//      "PT43M50S",   //skippable?
-//      "PT43M54S",   //skippable
-//      "PT43M55S",   //skippable
       "PT43M56S",
       "PT44M47S",
       "PT45M23S",
@@ -59,12 +54,12 @@
       "PT49M57S",
       "PT52M16S",
       "PT53M24S",
-      "PT54M36S",   //slide region out
-      "PT1H12M44S", //slide region in
+      "PT54M36S",
+      "PT1H12M44S",
       "PT1H13M22S",
       "PT1H17M40S",
-      "PT1H22M38S", //slide region out
-      "PT1H28M12S", //slide region in
-      "PT1H31M38S" //slide region out
+      "PT1H22M38S",
+      "PT1H28M12S",
+      "PT1H31M38S"
     ]
 }
