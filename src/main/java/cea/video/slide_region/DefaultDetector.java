@@ -23,7 +23,7 @@ public class DefaultDetector extends SlideRegionDetector {
         Imgproc.GaussianBlur(frame, frame,  new Size(GAUSSIAN_BLUR_KERNEL_SIZE, GAUSSIAN_BLUR_KERNEL_SIZE), 0);
 //        Imgproc.adaptiveThreshold(frame, frame, 240, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 11, 2);
         Imgproc.threshold(frame, frame, 208, BINARIZATION_INTENSITY_ABOVE_THRESHOLD, Imgproc.THRESH_OTSU);
-        Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(MORPHOLOGY_OPEN_KERNEL_SIZE, MORPHOLOGY_OPEN_KERNEL_SIZE));
+        Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(MORPHOLOGY_CLOSE_KERNEL_SIZE, MORPHOLOGY_CLOSE_KERNEL_SIZE));
         Imgproc.morphologyEx(frame, frame, Imgproc.MORPH_CLOSE, kernel);
         kernel.release();
     }

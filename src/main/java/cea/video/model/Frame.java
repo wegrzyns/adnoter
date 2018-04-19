@@ -3,9 +3,11 @@ package cea.video.model;
 import cea.video.frame_similarity.feature.Feature;
 import cea.video.frame_similarity.feature.FeatureType;
 import org.opencv.core.Mat;
+import org.opencv.core.Point;
 
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Frame implements AutoCloseable {
@@ -17,6 +19,7 @@ public class Frame implements AutoCloseable {
     private Map<FeatureType, Boolean> isFeatureComputed;
     private Map<FeatureType, Feature> features;
     private boolean slideRegionDetected;
+    private List<Point> slideRegionVertices;
 
     public Frame(Mat frame, long position, Duration timestamp, Video video) {
         this.frame = frame;
@@ -91,6 +94,14 @@ public class Frame implements AutoCloseable {
         return slideRegionDetected;
     }
 
+    public List<Point> getSlideRegionVertices() {
+        return slideRegionVertices;
+    }
+
+    public void setSlideRegionVertices(List<Point> slideRegionVertices) {
+        this.slideRegionVertices = slideRegionVertices;
+    }
+
     @Override
     public String toString() {
         return "Frame{" +
@@ -101,6 +112,5 @@ public class Frame implements AutoCloseable {
     @Override
     public void close() throws Exception {
         frame.release();
-
     }
 }

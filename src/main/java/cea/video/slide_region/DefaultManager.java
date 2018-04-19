@@ -11,6 +11,7 @@ public class DefaultManager implements SlideRegionManager {
         SlideRegion toRet = slideRegionDetector.detect(frame);
         if(toRet != null) {
             frame.setSlideRegionDetected();
+            frame.setSlideRegionVertices(toRet.getSlideRegionAsPoints());
         }
         return toRet;
     }

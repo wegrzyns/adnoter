@@ -1,4 +1,4 @@
-package cea.video.parser;
+package cea.video.input;
 
 import cea.video.model.Chunk;
 import cea.video.model.Frame;

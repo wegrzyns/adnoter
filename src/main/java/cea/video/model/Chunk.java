@@ -50,7 +50,9 @@ public class Chunk implements AutoCloseable{
     @Override
     public void close() throws Exception {
         for (Frame frame: framesAsList()) {
-            frame.close();
+            if(frame.getFrame() != null) {
+                frame.close();
+            }
         }
     }
 

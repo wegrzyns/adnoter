@@ -1,4 +1,4 @@
-package cea.video.parser.stubs;
+package cea.video.input.stubs;
 
 import cea.video.model.Frame;
 import org.opencv.core.Mat;

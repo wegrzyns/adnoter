@@ -1,4 +1,4 @@
-package cea.video.parser;
+package cea.video.input;
 
 import cea.video.model.Chunk;
 import cea.video.model.SamplerDTO;
@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.opencv.core.Mat;
 import cea.video.model.Frame;
 import cea.video.model.Video;
-import cea.video.parser.stubs.VideoStub;
+import cea.video.input.stubs.VideoStub;
 
 import java.time.Duration;
 import java.util.List;

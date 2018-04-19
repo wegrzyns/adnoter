@@ -1,4 +1,4 @@
-package cea.video.parser;
+package cea.video.input;
 
 import org.junit.Test;
 import cea.video.model.Video;

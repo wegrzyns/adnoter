@@ -28,7 +28,7 @@ public abstract class SlideRegionDetector {
     protected static final double MIN_FULL_HD_ASPECT_RATIO = FULL_HD_ASPECT_RATIO * (1 - ASPECT_RATIO_TOLERANCE);
     protected static final double MAX_FULL_HD_ASPECT_RATIO = FULL_HD_ASPECT_RATIO * (1 + ASPECT_RATIO_TOLERANCE);
     protected static final int GAUSSIAN_BLUR_KERNEL_SIZE = ConfigurationUtil.configuration().getInt("slideRegion.gaussianBlurKernelSize");
-    protected static final int MORPHOLOGY_OPEN_KERNEL_SIZE = ConfigurationUtil.configuration().getInt("slideRegion.morphologyCloseKernelSize");
+    protected static final int MORPHOLOGY_CLOSE_KERNEL_SIZE = ConfigurationUtil.configuration().getInt("slideRegion.morphologyCloseKernelSize");
 
     public SlideRegion detect(Frame frame) {
         Mat copiedFrame = frame.getFrame().clone();

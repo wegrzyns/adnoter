@@ -2,8 +2,11 @@ package cea.video.model;
 
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
+import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
+
+import java.util.List;
 
 public class SlideRegion implements AutoCloseable {
 
@@ -63,6 +66,10 @@ public class SlideRegion implements AutoCloseable {
 
     public boolean containsPoint(int x, int y) {
         return slideRegionMask.get(y, x)[0] == 1.0;
+    }
+
+    public List<Point> getSlideRegionAsPoints() {
+        return slideRegionContour.toList();
     }
 
     @Override

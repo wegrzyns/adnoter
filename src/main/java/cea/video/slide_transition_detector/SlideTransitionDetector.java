@@ -7,7 +7,7 @@ import cea.video.model.Chunk;
 import cea.video.model.Detection;
 import cea.video.model.DetectionType;
 import cea.video.model.Frame;
-import cea.video.parser.VideoSampler;
+import cea.video.input.VideoSampler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +28,15 @@ public abstract class SlideTransitionDetector {
         while(!stack.empty()) {
             computedChunk = fsd.computeChunkFramesSimiliarity(stack.pop());
             if(stopCondition(computedChunk)) {
-                Detection detection = new Detection(computedChunk.getMiddleFrame());
+                //TODO: better handling, this is dirty hax
+                computedChunk.getLastFrame().setTimestamp(computedChunk.getMiddleFrame().getTimestamp());
+                Detection detection = new Detection(computedChunk.getLastFrame());
 
                 if(computedChunk.frameMatchesNotComputed()) {
-                    detection.setType(DetectionType.SlideRegionToggle);
+                    detection.setType(DetectionType.SLIDE_REGION_TOGGLE);
                 }
                 else {
-                    detection.setType(DetectionType.SlideChange);
+                    detection.setType(DetectionType.SLIDE_CHANGE);
                 }
                 toRet.add(detection);
 

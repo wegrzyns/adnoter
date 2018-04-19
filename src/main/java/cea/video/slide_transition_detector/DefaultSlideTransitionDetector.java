@@ -1,7 +1,7 @@
 package cea.video.slide_transition_detector;
 
 import cea.video.model.Chunk;
-import cea.video.parser.VideoSampler;
+import cea.video.input.VideoSampler;
 
 import java.util.Stack;
 

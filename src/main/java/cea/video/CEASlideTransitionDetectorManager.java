@@ -4,6 +4,7 @@ import cea.Util.ConfigurationUtil;
 import cea.Util.JsonUtil;
 import cea.evaluation.measure.Measure;
 import cea.evaluation.model.CEABaseline;
+import cea.video.output.VideoOutput;
 import cea.video.slide_region.DefaultDetector;
 import cea.video.slide_transition_detector.StdDeviationSTD;
 import cea.video.model.Detection;
@@ -13,8 +14,8 @@ import cea.video.slide_transition_detector.SlideTransitionDetector;
 import cea.video.model.Chunk;
 import cea.video.model.SamplerDTO;
 import cea.video.model.Video;
-import cea.video.parser.VideoReader;
-import cea.video.parser.VideoSampler;
+import cea.video.input.VideoReader;
+import cea.video.input.VideoSampler;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -67,6 +68,7 @@ public class CEASlideTransitionDetectorManager {
         Instant start = Instant.now();
 
         List<Detection> detections = processVideo(baseline.getFilePath());
+        VideoOutput.createOutputAnnotation(detections, baseline.getFilePath());
 
         Instant end = Instant.now();
 
@@ -75,7 +77,7 @@ public class CEASlideTransitionDetectorManager {
                 DateTimeFormatter.ofLocalizedDateTime( FormatStyle.SHORT )
                         .withZone( ZoneId.systemDefault() );
         logger.info(String.format("Date: %s", formatter.format(Instant.now())));
-        logger.info(String.format("File name: %s",baseline.getFilePath()));
+        logger.info(String.format("File name: %s", baseline.getFilePath()));
         printSamplingDuration();
         logger.info(String.format("Overall execution time %s\n", Duration.between(start, end)));
 

@@ -39,7 +39,7 @@ public class MultiBinarizationDetector extends SlideRegionDetector {
         Imgproc.GaussianBlur(frame, frame,  new Size(GAUSSIAN_BLUR_KERNEL_SIZE, GAUSSIAN_BLUR_KERNEL_SIZE), 0);
         Imgproc.threshold(frame, frame, binarizationThreshold, BINARIZATION_INTENSITY_ABOVE_THRESHOLD, Imgproc.THRESH_BINARY);
 //        ImageDisplayUtil.showResult(frame, Duration.ZERO);
-//        Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(MORPHOLOGY_OPEN_KERNEL_SIZE, MORPHOLOGY_OPEN_KERNEL_SIZE));
+//        Mat kernel = Imgproc.getStructuringElement(Imgproc.CV_SHAPE_RECT, new Size(MORPHOLOGY_CLOSE_KERNEL_SIZE, MORPHOLOGY_CLOSE_KERNEL_SIZE));
 //        Imgproc.morphologyEx(frame, frame, Imgproc.MORPH_CLOSE, kernel);
 //        kernel.release();
 
