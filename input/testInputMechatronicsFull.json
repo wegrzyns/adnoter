@@ -1,0 +1,91 @@
+{
+  "filePath": "_AGH_Mechanika_mechatronika_LO_A_13.04.2018_07_09_",
+  "slideTransitions":
+  [ "PT18M13S",    //slide region in
+    "PT22M5S",
+    "PT23M29S",
+    "PT24M23S",
+    "PT26M26S",
+    "PT33M7S",
+    "PT34M9S",
+    "PT35M27S",   //partial
+    "PT36M30S",   //partial
+    "PT37M50S",   //partial
+    "PT38M31S",   //partial
+    "PT39M18S",
+    "PT39M27S",
+    "PT39M36S",   //partial
+    "PT39M54S",   //partial
+    "PT40M",      //partial
+    "PT40M5S",    //partial
+    "PT42M19S",   //partial
+    "PT47M6S",
+    "PT47M24S",
+    "PT48M47S",   //partial
+    "PT51M35S",
+    "PT52M23S",   //partial
+    "PT52M28S",
+    "PT56M12S",   //partial
+    "PT56M26S",
+    "PT58M11S",   //partial
+    "PT58M32S",
+    "PT1H10S",
+    "PT1H1M50S",  //partial
+    "PT1H2M8S",
+    "PT1H2M36S",  //partial
+    "PT1H4M42S",
+    "PT1H6M57S",
+    "PT1H11M6S",
+    "PT1H14M9S",
+    "PT1H17M10S",
+    "PT1H23M5S",  //partial
+    "PT1H23M17S",
+    "PT1H24M20S", //partial
+    "PT1H24M44S",
+    "PT1H26M52S", //partial
+    "PT1H27M7S",
+    "PT1H28M",
+    "PT1H28M9S",
+    "PT1H29M9S",
+    "PT1H30M",
+    "PT1H31M22S",
+    "PT1H32M11S", //partial
+    "PT1H32M52S", //partial
+    "PT1H34M30S",
+    "PT1H34M38S", //slide region out
+    "PT1H35M12S", //slide region in
+    "PT1H36M23S", //partial
+    "PT1H36M37S",
+    "PT1H37M5S",  //partial
+    "PT1H37M9S",
+    "PT1H39M10S",
+    "PT1H39M44S", //skippable
+    "PT1H39M46S",
+    "PT1H41M15S",
+    "PT1H41M50S",
+    "PT1H42M25S",
+    "PT1H42M43S",
+    "PT1H43M46S",
+    "PT1H44M35S",
+    "PT1H44M40S",
+    "PT1H44M52S", //partial
+    "PT1H45M6S",  //partial
+    "PT1H45M20S", //partial
+    "PT1H45M23S", //partial
+    "PT1H45M38S",
+    "PT1H45M39S", //partial
+    "PT1H45M51S", //partial
+    "PT1H46M25S", //partial
+    "PT1H46M39S", //partial
+    "PT1H46M45S",
+    "PT1H46M51S", //partial
+    "PT1H46M59S", //partial
+    "PT1H47M3S",  //partial
+    "PT1H47M7S",  //partial
+    "PT1H47M27S", //slide region out
+
+
+
+
+  ]
+}

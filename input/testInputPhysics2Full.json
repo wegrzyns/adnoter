@@ -1,0 +1,15 @@
+{
+  "filePath": "_AGH_Fizyka_KN_13.04.2018_07_24_.mp4",
+  "slideTransitions":
+    [ "PT25S",      //slide region in
+      "PT2M34S",    //slide region out
+      "PT2M37S",    //slide region in
+      "PT2M39S",
+      "PT11M35S",   //slide region out
+      "PT17M29S",   //slide region in
+      "PT19M10S",   //slide region out
+      "PT43M21S",   //slide region in
+      "PT43M44S",   //slide region out
+      "PT1H36M25S" //slide region in
+    ]
+}
