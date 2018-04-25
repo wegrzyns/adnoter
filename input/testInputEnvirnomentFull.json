@@ -1,0 +1,84 @@
+{
+  "filePath": "_UR_rodowisko_LO_19.03.2018_07_14_.mp4",
+  "slideTransitions":
+    [ "PT14M12S",   //slide region in
+      "PT22M45S",
+      "PT23M2S",    //partial
+      "PT23M3S",    //partial
+      "PT23M4S",    //partial
+      "PT24M5S",
+      "PT27M56S",
+      "PT27M58S",   //partial
+      "PT27M59S",   //partial
+      "PT28M",      //partial
+      "PT28M2S",    //partial
+      "PT28M6S",    //partial
+      "PT28M15S",   //partial
+      "PT28M53S",
+      "PT30M17S",
+      "PT33M43S",
+      "PT37M33S",
+      "PT37M49S",   //partial
+      "PT39M22S",   //partial
+      "PT40M10S",   //partial
+      "PT40M21S",   //partial
+      "PT40M45S",   //partial
+      "PT41M24S",
+      "PT41M25S",   //partial
+      "PT41M54S",   //partial
+      "PT42M12S",   //partial
+      "PT42M40S",   //partial
+      "PT43M13S",
+      "PT44M3S",    //partial
+      "PT44M17S",   //partial
+      "PT44M45S",   //partial
+      "PT44M59S",   //partial
+      "PT45M22S",   //partial
+      "PT45M43S",
+      "PT45M45S",   //partial
+      "PT46M11S",   //partial
+      "PT46M39S",   //partial
+      "PT46M57S",   //partial
+      "PT47M2S",    //partial
+      "PT47M21S",
+      "PT48M2S",
+      "PT48M37S",
+      "PT49M39S",
+      "PT50M39S",
+      "PT52M31S",   //skippable
+      "PT52M34S",   //skippable
+      "PT52M45S",
+      "PT54M4S",
+      "PT56M34S",
+      "PT56M44S",   //partial
+      "PT56M47S",   //partial
+      "PT56M49S",   //partial
+      "PT57M20S",
+      "PT58M15S",
+      "PT59M5S",
+      "PT59M56S",
+      "PT1H43S",    //slide region out
+      "PT1H46S",    //slide region in
+      "PT1H47S",
+      "PT1H52S",    //partial
+      "PT1H54S",    //partial
+      "PT1H1M41S",
+      "PT1H2M23S",
+      "PT1H4M",
+      "PT1H5M20S",
+      "PT1H6M39S",
+      "PT1H10M20S",
+      "PT1H11M49S",
+      "PT1H13M2S",
+      "PT1H14M30S", //partial
+      "PT1H14M32S", //partial
+      "PT1H16M27S",
+      "PT1H16M29S", //partial
+      "PT1H16M31S", //partial
+      "PT1H17M3S",  //partial
+      "PT1H17M5S",  //partial
+      "PT1H17M7S",  //partial
+      "PT1H18M7S",
+      "PT1H19M52S", //slide region out
+    ]
+}

@@ -1,0 +1,83 @@
+{
+  "filePath": "_UR_ywno_LO_A_26.03.2018_07_21_.mp4",
+  "slideTransitions":
+    [ "PT14M41S",   //slide region in
+      "PT14M50S",
+      "PT15M1S",    //skippable
+      "PT15M3S",    //skippable
+      "PT15M5S",    //skippable
+      "PT15M7S",
+      "PT15M38S",
+      "PT16M37S",
+      "PT16M53S",
+      "PT18M34S",
+      "PT19M11S",
+      "PT19M25S",
+      "PT20M43S",
+      "PT22M23S",   //slide region out
+      "PT24M59S",   //slide region in
+      "PT28M57S",   //slide region out
+      "PT32M30S",   //slide region in
+      "PT32M31S",
+      "PT32M44S",   //skippable
+      "PT32M45S",   //skippable
+      "PT32M46S",
+      "PT33M14S",
+      "PT34M21S",
+      "PT35M3S",
+      "PT35M19S",   //skippable
+      "PT35M22S",
+      "PT37M39S",   //slide region out
+      "PT46M49S",   //slide region in
+      "PT47M11S",
+      "PT47M16S",
+      "PT47M22S",
+      "PT47M35S",   //partial
+      "PT47M36S",
+      "PT48M13S",   //skippable
+      "PT48M16S",
+      "PT50M48S",   //skippable
+      "PT50M49S",
+      "PT51M36S",   //slide region out
+      "PT57M11S",   //slide region in
+      "PT57M39S",
+      "PT57M59S",   //skippable
+      "PT58M1S",
+      "PT58M7S",
+      "PT59M43S",   //slide region out
+      "PT1H6M54S",  //slide region in
+      "PT1H7M15S",
+      "PT1H7M22S",  //skippable
+      "PT1H7M24S",
+      "PT1H8M51S",  //slide region out
+      "PT1H17M16S", //slide region in
+      "PT1H19M35S",
+      "PT1H20M2S",
+      "PT1H20M37S", //skippable
+      "PT1H20M39S",
+      "PT1H26M54S", //slide region out
+      "PT1H28M29S", //slide region in
+      "PT1H29M6S",
+      "PT1H30M6S",
+      "PT1H30M26S",
+      "PT1H30M41S",
+      "PT1H30M45S",
+      "PT1H31M12S",
+      "PT1H32MS",   //skippable
+      "PT1H32M2S",
+      "PT1H32M14S",
+      "PT1H32M20S",
+      "PT1H32M42S",
+      "PT1H33M21S",
+      "PT1H33M56S", //skippable
+      "PT1H33M57S",
+      "PT1H36M32S",
+      "PT1H37M40S",
+      "PT1H38M13S",
+      "PT1H38M38S", //slide region out
+
+
+
+
+    ]
+}
