@@ -26,6 +26,37 @@ public class App {
 //        openCV.open("cut1.mp4");
 
 //        CEASlideTransitionDetectorManager.processVideo("medicalVideo.mp4");
-        CEASlideTransitionDetectorManager.evaluateAlgorithm("testInputFoodPartial.json");
+//        CEASlideTransitionDetectorManager
+//                .evaluateAlgorithm("input\\new\\testInputChemistryPartial.json");
+//
+//        CEASlideTransitionDetectorManager
+//                .evaluateAlgorithm("input\\new\\testInputEconomy2Partial.json");
+//
+//        CEASlideTransitionDetectorManager
+//                .evaluateAlgorithm("input\\new\\testInputEconomy3Partial.json");
+//
+//        CEASlideTransitionDetectorManager
+//                .evaluateAlgorithm("input\\new\\testInputEnglishPartial.json");
+//
+//        CEASlideTransitionDetectorManager
+//                .evaluateAlgorithm("input\\new\\testInputEnvirnomentPartial.json");
+//
+//        CEASlideTransitionDetectorManager
+//                .evaluateAlgorithm("input\\new\\testInputFood2Partial.json");
+//
+//        CEASlideTransitionDetectorManager
+//                .evaluateAlgorithm("input\\new\\testInputFood3Partial.json");
+
+//        CEASlideTransitionDetectorManager
+//                .evaluateAlgorithm("input\\new\\testInputMath1Partial.json");
+
+        CEASlideTransitionDetectorManager
+                .evaluateAlgorithm("input\\new\\testInputMechatronicsPartial.json");
+
+        CEASlideTransitionDetectorManager
+                .evaluateAlgorithm("input\\new\\testInputPhysics2Partial.json");
+
+        CEASlideTransitionDetectorManager
+                .evaluateAlgorithm("input\\new\\testInputTourism1Partial.json");
     }
 }

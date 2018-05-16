@@ -30,6 +30,17 @@ public class MultiBinarizationDetector extends SlideRegionDetector {
                     hierarchy.release();
                 });
 
+//        Mat frame = copiedFrame.clone();
+//        Imgproc.cvtColor(frame, frame, Imgproc.COLOR_RGB2GRAY);
+////        Imgproc.GaussianBlur(frame, frame,  new Size(GAUSSIAN_BLUR_KERNEL_SIZE, GAUSSIAN_BLUR_KERNEL_SIZE), 0);
+//        Imgproc.adaptiveThreshold(frame, frame, BINARIZATION_INTENSITY_ABOVE_THRESHOLD, Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C, Imgproc.THRESH_BINARY, 19, 2);
+//        ImageDisplayUtil.showResult(frame, Duration.ZERO);
+//        Mat hierarchy = new Mat();
+//        Imgproc.findContours(frame, contours, hierarchy, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);
+////        ImageDisplayUtil.drawContoursAndKeypoints(frame, true, contours.subList(contours.size()-2, contours.size()-1), null);
+////        ImageDisplayUtil.showResult(frame, Duration.ZERO);
+//        hierarchy.release();
+
         return contours;
     }
 
