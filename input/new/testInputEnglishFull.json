@@ -1,9 +1,9 @@
 {
   "filePath": "_UP_J_zyk_angielski_LO_09.04.2018_07_24_.mp4",
   "slideTransitions":
-    [ "PT1H28M37S",   //slide region in
-      "PT1H28M39S",
-      "PT1H29M3S",
-      "PT1H29M34S"   //slide region out
+    [ {"timestamp": "PT1H28M37S", "type": "SLIDE_REGION_IN"},
+      {"timestamp": "PT1H28M39S", "type": "FULL"},
+      {"timestamp": "PT1H29M3S", "type": "FULL"},
+      {"timestamp": "PT1H29M34S", "type": "SLIDE_REGION_OUT"}
     ]
 }

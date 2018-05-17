@@ -1,84 +1,84 @@
 {
   "filePath": "_UR_rodowisko_LO_19.03.2018_07_14_.mp4",
   "slideTransitions":
-    [ "PT14M12S",   //slide region in
-      "PT22M45S",
-      "PT23M2S",    //partial
-      "PT23M3S",    //partial
-      "PT23M4S",    //partial
-      "PT24M5S",
-      "PT27M56S",
-      "PT27M58S",   //partial
-      "PT27M59S",   //partial
-      "PT28M",      //partial
-      "PT28M2S",    //partial
-      "PT28M6S",    //partial
-      "PT28M15S",   //partial
-      "PT28M53S",
-      "PT30M17S",
-      "PT33M43S",
-      "PT37M33S",
-      "PT37M49S",   //partial
-      "PT39M22S",   //partial
-      "PT40M10S",   //partial
-      "PT40M21S",   //partial
-      "PT40M45S",   //partial
-      "PT41M24S",
-      "PT41M25S",   //partial
-      "PT41M54S",   //partial
-      "PT42M12S",   //partial
-      "PT42M40S",   //partial
-      "PT43M13S",
-      "PT44M3S",    //partial
-      "PT44M17S",   //partial
-      "PT44M45S",   //partial
-      "PT44M59S",   //partial
-      "PT45M22S",   //partial
-      "PT45M43S",
-      "PT45M45S",   //partial
-      "PT46M11S",   //partial
-      "PT46M39S",   //partial
-      "PT46M57S",   //partial
-      "PT47M2S",    //partial
-      "PT47M21S",
-      "PT48M2S",
-      "PT48M37S",
-      "PT49M39S",
-      "PT50M39S",
-      "PT52M31S",   //skippable
-      "PT52M34S",   //skippable
-      "PT52M45S",
-      "PT54M4S",
-      "PT56M34S",
-      "PT56M44S",   //partial
-      "PT56M47S",   //partial
-      "PT56M49S",   //partial
-      "PT57M20S",
-      "PT58M15S",
-      "PT59M5S",
-      "PT59M56S",
-      "PT1H43S",    //slide region out
-      "PT1H46S",    //slide region in
-      "PT1H47S",
-      "PT1H52S",    //partial
-      "PT1H54S",    //partial
-      "PT1H1M41S",
-      "PT1H2M23S",
-      "PT1H4M",
-      "PT1H5M20S",
-      "PT1H6M39S",
-      "PT1H10M20S",
-      "PT1H11M49S",
-      "PT1H13M2S",
-      "PT1H14M30S", //partial
-      "PT1H14M32S", //partial
-      "PT1H16M27S",
-      "PT1H16M29S", //partial
-      "PT1H16M31S", //partial
-      "PT1H17M3S",  //partial
-      "PT1H17M5S",  //partial
-      "PT1H17M7S",  //partial
-      "PT1H18M7S",
-      "PT1H19M52S", //slide region out
+    [ {"timestamp": "PT14M12S", "type": "SLIDE_REGION_IN"},
+      {"timestamp": "PT22M45S", "type": "FULL"},
+      {"timestamp": "PT23M2S", "type": "PARTIAL"},
+      {"timestamp": "PT23M3S", "type": "PARTIAL"},
+      {"timestamp": "PT23M4S", "type": "PARTIAL"},
+      {"timestamp": "PT24M5S", "type": "FULL"},
+      {"timestamp": "PT27M56S", "type": "FULL"},
+      {"timestamp": "PT27M58S", "type": "PARTIAL"},
+      {"timestamp": "PT27M59S", "type": "PARTIAL"},
+      {"timestamp": "PT28M", "type": "PARTIAL"},
+      {"timestamp": "PT28M2S", "type": "PARTIAL"},
+      {"timestamp": "PT28M6S", "type": "PARTIAL"},
+      {"timestamp": "PT28M15S", "type": "PARTIAL"},
+      {"timestamp": "PT28M53S", "type": "FULL"},
+      {"timestamp": "PT30M17S", "type": "FULL"},
+      {"timestamp": "PT33M43S", "type": "FULL"},
+      {"timestamp": "PT37M33S", "type": "FULL"},
+      {"timestamp": "PT37M49S", "type": "PARTIAL"},
+      {"timestamp": "PT39M22S", "type": "PARTIAL"},
+      {"timestamp": "PT40M10S", "type": "PARTIAL"},
+      {"timestamp": "PT40M21S", "type": "PARTIAL"},
+      {"timestamp": "PT40M45S", "type": "PARTIAL"},
+      {"timestamp": "PT41M24S", "type": "FULL"},
+      {"timestamp": "PT41M25S", "type": "PARTIAL"},
+      {"timestamp": "PT41M54S", "type": "PARTIAL"},
+      {"timestamp": "PT42M12S", "type": "PARTIAL"},
+      {"timestamp": "PT42M40S", "type": "PARTIAL"},
+      {"timestamp": "PT43M13S", "type": "FULL"},
+      {"timestamp": "PT44M3S", "type": "PARTIAL"},
+      {"timestamp": "PT44M17S", "type": "PARTIAL"},
+      {"timestamp": "PT44M45S", "type": "PARTIAL"},
+      {"timestamp": "PT44M59S", "type": "PARTIAL"},
+      {"timestamp": "PT45M22S", "type": "PARTIAL"},
+      {"timestamp": "PT45M43S", "type": "FULL"},
+      {"timestamp": "PT45M45S", "type": "PARTIAL"},
+      {"timestamp": "PT46M11S", "type": "PARTIAL"},
+      {"timestamp": "PT46M39S", "type": "PARTIAL"},
+      {"timestamp": "PT46M57S", "type": "PARTIAL"},
+      {"timestamp": "PT47M2S", "type": "PARTIAL"},
+      {"timestamp": "PT47M21S", "type": "FULL"},
+      {"timestamp": "PT48M2S", "type": "FULL"},
+      {"timestamp": "PT48M37S", "type": "FULL"},
+      {"timestamp": "PT49M39S", "type": "FULL"},
+      {"timestamp": "PT50M39S", "type": "FULL"},
+      {"timestamp": "PT52M31S", "type": "SKIPPABLE"},
+      {"timestamp": "PT52M34S", "type": "SKIPPABLE"},
+      {"timestamp": "PT52M45S", "type": "FULL"},
+      {"timestamp": "PT54M4S", "type": "FULL"},
+      {"timestamp": "PT56M34S", "type": "FULL"},
+      {"timestamp": "PT56M44S", "type": "PARTIAL"},
+      {"timestamp": "PT56M47S", "type": "PARTIAL"},
+      {"timestamp": "PT56M49S", "type": "PARTIAL"},
+      {"timestamp": "PT57M20S", "type": "FULL"},
+      {"timestamp": "PT58M15S", "type": "FULL"},
+      {"timestamp": "PT59M5S", "type": "FULL"},
+      {"timestamp": "PT59M56S", "type": "FULL"},
+      {"timestamp": "PT1H43S", "type": "SLIDE_REGION_OUT"},
+      {"timestamp": "PT1H46S", "type": "SLIDE_REGION_IN"},
+      {"timestamp": "PT1H47S", "type": "FULL"},
+      {"timestamp": "PT1H52S", "type": "PARTIAL"},
+      {"timestamp": "PT1H54S", "type": "PARTIAL"},
+      {"timestamp": "PT1H1M41S", "type": "FULL"},
+      {"timestamp": "PT1H2M23S", "type": "FULL"},
+      {"timestamp": "PT1H4M", "type": "FULL"},
+      {"timestamp": "PT1H5M20S", "type": "FULL"},
+      {"timestamp": "PT1H6M39S", "type": "FULL"},
+      {"timestamp": "PT1H10M20S", "type": "FULL"},
+      {"timestamp": "PT1H11M49S", "type": "FULL"},
+      {"timestamp": "PT1H13M2S", "type": "FULL"},
+      {"timestamp": "PT1H14M30S", "type": "PARTIAL"},
+      {"timestamp": "PT1H14M32S", "type": "PARTIAL"},
+      {"timestamp": "PT1H16M27S", "type": "FULL"},
+      {"timestamp": "PT1H16M29S", "type": "PARTIAL"},
+      {"timestamp": "PT1H16M31S", "type": "PARTIAL"},
+      {"timestamp": "PT1H17M3S", "type": "PARTIAL"},
+      {"timestamp": "PT1H17M5S", "type": "PARTIAL"},
+      {"timestamp": "PT1H17M7S", "type": "PARTIAL"},
+      {"timestamp": "PT1H18M7S", "type": "FULL"},
+      {"timestamp": "PT1H19M52S", "type": "SLIDE_REGION_OUT"}
     ]
 }

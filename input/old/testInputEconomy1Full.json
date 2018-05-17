@@ -1,30 +1,30 @@
 {
   "filePath": "O150970693400-09871274fl.mp4",
   "slideTransitions":
-    [ "PT3M53S",  //slide region in
-      "PT10M41S",
-      "PT12M40S",
-      "PT15M5S",
-      "PT15M17S", //partial
-      "PT24M28S", //partial
-      "PT27M1S",  //slide region out
-      "PT27M3S",  //slide region in
-      "PT28M16S", //slide region out
-      "PT28M18S", //slide region in
-      "PT48M25S", //partial
-      "PT48M29S",
-      "PT49M45S",
-      "PT49M49S",
-      "PT51M",
-      "PT51M58S",
-      "PT54M41S",
-      "PT1H10M45S", //skippable
-      "PT1H10M45S", //skippable
-      "PT1H10M46S", //skippable
-      "PT1H10M47S",
-      "PT1H11M3S",
-      "PT1H11M51S",
-      "PT1H28M57S",
-      "PT1H39M16S" //slide region out
+    [ {"timestamp": "PT3M53S", "type": "SLIDE_REGION_IN"},
+      {"timestamp": "PT10M41S", "type": "FULL"},
+      {"timestamp": "PT12M40S", "type": "FULL"},
+      {"timestamp": "PT15M5S", "type": "FULL"},
+      {"timestamp": "PT15M17S", "type": "PARTIAL"},
+      {"timestamp": "PT24M28S", "type": "PARTIAL"},
+      {"timestamp": "PT27M1S", "type": "SLIDE_REGION_OUT"},
+      {"timestamp": "PT27M3S", "type": "SLIDE_REGION_IN"},
+      {"timestamp": "PT28M16S", "type": "SLIDE_REGION_OUT"},
+      {"timestamp": "PT28M18S", "type": "SLIDE_REGION_IN"},
+      {"timestamp": "PT48M25S", "type": "PARTIAL"},
+      {"timestamp": "PT48M29S", "type": "FULL"},
+      {"timestamp": "PT49M45S", "type": "FULL"},
+      {"timestamp": "PT49M49S", "type": "FULL"},
+      {"timestamp": "PT51M", "type": "FULL"},
+      {"timestamp": "PT51M58S", "type": "FULL"},
+      {"timestamp": "PT54M41S", "type": "FULL"},
+      {"timestamp": "PT1H10M45S", "type": "SKIPPABLE"},
+      {"timestamp": "PT1H10M45S", "type": "SKIPPABLE"},
+      {"timestamp": "PT1H10M46S", "type": "SKIPPABLE"},
+      {"timestamp": "PT1H10M47S", "type": "FULL"},
+      {"timestamp": "PT1H11M3S", "type": "FULL"},
+      {"timestamp": "PT1H11M51S", "type": "FULL"},
+      {"timestamp": "PT1H28M57S", "type": "FULL"},
+      {"timestamp": "PT1H39M16S", "type": "SLIDE_REGION_OUT"}
     ]
 }

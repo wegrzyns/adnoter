@@ -1,15 +1,15 @@
 {
   "filePath": "_AGH_Fizyka_KN_13.04.2018_07_24_.mp4",
   "slideTransitions":
-    [ "PT25S",      //slide region in
-      "PT2M34S",    //slide region out
-      "PT2M37S",    //slide region in
-      "PT2M39S",
-      "PT11M35S",   //slide region out
-      "PT17M29S",   //slide region in
-      "PT19M10S",   //slide region out
-      "PT43M21S",   //slide region in
-      "PT43M44S",   //slide region out
-      "PT1H36M25S" //slide region in
+    [ {"timestamp": "PT25S", "type": "SLIDE_REGION_IN"},
+      {"timestamp": "PT2M34S", "type": "SLIDE_REGION_OUT"},
+      {"timestamp": "PT2M37S", "type": "SLIDE_REGION_IN"},
+      {"timestamp": "PT2M39S", "type": "FULL"},
+      {"timestamp": "PT11M35S", "type": "SLIDE_REGION_OUT"},
+      {"timestamp": "PT17M29S", "type": "SLIDE_REGION_IN"},
+      {"timestamp": "PT19M10S", "type": "SLIDE_REGION_OUT"},
+      {"timestamp": "PT43M21S", "type": "SLIDE_REGION_IN"},
+      {"timestamp": "PT43M44S", "type": "SLIDE_REGION_OUT"},
+      {"timestamp": "PT1H36M25S", "type": "SLIDE_REGION_IN"}
     ]
 }
