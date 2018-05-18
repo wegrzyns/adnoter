@@ -3,7 +3,9 @@ package cea.video;
 import cea.Util.ConfigurationUtil;
 import cea.Util.JsonUtil;
 import cea.evaluation.measure.Measure;
+import cea.evaluation.measure.SlideTransitionTypeFilter;
 import cea.evaluation.model.CEABaseline;
+import cea.evaluation.model.SlideTransition;
 import cea.video.output.VideoOutput;
 import cea.video.slide_region.DefaultDetector;
 import cea.video.slide_transition_detector.StdDeviationSTD;
@@ -95,7 +97,12 @@ public class CEASlideTransitionDetectorManager {
         logger.info(String.format("Detection Resolution: %.2f s", CHUNK_DURATION_SECONDS/2.0));
         logger.info(formattedParameter("feature.gaussianBlurKernelSize")+"\n");
 
-        Measure measure = new Measure(detections, baseline.getSlideTransitions());
+        List<Duration> baselineTimestamps = baseline.getSlideTransitions().stream()
+                .filter(SlideTransitionTypeFilter::filterSlideTransitions)
+                .map(SlideTransition::getTimestamp)
+                .collect(Collectors.toList());
+
+        Measure measure = new Measure(detections, baselineTimestamps);
 
         logger.info(String.format("Precision: %f (%f%%)", measure.precision(),  measure.precision()*100));
         logger.info(String.format("Recall: %f (%f%%)", measure.recall(), measure.recall()*100));

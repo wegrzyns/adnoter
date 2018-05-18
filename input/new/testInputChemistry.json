@@ -1,5 +1,5 @@
 {
-  "filePath": "_PK_Chemia_LO_19.04.2018_.mp4",
+  "filePath": "E:\\projekty\\mag\\docelowe_dane\\nowe_dane\\_PK_Chemia_LO_19.04.2018_.mp4",
   "slideTransitions":
     [ {"timestamp": "PT48S", "type": "FULL"},
       {"timestamp": "PT1M15S", "type": "SKIPPABLE"},
@@ -39,7 +39,7 @@
       {"timestamp": "PT38M30S", "type": "FULL"},
       {"timestamp": "PT38M59S", "type": "SKIPPABLE"},
       {"timestamp": "PT39M1S", "type": "SKIPPABLE"},
-      {"timestamp": "PT39M2S", "type": "FULL"},
+      {"timestamp": "PT39M2S", "type": "SKIPPABLE"},
       {"timestamp": "PT40M36S", "type": "FULL"},
       {"timestamp": "PT41M12S", "type": "FULL"},
       {"timestamp": "PT43M4S", "type": "FULL"},

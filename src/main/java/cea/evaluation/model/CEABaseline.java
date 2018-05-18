@@ -1,17 +1,16 @@
 package cea.evaluation.model;
 
-import java.time.Duration;
 import java.util.List;
 
 public class CEABaseline {
 
     private String filePath;
-    private List<Duration> slideTransitions;
+    private List<SlideTransition> slideTransitions;
 
     public CEABaseline() {
     }
 
-    public CEABaseline(String filePath, List<Duration> slideTransitions) {
+    public CEABaseline(String filePath, List<SlideTransition> slideTransitions) {
         this.filePath = filePath;
         this.slideTransitions = slideTransitions;
     }
@@ -24,11 +23,11 @@ public class CEABaseline {
         this.filePath = filePath;
     }
 
-    public List<Duration> getSlideTransitions() {
+    public List<SlideTransition> getSlideTransitions() {
         return slideTransitions;
     }
 
-    public void setSlideTransitions(List<Duration> slideTransitions) {
+    public void setSlideTransitions(List<SlideTransition> slideTransitions) {
         this.slideTransitions = slideTransitions;
     }
 }

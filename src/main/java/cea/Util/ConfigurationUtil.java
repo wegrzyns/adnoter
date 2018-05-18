@@ -7,14 +7,19 @@ import org.apache.commons.configuration2.ex.ConfigurationException;
 public class ConfigurationUtil {
     private static final Configurations configurations = new Configurations();
     private static final String configurationPath = "config.properties";
+    private static Configuration conf;
 
-    public static Configuration configuration() {
+    static {
         try {
-            return configurations.properties(configurationPath);
+            conf = configurations.properties(configurationPath);
         } catch (ConfigurationException e) {
             e.printStackTrace();
         }
-        return null;
+
+    }
+
+    public static Configuration configuration() {
+        return conf;
     }
 
 }
