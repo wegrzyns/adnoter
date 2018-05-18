@@ -27,7 +27,10 @@ public class App {
 
 //        CEASlideTransitionDetectorManager.processVideo("medicalVideo.mp4");
         CEASlideTransitionDetectorManager
-                .evaluateAlgorithm("input\\new\\testInputChemistryFull.json");
+                .evaluateAlgorithm("input\\old\\testInputPhysics1.json");
+
+//        CEASlideTransitionDetectorManager
+//                .evaluateAlgorithm("input\\new\\testInputChemistryFull.json");
 //
 //        CEASlideTransitionDetectorManager
 //                .evaluateAlgorithm("input\\new\\testInputEconomy2Partial.json");

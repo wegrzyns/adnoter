@@ -14,7 +14,7 @@ import java.util.stream.IntStream;
 public class MultiBinarizationDetector extends SlideRegionDetector {
 
     private static final int MIN_BINARIZATION_THRESHOLD = 16;
-    private static final int THRESHOLD_COUNT = 16;
+    private static final int THRESHOLD_COUNT = 3;
 
     protected List<MatOfPoint> findContours(Mat copiedFrame) {
         List<MatOfPoint> contours = new ArrayList<>();

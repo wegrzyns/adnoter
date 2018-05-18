@@ -1,5 +1,6 @@
 package cea.video.frame_similarity;
 
+import cea.Util.ImageDisplayUtil;
 import cea.video.frame_similarity.feature.*;
 import cea.video.model.Chunk;
 import cea.video.model.Frame;
@@ -7,7 +8,12 @@ import cea.video.model.SlideRegion;
 import cea.video.slide_region.DefaultManager;
 import cea.video.slide_region.SlideRegionManager;
 import javafx.util.Pair;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfDMatch;
+import org.opencv.features2d.BFMatcher;
+import org.opencv.features2d.Features2d;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -60,6 +66,12 @@ public class FrameSimilarityDetector {
                 .filter(i -> frameMatchNotComputed(chunk.getFrameMatch(i)))
                 .forEach(i -> chunk.setFrameMatch(i, matchFramesDescriptors(i, features)));
 
+        Mat image = new Mat();
+        MatOfDMatch descriptorMatches = new MatOfDMatch();
+        BFMatcher bfMatcher = BFMatcher.create(BFMatcher.BRUTEFORCE, true);
+        bfMatcher.match(features.get(1).keyPointDescriptors, features.get(2).keyPointDescriptors, descriptorMatches);
+        Features2d.drawMatches(features.get(1).framee.getFrame(), features.get(1).siftFeat, features.get(2).framee.getFrame(), features.get(2).siftFeat, descriptorMatches, image);
+        ImageDisplayUtil.showResult(image, Duration.ZERO);
         return chunk;
     }
 

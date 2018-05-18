@@ -37,6 +37,7 @@ public class Frame implements AutoCloseable {
     public synchronized Mat getFrame() {
         if(frame == null || frame.empty()) {
             this.frame = video.frame(position);
+            this.frame = (this.frame.submat(0, 540, 980, 1885));
             this.timestamp = video.timeStamp(position);
         }
         return frame;

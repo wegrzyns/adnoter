@@ -3,8 +3,13 @@ package cea.video.frame_similarity.feature;
 import cea.Util.ConfigurationUtil;
 import cea.video.model.Frame;
 import cea.video.model.SlideRegion;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfKeyPoint;
 
 public abstract class Feature implements AutoCloseable {
+    public Frame framee;
+    public MatOfKeyPoint siftFeat;
+    public Mat keyPointDescriptors;
 
     protected static final int GAUSSIAN_BLUR_KERNEL_SIZE = ConfigurationUtil.configuration().getInt("feature.gaussianBlurKernelSize");
 

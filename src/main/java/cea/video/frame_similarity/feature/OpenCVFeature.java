@@ -1,25 +1,37 @@
 package cea.video.frame_similarity.feature;
 
+import cea.Util.ImageDisplayUtil;
 import cea.video.model.Frame;
 import cea.video.model.SlideRegion;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfDMatch;
-import org.opencv.core.MatOfKeyPoint;
-import org.opencv.core.Size;
+import org.opencv.core.*;
 import org.opencv.features2d.BFMatcher;
 import org.opencv.features2d.Feature2D;
+import org.opencv.features2d.Features2d;
 import org.opencv.imgproc.Imgproc;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class OpenCVFeature extends Feature {
 
-    private Mat keyPointDescriptors;
+
 
     @Override
     public Feature detectFeature(Frame frame, SlideRegion slideRegion) {
         Mat preparedFrame = prepareFrame(frame);
         MatOfKeyPoint siftFeatures = detectFeatures(preparedFrame, slideRegion.getSlideRegionMask());
+//--------------VISUALIZATION
+        List<MatOfPoint> contours = new ArrayList<>();
+        contours.add(slideRegion.getSlideRegionContour());
+        ImageDisplayUtil.drawContoursAndKeypoints(preparedFrame, true, contours, siftFeatures);
+//        ImageDisplayUtil.showResult(preparedFrame, frame.getTimestamp());
+        frame.setFrame(preparedFrame);
+        this.framee = frame;
+        this.siftFeat = siftFeatures;
+//-------------END VISUALIZATION
         this.keyPointDescriptors = keyPointDescriptors(preparedFrame, siftFeatures);
-        preparedFrame.release();
+
+//        preparedFrame.release();
         try {
             slideRegion.close();
         } catch (Exception e) {
