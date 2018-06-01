@@ -1,12 +1,10 @@
 package cea.video;
 
 import cea.Util.ConfigurationUtil;
-import cea.Util.JsonUtil;
 import cea.evaluation.measure.Measure;
 import cea.evaluation.measure.SlideTransitionTypeFilter;
 import cea.evaluation.model.CEABaseline;
 import cea.evaluation.model.SlideTransition;
-import cea.video.output.VideoOutput;
 import cea.video.slide_region.DefaultDetector;
 import cea.video.slide_transition_detector.StdDeviationSTD;
 import cea.video.model.Detection;
@@ -19,7 +17,6 @@ import cea.video.model.Video;
 import cea.video.input.VideoReader;
 import cea.video.input.VideoSampler;
 
-import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -39,7 +36,7 @@ public class CEASlideTransitionDetectorManager {
 
     private static Logger logger = LoggerFactory.getLogger(CEASlideTransitionDetectorManager.class);
 
-    private static List<Detection> processVideo(String path) {
+    public static List<Detection> processVideo(String path) {
         Video video = VideoReader.readFile(path);
         VideoSampler sampler = new VideoSampler(video);
 
@@ -65,15 +62,7 @@ public class CEASlideTransitionDetectorManager {
         return samplerDTO;
     }
 
-    public static void evaluateAlgorithm(String pathToJsonInput) throws IOException {
-        CEABaseline baseline = JsonUtil.evaluationFromJson(pathToJsonInput);
-        Instant start = Instant.now();
-
-        List<Detection> detections = processVideo(baseline.getFilePath());
-        VideoOutput.createOutputAnnotation(detections, baseline.getFilePath());
-
-        Instant end = Instant.now();
-
+    public static void logSlideDetectionResult(List<Detection> detections, CEABaseline baseline, Duration executionTime) {
         logger.info("============= Slide Transition Detection Algorithm =============");
         DateTimeFormatter formatter =
                 DateTimeFormatter.ofLocalizedDateTime( FormatStyle.SHORT )
@@ -81,7 +70,7 @@ public class CEASlideTransitionDetectorManager {
         logger.info(String.format("Date: %s", formatter.format(Instant.now())));
         logger.info(String.format("File name: %s", baseline.getFilePath()));
         printSamplingDuration();
-        logger.info(String.format("Overall execution time %s\n", Duration.between(start, end)));
+        logger.info(String.format("Overall execution time %s\n", executionTime));
 
 
         ConfigurationUtil.configuration()
@@ -111,7 +100,6 @@ public class CEASlideTransitionDetectorManager {
         detections.stream()
                 .sorted()
                 .forEach(detection -> logger.info(detection.toString()));
-
     }
 
     private static void printSamplingDuration() {

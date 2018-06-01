@@ -1,7 +1,7 @@
 package cea.Util;
 
 import cea.evaluation.model.CEABaseline;
-import cea.video.output.AnnotationResult;
+import cea.output.AnnotationResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
