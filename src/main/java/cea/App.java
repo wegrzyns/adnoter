@@ -28,9 +28,11 @@ public class App {
 //        Audio audio = new Audio("O150884019100-60384716fl.mp4");
 //        audio.parseAudio();
 
-//        evaluateAlgorithm("input\\old\\testInputPhysics1.json");
+        evaluateAlgorithm("input\\old\\testInputPhysics1.json");
 //        evaluateAlgorithm("input\\old\\testInputEconomy1.json");
-        evaluateAlgorithm("input\\new\\testInputMath.json");
+//        evaluateAlgorithm("input\\new\\testInputMath.json");
+//        evaluateAlgorithm("input\\new\\testInputMechatronics.json");
+//        evaluateAlgorithm("input\\new\\testInputChemistry.json");
 //        evaluateAlgorithm("input\\inputOther.json");
     }
 
@@ -57,7 +59,7 @@ public class App {
 
         Instant end = Instant.now();
 
-        CEADiarization.logResults(baseline, Duration.between(start, end));
+        CEADiarization.logResults(baseline, Duration.between(start, end), diarizationResult);
         return diarizationResult;
     }
 

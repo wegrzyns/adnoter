@@ -6,13 +6,15 @@ public class CEABaseline {
 
     private String filePath;
     private List<SlideTransition> slideTransitions;
+    private List<SpeakerUtterance> speakerUtterances;
 
     public CEABaseline() {
     }
 
-    public CEABaseline(String filePath, List<SlideTransition> slideTransitions) {
+    public CEABaseline(String filePath, List<SlideTransition> slideTransitions, List<SpeakerUtterance> speakerUtterances) {
         this.filePath = filePath;
         this.slideTransitions = slideTransitions;
+        this.speakerUtterances = speakerUtterances;
     }
 
     public String getFilePath() {
@@ -29,5 +31,13 @@ public class CEABaseline {
 
     public void setSlideTransitions(List<SlideTransition> slideTransitions) {
         this.slideTransitions = slideTransitions;
+    }
+
+    public List<SpeakerUtterance> getSpeakerUtterances() {
+        return speakerUtterances;
+    }
+
+    public void setSpeakerUtterances(List<SpeakerUtterance> speakerUtterances) {
+        this.speakerUtterances = speakerUtterances;
     }
 }

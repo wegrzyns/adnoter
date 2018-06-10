@@ -492,7 +492,7 @@ public class SpeakerIdenificationDecision11 {
 /*
  * public static void putHeadScore(ClusterSet clusterSet) { logger.info("------ Use Video ------"); if (parameter.getParameterNamedSpeaker().isUseVideo()) { for (String name : clusterSet) { Cluster cluster = clusterSet.getCluster(name); // try to get
  * the audio cluster // score is put in audio if the video cluster name is equal to a audio cluster name // in this case, we suppose that head and speaker is link ModelScores modelScores = cluster.getModelScores(); for (String identity :
- * modelScores.keySet()) { double score = modelScores.get(identity); if (score > parameter.getParameterNamedSpeaker().getThresholdVideo()) { SpeakerName speakerName = cluster.getSpeakerName(SpeakerNameUtils.normalizeSpeakerName(identity));
+ * modelScores.keySet()) { double score = modelScores.get(identity); if (score > parameter.getParameterNamedSpeaker().getThresholdVideo()) { SpeakerName speakerName = cluster.getSpeaker(SpeakerNameUtils.normalizeSpeakerName(identity));
  * speakerName.addScoreCluster(score); } } } } }
  */
 	/**

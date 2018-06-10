@@ -1,7 +1,7 @@
 package cea.video;
 
 import cea.Util.ConfigurationUtil;
-import cea.evaluation.measure.Measure;
+import cea.evaluation.measure.SlideTransitionMeasure;
 import cea.evaluation.measure.SlideTransitionTypeFilter;
 import cea.evaluation.model.CEABaseline;
 import cea.evaluation.model.SlideTransition;
@@ -91,11 +91,11 @@ public class CEASlideTransitionDetectorManager {
                 .map(SlideTransition::getTimestamp)
                 .collect(Collectors.toList());
 
-        Measure measure = new Measure(detections, baselineTimestamps);
+        SlideTransitionMeasure slideTransitionMeasure = new SlideTransitionMeasure(detections, baselineTimestamps);
 
-        logger.info(String.format("Precision: %f (%f%%)", measure.precision(),  measure.precision()*100));
-        logger.info(String.format("Recall: %f (%f%%)", measure.recall(), measure.recall()*100));
-        logger.info(String.format("F-measure: %f (%f%%)\n", measure.fMeasure(), measure.fMeasure()*100));
+        logger.info(String.format("Precision: %f (%f%%)", slideTransitionMeasure.precision(),  slideTransitionMeasure.precision()*100));
+        logger.info(String.format("Recall: %f (%f%%)", slideTransitionMeasure.recall(), slideTransitionMeasure.recall()*100));
+        logger.info(String.format("F-slideTransitionMeasure: %f (%f%%)\n", slideTransitionMeasure.fMeasure(), slideTransitionMeasure.fMeasure()*100));
 
         detections.stream()
                 .sorted()

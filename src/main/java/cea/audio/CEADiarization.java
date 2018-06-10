@@ -1,9 +1,11 @@
 package cea.audio;
 
 import cea.App;
+import cea.audio.model.CEASpeakerSegment;
 import cea.audio.model.DiarizationResult;
 import cea.audio.model.DiarizationResultDTO;
 import cea.audio.parser.Audio;
+import cea.evaluation.measure.DiarizationMeasure;
 import cea.evaluation.model.CEABaseline;
 import fr.lium.spkDiarization.lib.DiarizationException;
 import fr.lium.spkDiarization.lib.SpkDiarizationLogger;
@@ -20,6 +22,10 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CEADiarization {
 
@@ -32,6 +38,7 @@ public class CEADiarization {
     }
 
     public void launchDiarization(CEABaseline baseline) throws InvocationTargetException, IllegalAccessException {
+        //TODO: after diariziation completes or crashes delete temporary converted .wav file
         String[] args = prepareInput(baseline);
         try {
             SpkDiarizationLogger.setup();
@@ -89,7 +96,7 @@ public class CEADiarization {
 
     }
 
-    public static void logResults(CEABaseline baseline, Duration executionTime) {
+    public static void logResults(CEABaseline baseline, Duration executionTime, DiarizationResult diarizationResult) {
         logger.info("============= Speaker Diarization Algorithm =============");
         DateTimeFormatter formatter =
                 DateTimeFormatter.ofLocalizedDateTime( FormatStyle.SHORT )
@@ -97,5 +104,23 @@ public class CEADiarization {
         logger.info(String.format("Date: %s", formatter.format(Instant.now())));
         logger.info(String.format("File name: %s", baseline.getFilePath()));
         logger.info(String.format("Overall execution time %s\n", executionTime));
+
+        DiarizationMeasure diarizationMeasure = new DiarizationMeasure(diarizationResult, createBaselineSpeakerUtterancemap(baseline));
+        diarizationMeasure.diarizationErrorRate();
+
+    }
+
+    private static Map<String, List<CEASpeakerSegment>> createBaselineSpeakerUtterancemap(CEABaseline baseline) {
+        Map<String, List<CEASpeakerSegment>> baselineSpeakerUtterancesMap = new HashMap<>();
+
+        baseline.getSpeakerUtterances().forEach(speakerUtterance -> {
+            String speakerName = speakerUtterance.getSpeaker();
+            if(!baselineSpeakerUtterancesMap.containsKey(speakerName)) {
+                baselineSpeakerUtterancesMap.put(speakerName, new ArrayList<>());
+            }
+            baselineSpeakerUtterancesMap.get(speakerName).add(new CEASpeakerSegment(speakerUtterance.getTimestamp(), speakerUtterance.getLength()));
+        });
+
+        return baselineSpeakerUtterancesMap;
     }
 }
