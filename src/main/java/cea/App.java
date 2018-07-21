@@ -28,7 +28,11 @@ public class App {
 //        Audio audio = new Audio("O150884019100-60384716fl.mp4");
 //        audio.parseAudio();
 
-        evaluateAlgorithm("input\\old\\testInputPhysics1.json");
+//        evaluateAlgorithm("input\\old\\testInputPhysics1.json");
+//        evaluateAlgorithm("input\\old\\testInputFood1.json");
+        evaluateComputedDiarization("input\\old\\testInputPhysics1.json", "input\\computed_results\\O150884019100-60384716fl.json");
+//        evaluateComputedDiarization("input\\old\\testInputFood1.json", "input\\computed_results\\O150996520500-83143085fl.json");
+
 //        evaluateAlgorithm("input\\old\\testInputEconomy1.json");
 //        evaluateAlgorithm("input\\new\\testInputMath.json");
 //        evaluateAlgorithm("input\\new\\testInputMechatronics.json");
@@ -61,6 +65,13 @@ public class App {
 
         CEADiarization.logResults(baseline, Duration.between(start, end), diarizationResult);
         return diarizationResult;
+    }
+
+    private static void evaluateComputedDiarization(String pathToJsonInput, String pathToComputedDiarization) throws IOException {
+        CEABaseline baseline = JsonUtil.evaluationFromJson(pathToJsonInput);
+        DiarizationResult diarizationResult = JsonUtil.diarizationResultFromJson(pathToComputedDiarization);
+
+        CEADiarization.logResults(baseline, Duration.ZERO, diarizationResult);
     }
 
     private static List<Detection> evaluateSlideDetection(CEABaseline baseline) throws IOException {

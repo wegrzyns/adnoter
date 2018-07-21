@@ -22,10 +22,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CEADiarization {
 
@@ -54,7 +51,7 @@ public class CEADiarization {
 
                 Diarization diarization = new Diarization((obj, arg) -> updateDiarizationResult((DiarizationResultDTO) arg));
 
-                if (parameter.getParameterDiarization().getSystem() == ParameterBNDiarization.SystemString[1]) {
+                if (Objects.equals(parameter.getParameterDiarization().getSystem(), ParameterBNDiarization.SystemString[1])) {
                     parameter.getParameterSegmentationSplit().setSegmentMaximumLength(10 * parameter.getParameterSegmentationInputFile().getRate());
                 }
 
@@ -91,8 +88,8 @@ public class CEADiarization {
             App.diarizationResultCallback(diarizationResult);
         }
 
-        diarizationResultDTO.getClusterSet().getClusterMap().entrySet()
-                .forEach(entry -> entry.getValue().iterator().forEachRemaining(diarizationResult::addUtterance));
+        diarizationResultDTO.getClusterSet().getClusterMap()
+                .forEach((key, value) -> value.iterator().forEachRemaining(diarizationResult::addUtterance));
 
     }
 
@@ -106,7 +103,8 @@ public class CEADiarization {
         logger.info(String.format("Overall execution time %s\n", executionTime));
 
         DiarizationMeasure diarizationMeasure = new DiarizationMeasure(diarizationResult, createBaselineSpeakerUtterancemap(baseline));
-        diarizationMeasure.diarizationErrorRate();
+        double diarizationErrorRate = diarizationMeasure.diarizationErrorRate();
+        logger.info(String.format("Diarization error rate: %f (%f%%)", diarizationErrorRate, diarizationErrorRate * 100));
 
     }
 

@@ -105,7 +105,7 @@
     {"timestamp": "PT4M23S", "length": "PT10S", "speaker": "LECTURER_2"},
     {"timestamp": "PT4M38S", "length": "PT17S", "speaker": "LECTURER_2"},
     {"timestamp": "PT4M57S", "length": "PT2S", "speaker": "LECTURER_MAJOR"},
-    {"timestamp": "PT5MS", "length": "PT6S", "speaker": "LECTURER_2"},
+    {"timestamp": "PT5M", "length": "PT6S", "speaker": "LECTURER_2"},
     {"timestamp": "PT5M7S", "length": "PT4S", "speaker": "LECTURER_MAJOR"},
     {"timestamp": "PT5M12S", "length": "PT19S", "speaker": "LECTURER_2"},
     {"timestamp": "PT5M37S", "length": "PT2S", "speaker": "LECTURER_MAJOR"},

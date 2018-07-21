@@ -4,15 +4,15 @@ public class DiarizationMatch {
 
     private String baselineSpeaker;
     private String hypothesisSpeaker;
-    private double nonMatchedTime;
+    private double diarizationErrorRate;
 
     public DiarizationMatch() {
     }
 
-    public DiarizationMatch(String baselineSpeaker, String hypothesisSpeaker, double nonMatchedTime) {
+    public DiarizationMatch(String baselineSpeaker, String hypothesisSpeaker, double diarizationErrorRate) {
         this.baselineSpeaker = baselineSpeaker;
         this.hypothesisSpeaker = hypothesisSpeaker;
-        this.nonMatchedTime = nonMatchedTime;
+        this.diarizationErrorRate = diarizationErrorRate;
     }
 
     public String getBaselineSpeaker() {
@@ -31,11 +31,11 @@ public class DiarizationMatch {
         this.hypothesisSpeaker = hypothesisSpeaker;
     }
 
-    public double getNonMatchedTime() {
-        return nonMatchedTime;
+    public double getDiarizationErrorRate() {
+        return diarizationErrorRate;
     }
 
-    public void setNonMatchedTime(double nonMatchedTime) {
-        this.nonMatchedTime = nonMatchedTime;
+    public void setDiarizationErrorRate(double diarizationErrorRate) {
+        this.diarizationErrorRate = diarizationErrorRate;
     }
 }

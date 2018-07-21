@@ -2,7 +2,7 @@ package cea.audio.model;
 
 import java.time.Duration;
 
-public class CEASpeakerSegment {
+public class CEASpeakerSegment implements Comparable<CEASpeakerSegment>{
 
     private Duration timestamp;
     private Duration length;
@@ -26,5 +26,10 @@ public class CEASpeakerSegment {
 
     public void setLength(Duration length) {
         this.length = length;
+    }
+
+    @Override
+    public int compareTo(CEASpeakerSegment o) {
+        return timestamp.compareTo(o.getTimestamp());
     }
 }

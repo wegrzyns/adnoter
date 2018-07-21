@@ -1,5 +1,7 @@
 package cea.Util;
 
+import cea.audio.model.CEASpeakerSegment;
+import cea.audio.model.DiarizationResult;
 import cea.evaluation.model.CEABaseline;
 import cea.output.AnnotationResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,4 +28,14 @@ public class JsonUtil {
         File output = new File(annotationResult.getFileName().replace(".mp4", ".json"));
         mapper.writerWithDefaultPrettyPrinter().writeValue(output, annotationResult);
     }
+
+    public static DiarizationResult diarizationResultFromJson(String path) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        File input = new File(path);
+        AnnotationResult annotationResult = mapper.readValue(input, AnnotationResult.class);
+
+        return TypeUtil.convertAnnotationResultToDiarizationResult(annotationResult);
+    }
+
 }
