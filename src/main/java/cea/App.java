@@ -30,7 +30,7 @@ public class App {
 
 //        evaluateAlgorithm("input\\old\\testInputPhysics1.json");
 //        evaluateAlgorithm("input\\old\\testInputFood1.json");
-        evaluateComputedDiarization("input\\old\\testInputPhysics1.json", "input\\computed_results\\O150884019100-60384716fl.json");
+//        evaluateComputedDiarization("input\\old\\testInputPhysics1.json", "input\\computed_results\\O150884019100-60384716fl.json");
 //        evaluateComputedDiarization("input\\old\\testInputFood1.json", "input\\computed_results\\O150996520500-83143085fl.json");
 
 //        evaluateAlgorithm("input\\old\\testInputEconomy1.json");
