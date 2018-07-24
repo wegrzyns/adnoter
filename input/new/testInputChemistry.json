@@ -67,5 +67,25 @@
       {"timestamp": "PT1H15M2S", "type": "FULL"},
       {"timestamp": "PT1H17M10S", "type": "FULL"},
       {"timestamp": "PT1H18M57S", "type": "SLIDE_REGION_OUT"}
-    ]
+    ],
+  "speakerUtterances":
+  [ {"timestamp": "PT1S", "length": "PT3S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT5S", "length": "PT22S", "speaker": "LECTURER_1"},
+    {"timestamp": "PT29S", "length": "PT11S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT50S", "length": "PT1M39S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT2M44S", "length": "PT10S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT3M4S", "length": "PT14S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT3M31S", "length": "PT1M17S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT5M", "length": "PT3M56S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT9M34S", "length": "PT1M1S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT10M56S", "length": "PT2M56S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT14M11S", "length": "PT1H4M54S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT1H19M5S", "length": "PT2S", "speaker": "LECTURER_2"},
+    {"timestamp": "PT1H19M7S", "length": "PT2S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT1H19M12S", "length": "PT1S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT1H19M15S", "length": "PT11S", "speaker": "LECTURER_2"},
+    {"timestamp": "PT1H19M27S", "length": "PT1S", "speaker": "LECTURER_3"},
+    {"timestamp": "PT1H19M30S", "length": "PT10S", "speaker": "LECTURER_2"},
+    {"timestamp": "PT1H19M44S", "length": "PT2S", "speaker": "LECTURER_4"}
+  ]
 }
