@@ -18,7 +18,6 @@ public class Output {
         boolean slideRegionVisible = false;
         SlideAnnotation slideAnnotation = null;
         AnnotationResult annotationResult;
-        UtteranceAnnotation utteranceAnnotation = null;
 
         for(Detection detection: detections) {
 
@@ -40,13 +39,11 @@ public class Output {
             }
         }
 
-        diarizationResult.getUtterances().forEach((speakerName, speakerUtterances) -> {
-            speakerUtterances.forEach(utterance -> {
-                Duration utteranceStart = utterance.getTimestamp();
-                Duration utteranceLength = utterance.getLength();
-                utteranceAnnotations.add(new UtteranceAnnotation(speakerName, utteranceStart, utteranceLength));
-            });
-        });
+        diarizationResult.getUtterances().forEach((speakerName, speakerUtterances) -> speakerUtterances.forEach(utterance -> {
+            Duration utteranceStart = utterance.getTimestamp();
+            Duration utteranceLength = utterance.getLength();
+            utteranceAnnotations.add(new UtteranceAnnotation(speakerName, utteranceStart, utteranceLength));
+        }));
 
         SpeakerAnnotation speakerAnnotation = new SpeakerAnnotation(utteranceAnnotations, diarizationResult.getSpeakerCount());
 

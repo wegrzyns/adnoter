@@ -26,7 +26,7 @@
     {"timestamp": "PT31M53S", "length": "PT1M8S", "speaker": "LECTURER_MAJOR"},
     {"timestamp": "PT39M9S", "length": "PT5M14S", "speaker": "LECTURER_MAJOR"},
     {"timestamp": "PT44M27S", "length": "PT10S", "speaker": "LECTURER_MAJOR"},
-    {"timestamp": "PT48M31S", "length": "P1MT47S", "speaker": "LECTURER_MAJOR"},
+    {"timestamp": "PT48M31S", "length": "PT1M47S", "speaker": "LECTURER_MAJOR"},
     {"timestamp": "PT50M23S", "length": "PT2S", "speaker": "LECTURER_MAJOR"},
     {"timestamp": "PT50M29S", "length": "PT1M26S", "speaker": "LECTURER_MAJOR"},
     {"timestamp": "PT51M59S", "length": "PT36S", "speaker": "LECTURER_MAJOR"},

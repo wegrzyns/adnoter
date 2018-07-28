@@ -18,10 +18,15 @@ public class DiarizationMeasure {
         this.baselineUtterances = baselineUtterances;
     }
 
-    public double diarizationErrorRate() {
+    public DiarizationMeasureResultDTO diarizationEvaluationResult() {
         List<DiarizationMatch> bestMappings = bestMappings();
 
-        return bestMappings.stream().mapToDouble(DiarizationMatch::getDiarizationErrorRate).sum();
+        double summedDiarizationErrorRate = bestMappings.stream().mapToDouble(DiarizationMatch::getDiarizationErrorRate).sum();
+        double summedConfusionErrorRate = bestMappings.stream().mapToDouble(DiarizationMatch::getConfusionErrorRate).sum();
+        double summedMissedDetectionsErrorRate = bestMappings.stream().mapToDouble(DiarizationMatch::getMissedDetectionsErrorRate).sum();
+        double summedFalseAlarmsErrorRate = bestMappings.stream().mapToDouble(DiarizationMatch::getFalseAlarmsErrorRate).sum();
+
+        return new DiarizationMeasureResultDTO(summedDiarizationErrorRate, summedConfusionErrorRate, summedMissedDetectionsErrorRate, summedFalseAlarmsErrorRate);
     }
 
     private List<DiarizationMatch> bestMappings() {
@@ -96,9 +101,13 @@ public class DiarizationMeasure {
             }
         }
 
-        double DERTimeInSeconds = confusedSpeakerSeconds + missedDetectionSeconds + falseAlarmSeconds;
+        double confusedSpeakerErrorRate = confusedSpeakerSeconds / allBaselineSpeakerSegmentsLength;
+        double missedDetectionsErrorRate = missedDetectionSeconds / allBaselineSpeakerSegmentsLength;
+        double falseAlarmsErrorRate = falseAlarmSeconds / allBaselineSpeakerSegmentsLength;
 
-        return new DiarizationMatch(baselineSpeakerName, hypothesisSpeakerName, DERTimeInSeconds/allBaselineSpeakerSegmentsLength);
+        double DER = confusedSpeakerErrorRate + missedDetectionsErrorRate + falseAlarmsErrorRate;
+
+        return new DiarizationMatch(baselineSpeakerName, hypothesisSpeakerName, DER, confusedSpeakerErrorRate, missedDetectionsErrorRate, falseAlarmsErrorRate);
     }
 
     private boolean isSecondInSegments(long second, List<CEASpeakerSegment> segments) {

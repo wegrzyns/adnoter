@@ -6,6 +6,7 @@ import cea.audio.model.DiarizationResult;
 import cea.audio.model.DiarizationResultDTO;
 import cea.audio.parser.Audio;
 import cea.evaluation.measure.DiarizationMeasure;
+import cea.evaluation.measure.DiarizationMeasureResultDTO;
 import cea.evaluation.model.CEABaseline;
 import fr.lium.spkDiarization.lib.DiarizationException;
 import fr.lium.spkDiarization.lib.SpkDiarizationLogger;
@@ -103,7 +104,16 @@ public class CEADiarization {
         logger.info(String.format("Overall execution time %s\n", executionTime));
 
         DiarizationMeasure diarizationMeasure = new DiarizationMeasure(diarizationResult, createBaselineSpeakerUtterancemap(baseline));
-        double diarizationErrorRate = diarizationMeasure.diarizationErrorRate();
+        DiarizationMeasureResultDTO diarizationEvaluationResult = diarizationMeasure.diarizationEvaluationResult();
+
+        double confusionErrorRate = diarizationEvaluationResult.getSummedConfusionErrorRate();
+        double missedDetectionsErrorRate = diarizationEvaluationResult.getSummedMissedDetectionsErrorRate();
+        double falseAlarmsErrorRate = diarizationEvaluationResult.getSummedFalseAlarmsErrorRate();
+        double diarizationErrorRate = diarizationEvaluationResult.getSummedDiarizationErrorRate();
+
+        logger.info(String.format("Confusion error rate: %f (%f%%)", confusionErrorRate, confusionErrorRate * 100));
+        logger.info(String.format("Missed detections error rate: %f (%f%%)", missedDetectionsErrorRate, missedDetectionsErrorRate * 100));
+        logger.info(String.format("False alarms error rate: %f (%f%%)", falseAlarmsErrorRate, falseAlarmsErrorRate * 100));
         logger.info(String.format("Diarization error rate: %f (%f%%)", diarizationErrorRate, diarizationErrorRate * 100));
 
     }

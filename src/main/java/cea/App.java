@@ -32,6 +32,8 @@ public class App {
 //        evaluateAlgorithm("input\\old\\testInputFood1.json");
 //        evaluateComputedDiarization("input\\old\\testInputPhysics1.json", "input\\computed_results\\O150884019100-60384716fl.json");
 //        evaluateComputedDiarization("input\\old\\testInputFood1.json", "input\\computed_results\\O150996520500-83143085fl.json");
+//        evaluateComputedDiarization("input\\new\\testInputChemistry.json", "input\\computed_results\\_PK_Chemia_LO_19.04.2018_.json");
+        evaluateComputedDiarization("input\\new\\testInputMath.json", "input\\computed_results\\_UJ_Matematyka_KN_19.04.2018_14_17_.json");
 
 //        evaluateAlgorithm("input\\old\\testInputEconomy1.json");
 //        evaluateAlgorithm("input\\new\\testInputMath.json");
