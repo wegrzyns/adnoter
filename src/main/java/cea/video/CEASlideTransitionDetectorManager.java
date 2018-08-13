@@ -5,12 +5,13 @@ import cea.evaluation.measure.SlideTransitionMeasure;
 import cea.evaluation.measure.SlideTransitionTypeFilter;
 import cea.evaluation.model.CEABaseline;
 import cea.evaluation.model.SlideTransition;
+import cea.video.frame_transition_detector.DefaultTransitionManager;
+import cea.video.frame_transition_detector.FrameTransitionManager;
 import cea.video.slide_region.DefaultDetector;
-import cea.video.slide_transition_detector.StdDeviationSTD;
+import cea.video.frame_transition_detector.StdDeviationSTD;
 import cea.video.model.Detection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import cea.video.slide_transition_detector.SlideTransitionDetector;
 import cea.video.model.Chunk;
 import cea.video.model.SamplerDTO;
 import cea.video.model.Video;
@@ -40,14 +41,14 @@ public class CEASlideTransitionDetectorManager {
         Video video = VideoReader.readFile(path);
         VideoSampler sampler = new VideoSampler(video);
 
-        SlideTransitionDetector std = new StdDeviationSTD();
+        FrameTransitionManager std = new FrameTransitionManager(video, sampler);
 
         SamplerDTO samplerDTO = new SamplerDTO(video, Duration.ofSeconds(CHUNK_DURATION_SECONDS));
         samplerDTO = fillSamplingDuration(samplerDTO);
         List<Chunk> videoChunks = sampler.sampleChunks(samplerDTO);
 
         return videoChunks.parallelStream()
-                .map(chunk -> std.detect(chunk, sampler))
+                .map(chunk -> std.detect(chunk))
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
     }

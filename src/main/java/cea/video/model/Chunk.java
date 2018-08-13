@@ -16,6 +16,7 @@ public class Chunk implements AutoCloseable{
     private Frame lastFrame;
     private List<Integer> frameMatches;
     private static Map<Integer, Pair<Integer, Integer>> frameMatchesIndexes;
+    private boolean blackFramesTransition;
 
     static {
         frameMatchesIndexes = new HashMap<>();
@@ -98,6 +99,14 @@ public class Chunk implements AutoCloseable{
 
     public void setFrameMatches(List<Integer> frameMatches) {
         this.frameMatches = frameMatches;
+    }
+
+    public boolean isBlackFramesTransition() {
+        return blackFramesTransition;
+    }
+
+    public void setBlackFramesTransition(boolean blackFramesTransition) {
+        this.blackFramesTransition = blackFramesTransition;
     }
 
     @Override

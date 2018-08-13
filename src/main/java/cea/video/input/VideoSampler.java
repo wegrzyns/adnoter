@@ -47,6 +47,7 @@ public class VideoSampler {
         middleFrame = middleChunkFrame(firstFrame, lastFrame);
 
         newChunk = new Chunk(firstFrame, middleFrame, lastFrame);
+        newChunk.setBlackFramesTransition(parentChunk.isBlackFramesTransition());
         newChunk.setFrameMatch(Chunk.FRAME_0_2_MATCH_INDEX, parentChunk.getFrameMatch(Chunk.FRAME_0_1_MATCH_INDEX));
 
         return newChunk;
@@ -61,6 +62,7 @@ public class VideoSampler {
         middleFrame = middleChunkFrame(firstFrame, lastFrame);
 
         newChunk = new Chunk(firstFrame, middleFrame, lastFrame);
+        newChunk.setBlackFramesTransition(parentChunk.isBlackFramesTransition());
         newChunk.setFrameMatch(Chunk.FRAME_0_2_MATCH_INDEX, parentChunk.getFrameMatch(Chunk.FRAME_1_2_MATCH_INDEX));
 
         return newChunk;

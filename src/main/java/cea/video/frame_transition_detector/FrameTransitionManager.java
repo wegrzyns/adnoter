@@ -1,26 +1,33 @@
-package cea.video.slide_transition_detector;
+package cea.video.frame_transition_detector;
 
 import cea.Util.ConfigurationUtil;
 import cea.video.frame_similarity.FrameSimilarityDetector;
 import cea.video.frame_similarity.feature.FeatureType;
-import cea.video.model.Chunk;
-import cea.video.model.Detection;
-import cea.video.model.DetectionType;
-import cea.video.model.Frame;
+import cea.video.model.*;
 import cea.video.input.VideoSampler;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public abstract class SlideTransitionDetector {
+public class FrameTransitionManager {
 
     private static final long MILISECONDS_MIN_CHUNK_LEN = ConfigurationUtil.configuration().getInt("stopCondition.millisecondMinimalChunkLength");
     private static final FeatureType FEATURE_TYPE = FeatureType.valueOf(ConfigurationUtil.configuration().getString("feature.frameSimilarityDetectionFeatureType"));
 
-    public List<Detection> detect(Chunk chunk, VideoSampler sampler) {
+    private Video video;
+    private VideoSampler sampler;
+
+    public FrameTransitionManager(Video video, VideoSampler sampler) {
+        this.video = video;
+        this.sampler = sampler;
+    }
+
+    public List<Detection> detect(Chunk chunk) {
         List<Detection> toRet = new ArrayList<>();
         FrameSimilarityDetector fsd = new FrameSimilarityDetector(FEATURE_TYPE);
+        DefaultTransitionManager slideTransitionDetector = new StdDeviationSTD();
+        BlackFramesTransitionDetector blackFramesTransitionDetector = new BlackFramesTransitionDetector(video);
         Chunk computedChunk;
         Stack<Chunk> stack = new Stack<>();
         stack.push(chunk);
@@ -35,6 +42,9 @@ public abstract class SlideTransitionDetector {
                 if(computedChunk.frameMatchesNotComputed()) {
                     detection.setType(DetectionType.SLIDE_REGION_TOGGLE);
                 }
+                if(computedChunk.isBlackFramesTransition()) {
+                    detection.setType(DetectionType.BLACK_FRAMES_TRANSITION);
+                }
                 else {
                     detection.setType(DetectionType.SLIDE_CHANGE);
                 }
@@ -44,13 +54,15 @@ public abstract class SlideTransitionDetector {
                 continue;
             }
 
+            blackFramesTransitionDetector.checkForTransition(computedChunk, stack, sampler);
+
             if(computedChunk.frameMatchesNotComputed()) {
                 if(!slideRegionChange(computedChunk, stack, sampler)) {
                     closeChunk(computedChunk);
                 }
                 continue;
             }
-            checkForSlideTransition(computedChunk, stack, sampler);
+            slideTransitionDetector.checkForTransition(computedChunk, stack, sampler);
         }
 
         return toRet;
@@ -86,7 +98,7 @@ public abstract class SlideTransitionDetector {
                 chunk.framesAsList().stream().anyMatch(frame -> !frame.isSlideRegionDetected());
     }
 
-    void closeChunk(Chunk chunk) {
+    public static void closeChunk(Chunk chunk) {
         try {
             chunk.close();
         } catch (Exception e) {
@@ -99,7 +111,5 @@ public abstract class SlideTransitionDetector {
         long lastChunkFrameTime = chunk.getLastFrame().getTimestamp().toMillis();
         return lastChunkFrameTime - firstChunkFrameTime < MILISECONDS_MIN_CHUNK_LEN;
     }
-
-    protected abstract void checkForSlideTransition(Chunk computedChunk, Stack<Chunk> stack, VideoSampler sampler);
 
 }

@@ -1,14 +1,14 @@
-package cea.video.slide_transition_detector;
+package cea.video.frame_transition_detector;
 
 import cea.Util.NumberUtil;
 import cea.video.model.Chunk;
 
 import java.util.List;
 
-public class DefaultSTD extends DefaultSlideTransitionDetector {
+public class DefaultSTD extends DefaultTransitionManager {
 
     @Override
-    protected boolean slideTransitionLeftChunk(Chunk chunk) {
+    protected boolean transitionLeftChunk(Chunk chunk) {
         double m1 = chunk.getFrameMatch(Chunk.FRAME_0_1_MATCH_INDEX);
         double m2 = chunk.getFrameMatch(Chunk.FRAME_1_2_MATCH_INDEX);
         double m3 = chunk.getFrameMatch(Chunk.FRAME_0_2_MATCH_INDEX);
@@ -31,7 +31,7 @@ public class DefaultSTD extends DefaultSlideTransitionDetector {
     }
 
     @Override
-    protected boolean slideTransitionRightChunk(Chunk chunk) {
+    protected boolean transitionRightChunk(Chunk chunk) {
         double m1 = chunk.getFrameMatch(Chunk.FRAME_0_1_MATCH_INDEX);
         double m2 = chunk.getFrameMatch(Chunk.FRAME_1_2_MATCH_INDEX);
         double m3 = chunk.getFrameMatch(Chunk.FRAME_0_2_MATCH_INDEX);

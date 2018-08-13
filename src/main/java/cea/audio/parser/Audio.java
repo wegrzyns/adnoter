@@ -5,13 +5,14 @@ import net.bramp.ffmpeg.FFmpeg;
 import net.bramp.ffmpeg.FFmpegExecutor;
 import net.bramp.ffmpeg.FFprobe;
 import net.bramp.ffmpeg.builder.FFmpegBuilder;
+import net.bramp.ffmpeg.probe.FFmpegProbeResult;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class Audio {
 
-    //TODO: Enable spring support
     //TODO: move to configuration file(which wont be commited)
     public static final String FFMPEG_PATH = "E:\\projekty\\mag\\ffmpeg-20171014-0655810-win64-static\\bin\\ffmpeg.exe";
     public static final String FFPROBE_PATH = "E:\\projekty\\mag\\ffmpeg-20171014-0655810-win64-static\\bin\\ffprobe.exe";
@@ -47,6 +48,22 @@ public class Audio {
         FFmpegExecutor ffMpegExecutor = new FFmpegExecutor(ffMpeg);
 
         ffMpegExecutor.createJob(ffMpegBuilder).run();
+
+        ffMpegBuilder = new FFmpegBuilder();
+
+        ffMpegBuilder
+                .setInput("test.wav")
+                .setStartOffset(samplingStart(), TimeUnit.SECONDS)
+                .setVerbosity(FFmpegBuilder.Verbosity.INFO)
+                .addOutput("-")
+                .setFormat("null")
+                .setDuration(samplingDuration(), TimeUnit.SECONDS)
+                .setComplexVideoFilter("silencedetect=noise=-40dB:d=5")
+                .done();
+
+        ffMpegExecutor.createJob(ffMpegBuilder).run();
+
+
 
         //SphinxDemo.transcribe("test.wav");
 //        SphinxDemo.detectVoiceActivity("test.wav");

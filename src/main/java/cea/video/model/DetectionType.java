@@ -2,5 +2,5 @@ package cea.video.model;
 
 public enum DetectionType {
     SLIDE_CHANGE,
-    SLIDE_REGION_TOGGLE
+    BLACK_FRAMES_TRANSITION, SLIDE_REGION_TOGGLE
 }

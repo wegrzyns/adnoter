@@ -39,15 +39,17 @@ public class Output {
             }
         }
 
-        diarizationResult.getUtterances().forEach((speakerName, speakerUtterances) -> speakerUtterances.forEach(utterance -> {
-            Duration utteranceStart = utterance.getTimestamp();
-            Duration utteranceLength = utterance.getLength();
-            utteranceAnnotations.add(new UtteranceAnnotation(speakerName, utteranceStart, utteranceLength));
-        }));
+        if(diarizationResult != null) {
+            diarizationResult.getUtterances().forEach((speakerName, speakerUtterances) -> speakerUtterances.forEach(utterance -> {
+                Duration utteranceStart = utterance.getTimestamp();
+                Duration utteranceLength = utterance.getLength();
+                utteranceAnnotations.add(new UtteranceAnnotation(speakerName, utteranceStart, utteranceLength));
+            }));
 
-        SpeakerAnnotation speakerAnnotation = new SpeakerAnnotation(utteranceAnnotations, diarizationResult.getSpeakerCount());
+            SpeakerAnnotation speakerAnnotation = new SpeakerAnnotation(utteranceAnnotations, diarizationResult.getSpeakerCount());
 
-        annotationResult = new AnnotationResult(fileName, slideAnnotations, speakerAnnotation);
-        JsonUtil.annotationResultToJson(annotationResult);
+            annotationResult = new AnnotationResult(fileName, slideAnnotations, speakerAnnotation);
+            JsonUtil.annotationResultToJson(annotationResult);
+        }
     }
 }
