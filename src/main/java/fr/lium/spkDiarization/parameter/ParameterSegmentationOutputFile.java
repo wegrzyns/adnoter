@@ -31,7 +31,7 @@ public class ParameterSegmentationOutputFile extends ParameterSegmentationFile i
 	 */
 	public ParameterSegmentationOutputFile(Parameter parameter) {
 		super(parameter);
-		type = "Output";
+		type = "OutputManager";
 		setMask("%s.out.seg");
 		addOption(new fr.lium.spkDiarization.parameter.LongOptWithAction("s" + type + "Mask", new ActionMask(), ""));
 		addOption(new fr.lium.spkDiarization.parameter.LongOptWithAction("s" + type + "Format", new ActionFormatEncoding(), ""));

@@ -32,7 +32,7 @@ public class ParameterAudioOutputFeature extends ParameterAudioFeature implement
 	public ParameterAudioOutputFeature(Parameter parameter) {
 		super(parameter);
 		setFeatureMask("%s.out.mfcc");
-		setType("Output");
+		setType("OutputManager");
 		addOption(new fr.lium.spkDiarization.parameter.LongOptWithAction("f" + getType() + "Mask", new ActionFeatureMask(), ""));
 		addOption(new fr.lium.spkDiarization.parameter.LongOptWithAction("f" + getType() + "Desc", new ActionFeaturesDescString(), ""));
 		addOption(new LongOptWithAction("f" + getType() + "MemoryOccupationRate", new ActionMemoryOccupationRate(), ""));

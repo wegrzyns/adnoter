@@ -3,16 +3,17 @@ package cea;
 import cea.Util.JsonUtil;
 import cea.audio.CEADiarization;
 import cea.audio.model.DiarizationResult;
+import cea.audio.model.SilenceDetectionResult;
+import cea.audio.parser.FFmpegAnnotationOutput;
 import cea.evaluation.model.CEABaseline;
+import cea.output.OutputManager;
 import cea.video.CEASlideTransitionDetectorManager;
 import cea.video.model.Detection;
-import cea.output.Output;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
@@ -36,10 +37,10 @@ public class App {
 //        evaluateComputedDiarization("input\\new\\testInputMath.json", "input\\computed_results\\_UJ_Matematyka_KN_19.04.2018_14_17_.json");
 
 //        evaluateAlgorithm("input\\old\\testInputEconomy1.json");
-        evaluateAlgorithm("input\\new\\testInputMath.json");
+//        evaluateAlgorithm("input\\new\\testInputMath.json");
 //        evaluateAlgorithm("input\\new\\testInputMechatronics.json");
 //        evaluateAlgorithm("input\\new\\testInputChemistry.json");
-//        evaluateAlgorithm("input\\new\\testInputEnvirnoment.json");
+        evaluateAlgorithm("input\\new\\testInputEnvirnoment.json");
 //        evaluateAlgorithm("input\\inputOther.json");
     }
 
@@ -50,12 +51,13 @@ public class App {
 
     public static void evaluateAlgorithm(String pathToJsonInput) throws IOException, InterruptedException, IllegalAccessException, InvocationTargetException {
         CEABaseline baseline = JsonUtil.evaluationFromJson(pathToJsonInput);
-        DiarizationResult diarizationResult = evaluateDiarization(baseline);
-//        List<Detection> detections = evaluateSlideDetection(baseline);
+        SilenceDetectionResult silenceDetectionResult = FFmpegAnnotationOutput.detectSilence(baseline.getFilePath());
+//        DiarizationResult diarizationResult = evaluateDiarization(baseline);
+        List<Detection> detections = evaluateSlideDetection(baseline);
 //        List<Detection> detections = new ArrayList<>();
 
 
-//        Output.createOutputAnnotation(diarizationResult, detections, baseline.getFilePath());
+        OutputManager.createOutputAnnotation(diarizationResult, detections, silenceDetectionResult, baseline.getFilePath());
     }
 
     private static DiarizationResult evaluateDiarization(CEABaseline baseline) throws InterruptedException, InvocationTargetException, IllegalAccessException {

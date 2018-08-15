@@ -165,7 +165,7 @@ public class ParameterSegmentation extends ParameterBase implements Cloneable {
 		}
 	}
 
-	// private SegSilMethod segSilMethod; // Silence segmentation method.
+	// private SegSilMethod segSilMethod; // SilenceDetection segmentation method.
 	/** The recursion. */
 	private Boolean recursion;
 

@@ -1,6 +1,9 @@
 package cea.audio.parser;
 
 import cea.Util.ConfigurationUtil;
+import cea.Util.ConsoleOutputCapturer;
+import cea.audio.model.SilenceDetection;
+import cea.audio.model.SilenceDetectionResult;
 import net.bramp.ffmpeg.FFmpeg;
 import net.bramp.ffmpeg.FFmpegExecutor;
 import net.bramp.ffmpeg.FFprobe;
@@ -9,6 +12,11 @@ import net.bramp.ffmpeg.probe.FFmpegProbeResult;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Audio {
@@ -29,8 +37,6 @@ public class Audio {
     }
 
     public void parseAudio() throws IOException {
-        FFmpeg ffMpeg = new FFmpeg(FFMPEG_PATH);
-        FFprobe ffProbe = new FFprobe(FFPROBE_PATH);
         FFmpegBuilder ffMpegBuilder = new FFmpegBuilder();
 
         ffMpegBuilder
@@ -45,35 +51,21 @@ public class Audio {
                 .setFormat("wav")
                 .done();
 
-        FFmpegExecutor ffMpegExecutor = new FFmpegExecutor(ffMpeg);
+        FFmpegExecutor ffMpegExecutor = ffMpegExecutor();
 
         ffMpegExecutor.createJob(ffMpegBuilder).run();
-
-        ffMpegBuilder = new FFmpegBuilder();
-
-        ffMpegBuilder
-                .setInput("test.wav")
-                .setStartOffset(samplingStart(), TimeUnit.SECONDS)
-                .setVerbosity(FFmpegBuilder.Verbosity.INFO)
-                .addOutput("-")
-                .setFormat("null")
-                .setDuration(samplingDuration(), TimeUnit.SECONDS)
-                .setComplexVideoFilter("silencedetect=noise=-40dB:d=5")
-                .done();
-
-        ffMpegExecutor.createJob(ffMpegBuilder).run();
-
-
-
-        //SphinxDemo.transcribe("test.wav");
-//        SphinxDemo.detectVoiceActivity("test.wav");
     }
 
-    private long samplingStart() {
+    public static FFmpegExecutor ffMpegExecutor() throws IOException {
+        FFmpeg ffMpeg = new FFmpeg(FFMPEG_PATH);
+        return new FFmpegExecutor(ffMpeg);
+    }
+
+    public static long samplingStart() {
         return SAMPLING_START_MINUTES * 60 + SAMPLING_START_SECONDS;
     }
 
-    private long samplingDuration() {
+    public static long samplingDuration() {
         return (SAMPLING_END_MINUTES * 60 + SAMPLING_END_SECONDS) - samplingStart();
     }
 }

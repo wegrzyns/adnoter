@@ -35,7 +35,7 @@ public class ParameterModelSetOutputFile extends ParameterModelSet implements Cl
 	public ParameterModelSetOutputFile(Parameter parameter) {
 		super(parameter);
 		setMask(getDefaultMask());
-		type = "Output";
+		type = "OutputManager";
 		addOption(new fr.lium.spkDiarization.parameter.LongOptWithAction("t" + type + "Mask", new ActionMask(), ""));
 		addOption(new LongOptWithAction("t" + type + "ModelType", new ActionFormat(), ""));
 	}

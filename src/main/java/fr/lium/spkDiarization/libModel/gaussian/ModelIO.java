@@ -42,7 +42,7 @@ import fr.lium.spkDiarization.lib.IOFile;
 import fr.lium.spkDiarization.libMatrix.MatrixRowVector;
 
 /**
- * The Class Model Input Output.
+ * The Class Model Input OutputManager.
  */
 public class ModelIO {
 

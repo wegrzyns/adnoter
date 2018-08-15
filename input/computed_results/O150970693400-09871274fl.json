@@ -1,0 +1,2645 @@
+{
+  "fileName" : "O150970693400-09871274fl.mp4",
+  "slideAnnotations" : [ ],
+  "speakerAnnotations" : {
+    "speakerCount" : 27,
+    "audienceActivity" : "47,12 %",
+    "utteranceAnnotations" : [ {
+      "speakerName" : "S834",
+      "utteranceStart" : "PT1H30M22S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S834",
+      "utteranceStart" : "PT1H30M31S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S834",
+      "utteranceStart" : "PT1H30M39S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S834",
+      "utteranceStart" : "PT1H30M43S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S313",
+      "utteranceStart" : "PT32M32S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S313",
+      "utteranceStart" : "PT36M",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S313",
+      "utteranceStart" : "PT36M29S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S379",
+      "utteranceStart" : "PT42M53S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S456",
+      "utteranceStart" : "PT51M23S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S138",
+      "utteranceStart" : "PT8M6S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S138",
+      "utteranceStart" : "PT8M16S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S138",
+      "utteranceStart" : "PT8M19S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S138",
+      "utteranceStart" : "PT8M46S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S138",
+      "utteranceStart" : "PT18M10S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S336",
+      "utteranceStart" : "PT38M15S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S336",
+      "utteranceStart" : "PT39M1S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S336",
+      "utteranceStart" : "PT39M20S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S336",
+      "utteranceStart" : "PT39M23S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S336",
+      "utteranceStart" : "PT39M27S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S798",
+      "utteranceStart" : "PT1H26M29S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S136",
+      "utteranceStart" : "PT18M2S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S915",
+      "utteranceStart" : "PT1H38M55S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S23",
+      "utteranceStart" : "PT3M41S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S23",
+      "utteranceStart" : "PT5M47S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S144",
+      "utteranceStart" : "PT18M54S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S144",
+      "utteranceStart" : "PT1H37M27S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S144",
+      "utteranceStart" : "PT1H39M8S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S145",
+      "utteranceStart" : "PT18M58S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S143",
+      "utteranceStart" : "PT18M42S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S143",
+      "utteranceStart" : "PT18M47S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S143",
+      "utteranceStart" : "PT1H30M35S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S282",
+      "utteranceStart" : "PT33M",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S282",
+      "utteranceStart" : "PT34M27S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S282",
+      "utteranceStart" : "PT34M54S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S282",
+      "utteranceStart" : "PT1H26M21S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT3M51S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT4M30S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT4M39S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT4M47S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT5M11S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT5M21S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT5M25S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT5M50S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT5M57S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT6M5S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT6M10S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT6M22S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT6M25S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT6M29S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT6M33S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT6M51S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT6M53S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT7M12S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT7M17S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT7M28S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT7M32S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT7M44S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT7M52S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT7M54S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT7M59S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT8M2S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT8M14S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT8M22S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT8M27S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT8M38S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT8M42S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT8M57S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M6S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M8S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M11S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M12S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M20S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M34S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M38S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M41S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M48S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M56S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT9M58S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT10M6S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT10M10S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT10M17S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT10M22S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT10M29S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT10M32S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT10M40S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT10M53S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT11M6S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT11M14S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT11M24S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT11M38S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT11M45S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT11M54S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT11M58S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT12M12S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT12M21S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT12M36S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT12M42S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT12M59S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT13M10S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT13M25S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT13M35S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT13M50S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT14M4S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT14M20S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT14M26S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT14M30S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT14M41S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT14M58S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT15M1S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT15M6S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT15M17S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT15M26S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT15M34S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT15M41S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT15M49S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT16M5S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT16M11S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT16M21S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT16M40S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT18M6S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT18M19S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT18M23S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT18M28S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT18M40S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT19M3S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT19M8S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT19M18S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT19M28S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT19M33S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT19M48S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT20M4S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT20M6S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT20M11S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT20M18S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT20M23S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT20M25S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT20M29S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT20M33S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT20M37S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT20M45S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT21M4S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT21M11S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT21M18S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT21M25S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT21M29S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT21M36S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT21M50S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT21M57S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT22M5S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT22M6S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT22M13S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT22M19S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT22M23S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT22M29S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT23M42S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT23M54S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT24M5S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT24M24S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT24M27S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT24M29S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT24M40S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT24M55S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT25M14S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT25M19S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT25M23S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT25M39S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT25M44S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT25M48S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT25M58S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT26M3S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT26M24S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT26M26S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT26M28S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT26M32S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT32M7S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT32M15S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT32M19S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT32M26S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT32M30S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT32M34S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT32M46S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT32M49S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT33M10S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT33M26S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT33M35S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT33M39S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT33M43S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT33M48S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT33M50S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT33M55S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT33M58S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT34M2S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT34M6S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT34M13S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT34M17S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT34M23S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT34M31S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT34M38S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT34M43S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT34M47S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT35M1S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT35M7S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT35M13S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT35M21S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT35M33S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT35M51S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT36M7S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT36M12S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT36M19S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT36M27S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT36M34S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT36M38S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT36M43S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT36M49S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT36M53S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT37M",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT37M7S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT37M15S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT37M20S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT37M25S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT37M32S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT37M36S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT37M42S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT37M50S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT37M53S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT37M57S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT38M19S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT38M21S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT38M23S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT38M25S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT38M27S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT38M29S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT38M43S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT38M49S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT38M59S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT39M12S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT39M16S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT39M29S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT39M37S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT39M41S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT39M45S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT39M53S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT40M6S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT40M17S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT40M21S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT40M24S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT40M29S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT40M32S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT40M36S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT40M41S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT40M46S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT40M55S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT41M",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT41M2S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT41M8S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT41M11S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT41M13S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT41M20S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT41M40S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT41M44S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT41M48S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M3S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M5S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M11S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M15S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M22S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M28S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M30S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M36S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M42S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M46S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M49S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M55S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT42M59S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT43M3S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT43M9S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT43M17S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT43M31S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT43M39S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT43M56S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT44M12S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT44M18S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT44M28S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT44M36S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT44M50S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT44M54S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT45M",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT45M7S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT45M12S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT45M30S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT45M38S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT45M44S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT45M56S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT46M14S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT46M32S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT46M44S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT46M56S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT47M11S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT47M21S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT47M26S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT47M42S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT47M46S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT48M5S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT48M23S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT48M29S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT48M35S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT48M52S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT49M12S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT49M16S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT49M31S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT49M45S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT49M57S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT50M6S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT50M20S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT50M37S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT50M56S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT51M1S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT51M13S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT51M26S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT51M34S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT51M51S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT51M55S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT51M59S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT52M8S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT52M21S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT52M30S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT52M39S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT52M43S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT52M46S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT52M56S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT53M2S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT53M10S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT53M14S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT53M16S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT53M22S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT53M28S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT53M31S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT53M37S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT53M46S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT53M58S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT54M16S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT54M24S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT54M30S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H9M59S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H10M2S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H10M5S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H10M23S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H10M39S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H10M46S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H10M51S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H11M8S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H11M23S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H11M30S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H11M56S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H21M27S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H21M44S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H21M49S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H22M3S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H22M6S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H22M13S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H22M20S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H22M27S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H22M31S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H22M45S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H25M30S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H25M49S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H26M15S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H26M48S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H26M54S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H26M58S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H27M18S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H27M26S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H27M39S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H27M47S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H27M54S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H28M7S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H28M13S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H28M16S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H28M21S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H28M32S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H28M52S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H29M5S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H29M12S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H29M15S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H29M24S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H29M40S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H29M51S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H30M",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H30M7S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H30M48S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H30M53S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H31M8S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H31M11S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H31M18S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H31M22S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H31M28S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H31M32S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H31M41S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H31M51S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H32M3S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H32M10S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H32M21S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H32M27S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H32M31S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H32M39S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H32M43S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H32M53S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H32M57S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H33M4S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H33M10S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H33M13S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H33M17S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H33M19S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H33M22S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H33M28S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H33M56S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H34M4S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H34M9S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H34M15S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H34M26S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H34M28S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H34M36S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H34M40S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H34M43S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H34M50S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H35M1S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H35M6S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H35M15S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H35M23S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H35M29S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H35M41S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H35M45S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H36M1S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H36M23S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H36M27S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H36M37S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H36M40S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H36M48S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H36M59S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H37M2S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H37M5S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H37M15S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H37M17S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H37M25S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H38M12S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H38M40S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H39M1S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S108",
+      "utteranceStart" : "PT1H39M5S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S867",
+      "utteranceStart" : "PT1H33M35S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S846",
+      "utteranceStart" : "PT1H31M56S",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S846",
+      "utteranceStart" : "PT1H31M58S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S846",
+      "utteranceStart" : "PT1H32M",
+      "utteranceLength" : "PT1S"
+    }, {
+      "speakerName" : "S846",
+      "utteranceStart" : "PT1H33M2S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S868",
+      "utteranceStart" : "PT1H33M39S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S868",
+      "utteranceStart" : "PT1H33M52S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S366",
+      "utteranceStart" : "PT41M26S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S909",
+      "utteranceStart" : "PT1H38M7S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S909",
+      "utteranceStart" : "PT1H38M21S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S906",
+      "utteranceStart" : "PT1H37M34S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S906",
+      "utteranceStart" : "PT1H37M39S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S907",
+      "utteranceStart" : "PT1H37M46S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S907",
+      "utteranceStart" : "PT1H38M3S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S57",
+      "utteranceStart" : "PT9M24S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S134",
+      "utteranceStart" : "PT17M38S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S134",
+      "utteranceStart" : "PT17M52S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S352",
+      "utteranceStart" : "PT39M57S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S352",
+      "utteranceStart" : "PT40M3S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S0",
+      "utteranceStart" : "PT52S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S0",
+      "utteranceStart" : "PT1M53S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S0",
+      "utteranceStart" : "PT2M53S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT17M4S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT17M14S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT17M33S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT22M33S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT22M36S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT22M55S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT23M2S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT23M17S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT23M19S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT23M37S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT26M36S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT26M46S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT26M54S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT27M1S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT27M21S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT27M36S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT27M43S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT27M58S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT28M12S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT28M26S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT28M40S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT28M47S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT29M4S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT29M9S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT29M14S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT29M34S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT29M36S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT29M43S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT29M57S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT30M7S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT30M15S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT30M27S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT30M34S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT30M48S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT30M59S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT31M17S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT31M33S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT31M52S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT54M34S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT54M50S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT55M9S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT55M23S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT55M30S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT55M45S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT55M52S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT56M10S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT56M15S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT56M33S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT56M42S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT56M59S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT57M2S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT57M19S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT57M34S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT57M49S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT58M9S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT58M22S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT58M40S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT58M48S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT59M5S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT59M24S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT59M28S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT59M39S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT59M54S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H4S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H19S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H25S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H29S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H38S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H54S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H1M6S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H1M8S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H1M17S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H1M33S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H1M44S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H1M47S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H1M58S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H2M10S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H2M28S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H2M33S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H2M37S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H2M42S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H3M2S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H3M16S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H3M19S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H3M32S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H3M40S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H3M50S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H4M1S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H4M4S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H4M8S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H4M21S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H4M41S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H4M44S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H4M54S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H5M1S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H5M16S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H5M18S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H5M24S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H5M28S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H5M33S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H5M52S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H5M56S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H6M11S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H6M18S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H6M31S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H6M39S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H6M53S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H7M",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H7M4S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H7M20S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H7M31S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H7M43S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H7M55S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H8M8S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H8M23S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H8M38S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H8M44S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H8M46S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H9M6S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H9M23S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H9M27S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H9M42S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H12M5S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H12M19S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H12M27S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H12M39S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H12M51S",
+      "utteranceLength" : "PT15S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H13M7S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H13M17S",
+      "utteranceLength" : "PT5S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H13M22S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H13M30S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H13M49S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H13M55S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H14M15S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H14M17S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H14M35S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H14M46S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H14M55S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H15M13S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H15M24S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H15M34S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H15M53S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H16M6S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H16M21S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H16M24S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H16M37S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H16M45S",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H16M52S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H17M8S",
+      "utteranceLength" : "PT13S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H17M22S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H17M31S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H17M49S",
+      "utteranceLength" : "PT9S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H17M59S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H18M10S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H18M28S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H18M32S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H18M36S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H18M48S",
+      "utteranceLength" : "PT11S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H19M",
+      "utteranceLength" : "PT7S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H19M7S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H19M21S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H19M39S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H19M42S",
+      "utteranceLength" : "PT12S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H19M54S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H20M11S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H20M26S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H20M28S",
+      "utteranceLength" : "PT14S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H20M43S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H20M50S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H20M52S",
+      "utteranceLength" : "PT8S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H21M",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H22M50S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H22M54S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H23M12S",
+      "utteranceLength" : "PT19S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H23M32S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H23M34S",
+      "utteranceLength" : "PT10S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H23M45S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H23M47S",
+      "utteranceLength" : "PT16S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H24M4S",
+      "utteranceLength" : "PT17S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H24M22S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H24M26S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H24M44S",
+      "utteranceLength" : "PT6S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H24M50S",
+      "utteranceLength" : "PT2S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H24M52S",
+      "utteranceLength" : "PT18S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H25M10S",
+      "utteranceLength" : "PT3S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H25M14S",
+      "utteranceLength" : "PT4S"
+    }, {
+      "speakerName" : "S130",
+      "utteranceStart" : "PT1H25M18S",
+      "utteranceLength" : "PT12S"
+    } ]
+  }
+}

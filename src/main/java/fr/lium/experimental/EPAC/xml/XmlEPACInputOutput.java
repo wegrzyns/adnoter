@@ -533,7 +533,7 @@ public class XmlEPACInputOutput {
 		DOMSource source = new DOMSource(document);
 		StreamResult result = new StreamResult(f);
 
-		// Output to console for testing
+		// OutputManager to console for testing
 		// StreamResult result = new StreamResult(System.out);
 
 		transformer.transform(source, result);

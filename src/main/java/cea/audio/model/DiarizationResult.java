@@ -1,5 +1,7 @@
 package cea.audio.model;
 
+import cea.output.SpeakerAnnotation;
+import cea.output.UtteranceAnnotation;
 import fr.lium.spkDiarization.libClusteringData.Segment;
 
 import java.time.Duration;
@@ -55,5 +57,17 @@ public class DiarizationResult {
         }
 
         utterances.get(clusterName).add(ceaSpeakerSegment);
+    }
+
+    public SpeakerAnnotation getSpeakerAnnotation() {
+        List<UtteranceAnnotation> utteranceAnnotations = new ArrayList<>();
+
+        getUtterances().forEach((speakerName, speakerUtterances) -> speakerUtterances.forEach(utterance -> {
+            Duration utteranceStart = utterance.getTimestamp();
+            Duration utteranceLength = utterance.getLength();
+            utteranceAnnotations.add(new UtteranceAnnotation(speakerName, utteranceStart, utteranceLength));
+        }));
+
+        return new SpeakerAnnotation(utteranceAnnotations, getSpeakerCount());
     }
 }

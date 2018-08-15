@@ -54,7 +54,9 @@ public class FrameTransitionManager {
                 continue;
             }
 
-            blackFramesTransitionDetector.checkForTransition(computedChunk, stack, sampler);
+//            if(blackFramesTransitionDetector.checkForTransition(computedChunk, stack, sampler)) {
+//               continue;
+//            };
 
             if(computedChunk.frameMatchesNotComputed()) {
                 if(!slideRegionChange(computedChunk, stack, sampler)) {
@@ -62,7 +64,9 @@ public class FrameTransitionManager {
                 }
                 continue;
             }
-            slideTransitionDetector.checkForTransition(computedChunk, stack, sampler);
+            if(!slideTransitionDetector.checkForTransition(computedChunk, stack, sampler)) {
+                blackFramesTransitionDetector.checkForTransition(computedChunk, stack, sampler);
+            }
         }
 
         return toRet;
